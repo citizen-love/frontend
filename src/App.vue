@@ -1,61 +1,109 @@
 <template>
   <v-app>
+    <v-navigation-drawer
+      v-model="drawer"
+      overflow
+      app
+    >
+      <v-list dense>
+        <v-list-item router v-bind:to="{name: 'Home'}">
+          <v-list-item-action>
+            <v-icon>mdi-inbox</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Home</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item router v-bind:to="{name: 'About'}">
+          <v-list-item-action>
+            <v-icon>mdi-email-open</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Contact</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item router v-bind:to="{name: 'HelloWorld'}">
+          <v-list-item-action>
+            <v-icon>mdi-email-open</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Generated Hello World example</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
     <v-app-bar
       app
       color="primary"
       dark
     >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+      <v-app-bar-nav-icon
+        @click.stop="drawer = !drawer"
+      />
+      <v-toolbar-title>CitizenLove</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
-      <router-link :to="{name:'Home'}" style="color:white;">Home</router-link>
-      <router-link :to="{name:'About'}" style="color:white;">About</router-link>
-
+      <router-link :to="{name:'Home'}">
+        <v-btn
+          href="#"
+          text
+        >
+          Home
+        </v-btn>
+      </router-link>
+      <router-link :to="{name:'About'}">
+        <v-btn
+          href="#"
+          text
+        >
+          About
+        </v-btn>
+      </router-link>
       <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
+        href="#"
         text
       >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
+        EN
+      </v-btn>
+      <v-btn
+        href="#"
+        text
+      >
+        FR
+      </v-btn>
+      <v-btn
+        href="#"
+        text
+      >
+        IT
+      </v-btn>
+      <v-btn
+        href="#"
+        text
+      >
+        DE
       </v-btn>
     </v-app-bar>
 
     <v-content>
-      <router-view></router-view>
+      <v-container>
+        <router-view></router-view>
+      </v-container>
     </v-content>
   </v-app>
 </template>
 
 <script>
 
-export default {
-  name: 'App',
+  export default {
+    name: 'App',
 
 
-  data: () => ({
-    //
-  }),
-};
+    data: () => ({
+      drawer: false
+    })
+  };
 </script>
 
 <style lang="scss" scoped>
