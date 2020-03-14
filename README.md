@@ -1,4 +1,4 @@
-# citizien-love
+# citizen-love
 
 ## Project setup
 ```
