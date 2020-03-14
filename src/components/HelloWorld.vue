@@ -11,8 +11,8 @@
       </v-col>
 
       <v-col class="mb-4">
-        <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify
+        <h1 class="display-2 font-weight-bold mb-3" @click="countIt">
+          Welcome to Vuetify {{msg}} {{counter}}
         </h1>
 
         <p class="subheading font-weight-regular">
@@ -94,8 +94,12 @@
 <script>
   export default {
     name: 'HelloWorld',
-
+    props: ['msg'],
+    mounted(){
+      //inti code
+    },
     data: () => ({
+      counter: 0,
       ecosystem: [
         {
           text: 'vuetify-loader',
@@ -147,5 +151,11 @@
         },
       ],
     }),
+    methods: {
+      countIt() {
+        this.counter++;
+        this.$router.push({name: 'About'})
+      }
+    }
   }
 </script>

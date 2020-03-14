@@ -27,6 +27,9 @@
 
       <v-spacer></v-spacer>
 
+      <router-link :to="{name:'Home'}" style="color:white;">Home</router-link>
+      <router-link :to="{name:'About'}" style="color:white;">About</router-link>
+
       <v-btn
         href="https://github.com/vuetifyjs/vuetify/releases/latest"
         target="_blank"
@@ -38,23 +41,23 @@
     </v-app-bar>
 
     <v-content>
-      <HelloWorld/>
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
 
 export default {
   name: 'App',
 
-  components: {
-    HelloWorld,
-  },
 
   data: () => ({
     //
   }),
 };
 </script>
+
+<style lang="scss" scoped>
+
+</style>
