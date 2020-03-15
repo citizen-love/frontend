@@ -11,7 +11,7 @@
 
       <v-col class="mb-4">
         <h1 class="display-2 font-weight-bold mb-3" @click="countIt">
-          Welcome to Vuetify {{msg}} {{counter}}
+          Welcome to Vuetify {{$t('message')}} {{counter}}
         </h1>
 
         <p class="subheading font-weight-regular">

@@ -72,24 +72,28 @@
       <v-btn
         href="#"
         text
+        @click="changeLocale('en')"
       >
         EN
       </v-btn>
       <v-btn
         href="#"
         text
+        @click="changeLocale('fr')"
       >
         FR
       </v-btn>
       <v-btn
         href="#"
         text
+        @click="changeLocale('it')"
       >
         IT
       </v-btn>
       <v-btn
         href="#"
         text
+        @click="changeLocale('de')"
       >
         DE
       </v-btn>
@@ -111,7 +115,12 @@
 
     data: () => ({
       drawer: false
-    })
+    }),
+    methods: {
+      changeLocale(locale){
+        this.$i18n.locale = locale;
+      }
+    }
   };
 </script>
 
