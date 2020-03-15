@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <vue-headful
-      title="CitizenLove - Get help in your neighbourhood"
+      title="CitizenLove - Get help in your neighbourhoodc"
       description="Need groceries? Babysitting? Put your help request on our app and we'll find help for you in no time!"
       keywords="TODO"
       image="TODO"
