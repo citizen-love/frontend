@@ -36,6 +36,7 @@
 
 <script>
 import helptypeNavigation from "@/components/helptypeNavigation.vue";
+import HelpRequestService from "../services/HelpRequestService"
 
 export default {
   name: "Index",
@@ -43,6 +44,8 @@ export default {
     helptypeNavigation
   },
   data: function() {
+    // dummy call, currently only for debugging
+    HelpRequestService.getHelpRequests();
     return {
       helpNeeds: [
         {
