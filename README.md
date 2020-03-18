@@ -1,11 +1,11 @@
 # Citizen.Love ❤
 helping each other made easy
 
-# About this project
+## About this project
 This project aims to provide an easy way for help seeking people to find people that can help in a geo area, especially 
 during the corona virus crisis. 
 
-# How to contribute
+## How to contribute
 
 Read the project document (https://contribute.citizen.love) to get a brief overview on the whole project.
 
@@ -37,10 +37,10 @@ npm install
 ```
 To spin up a local web browser with hot-reloading to see what your beautiful work looks like, hit:
 
-**Note**: You need the API secrets to talk to the database.
 ```
 npm run serve
 ```
+**Note**: You need the API secrets to talk to the database.
 ## Code structure
 
 * `src/assets` is the place to put all assets like images, documents, etc.
