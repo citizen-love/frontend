@@ -1,11 +1,11 @@
 # Citizen.Love ❤
 helping each other made easy
 
-#About this project
+# About this project
 This project aims to provide an easy way for help seeking people to find people that can help in a geo area, especially 
 during the corona virus crisis. 
 
-#How to contribute
+# How to contribute
 
 Read the project document (https://contribute.citizen.love) to get a brief overview on the whole project.
 
@@ -56,17 +56,28 @@ npm run serve
 * `src/main.js` is the init script where all the magic starts
   
 ## Internationalization
-Never hardcode copy text in the app! Copy text is reference by vue-i18n with a key path, with the texts being located in json files.
+Never hardcode copy text in the app! Copy text is referenced by vue-i18n with a key path, with the respective texts being located in json files.
 
 If you add text, do the following:
 
-1. Add your key/ copy text to the file `src/locales/en.json` 
+1. Think of a key to reference the copy you're about to write
+2. Add your key/ copy text to the file `src/locales/en.json` 
    * English is the reference language, so add your copy in english only. It will be automatically synced to the translation management system *weblate*.
    * Nest your keys to group them, e.g. `startpage.intro.headline`
-2. Reference this key in the code
+   ````
+   // en.json
+    ...
+      startpage: {
+        intro: {
+          headline: 'Citizen love'
+         }
+       }
+    ...  
+   ````
+3. Reference this key in the code
    * in the html code / template code: `{{ $t('my.key) }}`  
    * in javascript (you need to have a reference to a component) `this.$i18n.$t('my.key)` 
-   (`this` references the current vue component)
+   (`this`) references the current vue component)
    
 ## Database access
 You need to copy the file `src/firebase/apiConfig.template.js` to  `src/firebase/apiConfig.js` and add the API 
