@@ -1,6 +1,6 @@
 import firebase from 'firebase'
 import 'firebase/firestore'
-import {config} from './apiConfig.template'
+import {config} from './apiConfig'
 // firebase init goes here
 
 firebase.initializeApp(config)
