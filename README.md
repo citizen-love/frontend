@@ -78,10 +78,6 @@ If you add text, do the following:
    * in the html code / template code: `{{ $t('my.key) }}`  
    * in javascript (you need to have a reference to a component) `this.$i18n.$t('my.key)` 
    (`this`) references the current vue component)
-   
-## Database access
-You need to copy the file `src/firebase/apiConfig.template.js` to  `src/firebase/apiConfig.js` and add the API 
-credentials there.  
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

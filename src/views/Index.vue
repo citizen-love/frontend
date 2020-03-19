@@ -2,46 +2,22 @@
 
 <template>
   <div>
-    <helptypeNavigation></helptypeNavigation>
-    <v-row>
-      <v-col cols="12">
-        <v-card
-          v-for="entry in helpNeeds"
-          v-bind:key="entry.id"
-          v-bind:title="entry.title"
-          v-bind:details="entry.details"
-          v-bind:category="entry.category"
-          v-bind:zipcode="entry.zipcode"
-          v-bind:city="entry.city"
-          v-bind:latlng="entry.latlng"
-          v-bind:helpcount="entry.helpcount"
-        >
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-title>{{ entry.title }}</v-list-item-title>
-              <v-list-item-subtitle>{{ entry.category }} in {{ entry.zipcode }} {{ entry.city }}</v-list-item-subtitle>
-              <v-card-text>{{ entry.details }}</v-card-text>
-            </v-list-item-content>
-
-            <v-list-item-avatar tile size="80" color="grey"></v-list-item-avatar>
-          </v-list-item>
-          <v-card-actions>
-            <v-btn outlined small>Hilfe anbieten ({{entry.helpcount}})</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-col>
-    </v-row>
+    <h2>Hilfe einfach gemacht</h2>
+    <p>CitizenLove verbinden Hifeanbietende ganz einfach mit Leuten, welche Hilfe benötigen.</p>
+    <div class="button-container">
+      <v-btn color="primary" outlined block x-large>I need help</v-btn>
+      <v-btn color="primary" outlined block x-large>I want to help</v-btn>
+    </div>
+    <img src="../assets/people.png" alt="">
   </div>
 </template>
 
 <script>
-import helptypeNavigation from "@/components/helptypeNavigation.vue";
 import HelpRequestService from "../services/HelpRequestService"
 
 export default {
   name: "Index",
   components: {
-    helptypeNavigation
   },
   data: function() {
     // dummy call, currently only for debugging
@@ -87,5 +63,21 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
+  .button-container {
+    padding-top: 20px;
+
+    .v-btn {
+      margin: 20px 0;
+    }
+
+
+  }
+
+  img {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
 </style>
