@@ -25,7 +25,7 @@
 
       <v-btn outlined color="primary" large>Something else</v-btn>
     </div>
-    <wizard-next-button :to="{name : 'ReceiveHelp3'}"
+    <wizard-next-button :to="{name : 'ReceiveHelp2'}"
                         :disabled="!isFormValid" />
   </div>
 </template>

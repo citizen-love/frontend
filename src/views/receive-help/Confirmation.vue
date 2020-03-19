@@ -7,7 +7,7 @@
     <h2>Our helpers will contact you shortly by e-mail!</h2>
     <p>You will receive an e-mail to XXX with a copy of your request.</p>
     <p>
-      <v-btn :to="{name: 'index'}" color="primary">
+      <v-btn :to="{name: 'Home'}" color="primary">
         Back to Start
       </v-btn>
     </p>
