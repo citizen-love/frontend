@@ -1,11 +1,6 @@
 <template>
   <div>
-    <div>
-    <v-btn icon x-large @click="$router.go(-1)" >
-      <v-icon>mdi-arrow-left</v-icon>
-    </v-btn>
-    </div>
-    <span>Step 1 of 2</span>
+    <wizard-step-header current-step="1" max-steps="2" />
     <h1>Where do you need help?</h1>
     <div>
       <v-text-field
@@ -30,15 +25,17 @@
 
       <v-btn outlined color="primary" large>Something else</v-btn>
     </div>
-    <div class="next">
-      <v-btn color="primary" :disabled="!isFormValid" large block>Next</v-btn>
-    </div>
+    <wizard-next-button :to="{name : 'ReceiveHelp3'}"
+                        :disabled="!isFormValid" />
   </div>
 </template>
 
 <script>
+  import WizardStepHeader from "../../components/WizardStepHeader";
+  import WizardNextButton from "../../components/WizardNextButton";
   export default {
     name: "ReceiveHelp",
+    components: {WizardNextButton, WizardStepHeader},
     data() {
       return {
         categories: [
@@ -82,15 +79,5 @@
     }
   }
 
-  .next {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    padding: 20px;
 
-    .v-btn {
-      width: 100%;
-    }
-  }
 </style>

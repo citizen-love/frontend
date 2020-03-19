@@ -19,15 +19,15 @@ const routes = [
     component: ReceiveHelp
   },  {
     path: '/receive-help/new/2',
-    name: 'ReceiveHelp',
+    name: 'ReceiveHelp2',
     component: Step2
   },{
     path: '/receive-help/new/3',
-    name: 'HelloWorld',
+    name: 'ReceiveHelp3',
     component: Step3
   },{
     path: '/receive-help/confirm',
-    name: 'HelloWorld',
+    name: 'ReceiveHelpConfirm',
     component: Confirmation
   },
   {
