@@ -1,0 +1,29 @@
+version: 2.1
+jobs:
+
+  build-frontend:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout
+      - run:
+          name: Update NPM
+          command: "sudo npm install -g npm@latest firebase-tools"
+      - run:
+          name: Get local dependencies
+          command: "npm install"
+      - run:
+          name: Build frontend application
+          command: "npm run build"
+      - run:
+          name: Deploy frontend application to firebase hosting
+          command: firebase deploy --token "$FIREBASE_TOKEN"
+
+workflows:
+  version: 2
+  deploy:
+    jobs: 
+    - build-frontend:
+        filters:
+          branches:
+            only: master
