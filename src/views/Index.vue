@@ -5,10 +5,9 @@
     <h2>Hilfe einfach gemacht</h2>
     <p>CitizenLove verbinden Hifeanbietende ganz einfach mit Leuten, welche Hilfe benötigen.</p>
     <div class="button-container">
-      <v-btn color="primary" outlined block x-large>I need help</v-btn>
+      <v-btn color="primary" outlined block x-large :to="{name: 'ReceiveHelp'}">I need help</v-btn>
       <v-btn color="primary" outlined block x-large>I want to help</v-btn>
     </div>
-    <img src="../assets/people.png" alt="">
   </div>
 </template>
 

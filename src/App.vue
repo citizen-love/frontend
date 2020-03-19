@@ -9,7 +9,7 @@
       ogLocale="TODO"
       url="TODO"
     />
-    <div class="header">
+    <div class="header" v-if="$route.path === '/'">
       <div><h1>Citizen Love</h1></div>
       <div><a href="#">Deutsch</a></div>
     </div>
