@@ -7,6 +7,8 @@ firebase.initializeApp(config)
 
 // firebase utils
 const db = firebase.firestore()
+
+firebase.analytics();
 //const auth = firebase.auth()
 //const currentUser = auth.currentUser
 
