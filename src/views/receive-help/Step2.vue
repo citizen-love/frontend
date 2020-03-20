@@ -11,7 +11,10 @@
         placeholder="e.g. Kinder hüten tagsüber Mittwoch & donnerstag"/>
       <h2>Details</h2>
       <span>Add the details of your needs here:</span>
-      <v-textarea v-model="formData.description" required/>
+      <v-textarea
+        v-model="formData.description"
+        placeholder="Weil ich Mittwoch & Donnerstag im Spital arbeiten muss, brauche ich jemanden der auf meine Kinder aufpasst. Games werden mitgeliefert."
+        required/>
 
       <h2>Your E-mail</h2>
       <span>You will receive help offers on this e-mail address.</span>
