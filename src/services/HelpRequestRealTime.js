@@ -18,7 +18,7 @@ class HelpRequestRealTime {
         documents.push({ id: doc.id, data: doc.data() });
       });
     } catch (e) {
-      console.log(e);
+      console.err(e);
       documents = [];
     }
     return documents;

@@ -18,7 +18,7 @@ import axios from 'axios';
       })
       return data
     } catch (e) {
-      console.log(e)
+      console.err(e)
       return null;
     }
   }
