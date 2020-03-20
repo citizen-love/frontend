@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="has-wizard">
     <wizard-step-header current-step="2" max-steps="2"/>
     <h1 ref="abasdf">Tell us a bit more...</h1>
     <form ref="form">

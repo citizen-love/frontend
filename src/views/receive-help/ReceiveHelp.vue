@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="has-wizard">
     <wizard-step-header current-step="1" max-steps="2"/>
     <h1>Where do you need help?</h1>
     <div>
