@@ -9,10 +9,10 @@
       ogLocale="TODO"
       url="TODO"
     />
-    <div class="header" v-if="$route.path === '/'">
-      <div><h1>Citizen Love</h1></div>
+    <v-container class="header" v-if="$route.path === '/'">
+      <div><img src="./assets/logo.svg" alt="citizen love"></div>
       <div><a href="#">Deutsch</a></div>
-    </div>
+    </v-container>
     <v-content>
       <v-container>
         <router-view></router-view>
@@ -47,6 +47,11 @@
     padding: 30px 10px ;
     color: white;
     border-radius: 0 0 5px 5px;
+
+    img {
+      width: 200px;
+      vertical-align: middle;
+    }
 
     a {
       color: white;
