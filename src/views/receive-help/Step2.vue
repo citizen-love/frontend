@@ -72,21 +72,21 @@
         });
         const payload = Object.assign({}, this.$store.state[helpRequestWizardState.name]);
         payload.language = this.$i18n.locale;
-        try {
-          HelpRequestService.createHelpRequest(payload)
-            .then(() => {
-              this.isBusy = false;
-              //this.updateStore(helpRequestWizardState.getPlainState());
-              this.$router.push({name: 'ReceiveHelpConfirm', params: {  request: payload }})
-            });
-        }catch(e) {
-          alert(e);
-      }
-    },
-    ...mapMutations(helpRequestWizardState.name, {
-      updateStore: 'set'
-    })
-  }
+
+        HelpRequestService.createHelpRequest(payload)
+          .then(() => {
+            this.isBusy = false;
+            this.updateStore(helpRequestWizardState.getPlainState());
+            this.$router.push({name: 'ReceiveHelpConfirm', params: {request: payload}})
+          }).catch(e => {
+          this.isBusy = false;
+          window.alert(e);
+        });
+      },
+      ...mapMutations(helpRequestWizardState.name, {
+        updateStore: 'set'
+      })
+    }
   }
 </script>
 
