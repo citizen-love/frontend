@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import HelpRequestService from "../services/HelpRequestService"
 
 export default {
   name: "Index",
@@ -20,7 +19,6 @@ export default {
   },
   data: function() {
     // dummy call, currently only for debugging
-    HelpRequestService.getHelpRequests();
     return {
       helpNeeds: [
         {
