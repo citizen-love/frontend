@@ -5,7 +5,7 @@
     </div>
     <h1>Great success!</h1>
     <h2>Our helpers will contact you shortly by e-mail!</h2>
-    <p>You will receive an e-mail to XXX with a copy of your request.</p>
+    <p>You will receive an e-mail to <strong>{{ email }}</strong> with a copy of your request.</p>
     <p>
       <v-btn :to="{name: 'Home'}" color="primary">
         Back to Start
@@ -16,7 +16,14 @@
 
 <script>
   export default {
-    name: "Confirmation"
+    name: "Confirmation",
+    data(){
+      const request = this.$route.params.request;
+
+      return {
+        email: request.email,
+      }
+    }
   }
 </script>
 

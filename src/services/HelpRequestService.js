@@ -20,8 +20,8 @@ import axios from 'axios';
       })
       return data
     } catch (e) {
-      console.log(e)
-      return null;
+      console.error(e)
+      return Promise.reject(e);
     }
   }
 

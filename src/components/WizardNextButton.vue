@@ -5,6 +5,7 @@
       :disabled="disabled"
       large
       block
+      :loading="loading"
       :to="to"
     >Next
     </v-btn>
@@ -14,7 +15,7 @@
 <script>
   export default {
     name: "WizardNextButton",
-    props: ['disabled', 'to']
+    props: ['disabled', 'to','loading']
   }
 </script>
 
