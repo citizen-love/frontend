@@ -36,6 +36,10 @@
   };
 </script>
 
+<style lang="scss">
+  @import "./styles/globals";
+</style>
+
 <style lang="scss" scoped>
   @import "./styles/variables";
 
