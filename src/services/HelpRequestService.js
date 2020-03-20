@@ -20,7 +20,6 @@ import axios from 'axios';
       })
       return data
     } catch (e) {
-      console.error(e)
       return Promise.reject(e);
     }
   }
@@ -33,8 +32,7 @@ import axios from 'axios';
       })
       return data
     } catch (e) {
-      console.err(e)
-      return null;
+      return Promise.reject();
     }
 
   }
@@ -48,8 +46,7 @@ import axios from 'axios';
       })
       return data
     } catch (e) {
-      console.err(e)
-      return null;
+      return Promise.reject(e);
     }
   }
 }

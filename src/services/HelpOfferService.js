@@ -18,8 +18,7 @@ import axios from 'axios';
       })
       return data
     } catch (e) {
-      console.err(e)
-      return null;
+      return Promise.reject(e);
     }
   }
 }

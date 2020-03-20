@@ -18,8 +18,7 @@ class HelpRequestRealTime {
         documents.push({ id: doc.id, data: doc.data() });
       });
     } catch (e) {
-      console.err(e);
-      documents = [];
+      return Promise.reject(e)
     }
     return documents;
   }
