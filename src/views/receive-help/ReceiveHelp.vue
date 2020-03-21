@@ -88,8 +88,8 @@
         latitude = 0,
         longitude = 0,
       }){
-        this.community = locality || '';
-        this.country = country || '';
+        this.community = locality;
+        this.country = country;
         this.location = `${latitude},${longitude}`
       },
       next() {
