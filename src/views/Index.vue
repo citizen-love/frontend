@@ -8,21 +8,28 @@
       <v-btn color="primary" outlined block x-large :to="{name: 'ReceiveHelp'}">I need help</v-btn>
       <v-btn color="primary" outlined block x-large>I want to help</v-btn>
     </div>
+    <p>{{ userLocation }}</p>
   </div>
 </template>
 
 <script>
 
 import GeoLocationService from "../services/GeoLocation/GeoLocation"
+import HelpRequestRealTime from "../services/HelpRequestRealTime"
 
 export default {
   name: "Index",
   components: {
   },
-  mounted() {
-    GeoLocationService.getCoordinates((data) => {
-      console.log(data)
-    })
+  data() {
+    return {
+      userLocation: ""
+    }
+  },
+  async mounted() {
+    const { lat, lon } = await GeoLocationService.getIpAddress()
+    const getRelevantRequests = await HelpRequestRealTime.getAllRequests(parseFloat(lat), parseFloat(lon))
+    console.log(getRelevantRequests)
   }
 };
 </script>

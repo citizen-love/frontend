@@ -15,6 +15,14 @@ class GeoLocationService {
     console.log("navigator not available");
     return;
   }
+  async getIpAddress() {
+    try {
+      const locationDetails = await fetch("https://blip.runway7.net")
+      return locationDetails.json()
+    } catch (e) {
+      return;
+    }
+  }
 }
 
 export default new GeoLocationService();
