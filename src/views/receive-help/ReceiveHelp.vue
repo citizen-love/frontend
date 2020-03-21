@@ -3,13 +3,12 @@
     <wizard-step-header current-step="1" max-steps="2"/>
     <h1>Where do you need help?</h1>
     <div>
-      <v-text-field
-        solo
-        append-icon="mdi-map-marker"
-        placeholder="Enter your location..."
-        v-on:click:append="getLocation"
-        v-model="location">{{ location }}
-      </v-text-field>
+    <vue-google-autocomplete
+    id="map"
+    class="autocomplete-input"
+    :placeholder="$t('locationInputPlaceholder')"
+    v-on:placechanged="getAddressData"
+></vue-google-autocomplete>
     </div>
     <h2>What do you need help with?</h2>
     <div class="categories">
@@ -32,6 +31,10 @@
 </template>
 
 <script>
+
+  import VueGoogleAutocomplete from 'vue-google-autocomplete'
+
+
   import WizardStepHeader from "../../components/WizardStepHeader";
   import WizardNextButton from "../../components/WizardNextButton";
   import {mapMutations} from 'vuex';
@@ -39,7 +42,7 @@
 
   export default {
     name: "ReceiveHelp",
-    components: {WizardNextButton, WizardStepHeader},
+    components: {WizardNextButton, WizardStepHeader, VueGoogleAutocomplete},
     data() {
       const state = this.$store.state[helpRequestWizardState.name];
       return {
@@ -79,6 +82,16 @@
           this.location = `${latitude} ${longitude}`
         })
       },
+      getAddressData({
+        locality = '',
+        country = '',
+        latitude = 0,
+        longitude = 0,
+      }){
+        this.community = locality || '';
+        this.country = country || '';
+        this.location = `${latitude},${longitude}`
+      },
       next() {
         if (!this.isFormValid) {
           return
@@ -106,6 +119,17 @@
       margin-right: 10px;
       margin-bottom: 10px;
     }
+  }
+
+  .autocomplete-input {
+    padding: 9px 6px 9px 24px;
+    margin-bottom: 25px;
+    background-color: #fff;
+    border-radius: 4px;
+    font-size: 1em;
+    border: 0;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    width: 100%;
   }
 
 
