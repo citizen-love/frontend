@@ -76,12 +76,6 @@
           this.selected = this.selected.filter(elem => elem !== categoryKey);
         }
       },
-      getLocation(){
-        navigator.geolocation.getCurrentPosition(data => {
-          const { latitude, longitude } = data.coords;
-          this.location = `${latitude} ${longitude}`
-        })
-      },
       getAddressData({
         locality = '',
         country = '',
