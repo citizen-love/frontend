@@ -1,18 +1,19 @@
 <template>
   <div class="has-wizard">
     <wizard-step-header current-step="1" max-steps="2"/>
-    <h1>Where do you need help?</h1>
+    <h1>{{ $t('request_help_process.step1.headline')}}</h1>
     <div>
+      <span>{{ $t("request_help_process.step1.location_explained") }}</span>
     <vue-google-autocomplete
     id="map"
     class="autocomplete-input"
-    :placeholder="$t('locationInputPlaceholder')"
+    :placeholder="$t('request_help_process.step1.location_placeholder')"
     v-on:placechanged="getAddressData"
 ></vue-google-autocomplete>
     </div>
-    <h2>What do you need help with?</h2>
+    <h2>{{ $t('request_help_process.step1.where_do_you_need_help')}}</h2>
     <div class="categories">
-      <p>Select one or more</p>
+      <p>{{ $t("") }}</p>
       <v-btn v-for="category in categories"
              v-bind:key="category.key"
              :outlined="selected.indexOf(category.key) === -1"
@@ -26,15 +27,15 @@
     </div>
     <wizard-next-button
       @click.native="next"
-      :disabled="!isFormValid"/>
+      :disabled="!isFormValid">
+      {{ $t("request_help_process.step1.next")}}
+    </wizard-next-button>
   </div>
 </template>
 
 <script>
 
   import VueGoogleAutocomplete from 'vue-google-autocomplete'
-
-
   import WizardStepHeader from "../../components/WizardStepHeader";
   import WizardNextButton from "../../components/WizardNextButton";
   import {mapMutations} from 'vuex';
@@ -47,14 +48,14 @@
       const state = this.$store.state[helpRequestWizardState.name];
       return {
         categories: [
-          {key: 'groceries', displayName: 'Groceries', icon: 'mdi-cart-outline'},
-          {key: 'washing', displayName: 'Washing', icon: 'mdi-washing-machine'},
-          {key: 'babystitting', displayName: 'Babysitting', icon: 'mdi-baby-bottle'},
-          {key: 'transport', displayName: 'Transport', icon: 'mdi-car-hatchback'},
-          {key: 'lonliness', displayName: 'Lonliness', icon: 'mdi-emoticon-sad'},
-          {key: 'childcare', displayName: 'Childcare', icon: 'mdi-human-female-girl'},
-          {key: 'pets', displayName: 'Pets', icon: 'mdi-dog-side'},
-          {key: 'else', displayName: 'Something else', icon: ''},
+          {key: 'groceries', displayName: this.$t('categories.groceries'), icon: 'mdi-cart-outline'},
+          {key: 'washing', displayName: this.$t('categories.washing'), icon: 'mdi-washing-machine'},
+          {key: 'babysitting', displayName: this.$t('categories.babysitting'), icon: 'mdi-baby-bottle'},
+          {key: 'transport', displayName: this.$t('categories.transport'), icon: 'mdi-car-hatchback'},
+          {key: 'loneliness', displayName: this.$t('categories.loneliness'), icon: 'mdi-emoticon-sad'},
+          {key: 'childcare', displayName: this.$t('categories.childcare'), icon: 'mdi-human-female-girl'},
+          {key: 'pets', displayName: this.$t('categories.pets'), icon: 'mdi-dog-side'},
+          {key: 'else', displayName: this.$t('categories.other'), icon: ''},
         ],
         selected: state.category,
         location: state.location,
@@ -108,7 +109,6 @@
 <style scoped lang="scss">
 
   .categories {
-
     .v-btn {
       margin-right: 10px;
       margin-bottom: 10px;
@@ -117,6 +117,7 @@
 
   .autocomplete-input {
     padding: 9px 6px 9px 24px;
+    margin-top: 4px;
     margin-bottom: 25px;
     background-color: #fff;
     border-radius: 4px;

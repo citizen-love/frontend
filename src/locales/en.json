@@ -1,3 +1,50 @@
 {
-    "message": "hello i18n test test !!"
+  "message": "hello i18n test test !!",
+  "index": {
+    "main_headline": "Helping Made Easy",
+    "teaser": "CitizenLove connects people that can help with people in need. Post your help request if you need help!",
+    "need_help": "I need help",
+    "can_help": "I can help"
+  },
+  "categories": {
+    "groceries" : "Groceries",
+    "washing" : "Washing",
+    "babysitting": "Babysitting",
+    "transport": "Transport",
+    "childcare": "Childcare",
+    "loneliness" : "Loneliness",
+    "pets" : "Pets",
+    "other" : "Something else"
+  },
+  "step_x_out_of_y" : "Step {current} of {max}",
+  "request_help_process": {
+    "step1": {
+      "headline": "Where do you need help?",
+      "location": "",
+      "location_explained": "Your location will not be shared with anyone. We only use it to notify people near you that want to help.",
+      "location_placeholder": "Downing Street 10, London",
+      "where_do_you_need_help": "What do you need help with?",
+      "select_category": "Select one or more",
+      "next": "Next"
+    },
+    "step2": {
+      "next": "Create help request",
+      "headline": "Tell us a bit more...",
+      "title": "In one sentence: What do you need?",
+      "title_explained": "Write your sentence in a way so helpers immediately understand what you need",
+      "title_placeholder": "e.g. Look after my kids Monday",
+      "desc": "Details",
+      "desc_explained": "Add the details of your needs here.",
+      "desc_placeholder": "I need someone to look after my kids during the day because I have to work at the hospital.",
+      "email": "Your E-Mail",
+      "email_explained": "We will send the contact details of people offering help to this e-mail address. The E-Mail address will not be shared with anyone.",
+      "email_placeholder": "you@domain.com"
+    },
+    "confirm": {
+      "title": "Great success!",
+      "subtitle": "Our helpers will contact you shortly by e-mail!",
+      "text": "You will receive an e-mail to {email} with a copy of your request.",
+      "back_to_start_btn" : "Back to Start"
+    }
+  }
 }

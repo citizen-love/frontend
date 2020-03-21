@@ -1,35 +1,38 @@
 <template>
   <div class="has-wizard">
     <wizard-step-header current-step="2" max-steps="2"/>
-    <h1 ref="abasdf">Tell us a bit more...</h1>
+    <h1>
+      {{ $t("request_help_process.step2.headline")}}</h1>
     <form ref="form">
-      <h2>What do you need in one sentence?</h2>
-      <span>So that helpers immediately understand if the can help.</span>
+      <h2>
+        {{ $t("request_help_process.step2.title")}}</h2>
+      <span>
+      {{ $t("request_help_process.step2.title_explained")}}</span>
       <v-text-field
         required
         v-model="formData.title"
-        placeholder="e.g. Kinder hüten tagsüber Mittwoch & donnerstag"/>
-      <h2>Details</h2>
-      <span>Add the details of your needs here:</span>
+        :placeholder="$t('request_help_process.step2.title_placeholder')"/>
+      <h2>{{ $t("request_help_process.step2.desc") }}</h2>
+      <span>{{ $t("request_help_process.step2.desc_explained") }}</span>
       <v-textarea
         v-model="formData.description"
-        placeholder="Weil ich Mittwoch & Donnerstag im Spital arbeiten muss, brauche ich jemanden der auf meine Kinder aufpasst. Games werden mitgeliefert."
+        :placeholder="$t('request_help_process.step2.desc_placeholder')"
         required/>
 
-      <h2>Your E-mail</h2>
-      <span>You will receive help offers on this e-mail address.</span>
+      <h2>{{ $t("request_help_process.step2.email") }}</h2>
+      <span>{{ $t("request_help_process.step2.email_explained") }}</span>
       <v-text-field
         required
         email
         v-model="formData.email"
-        placeholder="Your E-Mail"/>
+        :placeholder="$t('request_help_process.step2.email_placeholder')"/>
     </form>
-
-
     <wizard-next-button
       @click.native="next"
       :loading="isBusy"
-      :disabled="!isFormValid"/>
+      :disabled="!isFormValid">
+      {{ $t("request_help_process.step2.next")}}
+    </wizard-next-button>
   </div>
 </template>
 
