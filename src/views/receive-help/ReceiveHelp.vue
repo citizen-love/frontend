@@ -7,6 +7,7 @@
         solo
         append-icon="mdi-map-marker"
         placeholder="Enter your location..."
+        v-on:click:append="getLocation"
         v-model="location">{{ location }}
       </v-text-field>
     </div>
@@ -73,7 +74,10 @@
         }
       },
       getLocation(){
-
+        navigator.geolocation.getCurrentPosition(data => {
+          const { latitude, longitude } = data.coords;
+          this.location = `${latitude} ${longitude}`
+        })
       },
       next() {
         if (!this.isFormValid) {
