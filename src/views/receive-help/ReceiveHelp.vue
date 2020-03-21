@@ -4,12 +4,13 @@
     <h1>{{ $t('request_help_process.step1.headline')}}</h1>
     <div>
       <span>{{ $t("request_help_process.step1.location_explained") }}</span>
-    <vue-google-autocomplete
-    id="map"
-    class="autocomplete-input"
-    :placeholder="$t('request_help_process.step1.location_placeholder')"
-    v-on:placechanged="getAddressData"
-></vue-google-autocomplete>
+      <vue-google-autocomplete
+        id="map"
+        class="autocomplete-input"
+        enable-geolocation
+        :placeholder="$t('request_help_process.step1.location_placeholder')"
+        v-on:placechanged="getAddressData"
+      />
     </div>
     <h2>{{ $t('request_help_process.step1.where_do_you_need_help')}}</h2>
     <div class="categories">
@@ -24,6 +25,14 @@
         <v-icon>{{ category.icon }}</v-icon>
         {{ category.displayName }}
       </v-btn>
+      <v-text-field
+        ref="customCategory"
+        class="custom-category"
+        v-if="showOtherCategory"
+        outlined
+        v-model="customCategory"
+        :placeholder="$t('request_help_process.step1.other_category_placeholder')"
+      />
     </div>
     <wizard-next-button
       @click.native="next"
@@ -59,14 +68,21 @@
         ],
         selected: state.category,
         location: state.location,
-        country: state.country || 'CH',
-        community: state.community || 'District 10, Zürich',
+        customCategory: state.customCategory,
+        country: state.country,
+        community: state.community,
+        locationRules: [
+          v => !!v || this.$t('request_help_process.step2.title_error_missing'),
+        ]
       }
     },
     computed: {
       isFormValid() {
         return this.selected.length >= 1 && this.location;
       },
+      showOtherCategory() {
+        return this.selected.indexOf('else') !== -1;
+      }
     },
     methods: {
       toggle(categoryKey) {
@@ -78,11 +94,11 @@
         }
       },
       getAddressData({
-        locality = '',
-        country = '',
-        latitude = 0,
-        longitude = 0,
-      }){
+                       locality = '',
+                       country = '',
+                       latitude = 0,
+                       longitude = 0,
+                     }) {
         this.community = locality;
         this.country = country;
         this.location = `${latitude},${longitude}`
@@ -96,6 +112,7 @@
           category: this.selected,
           country: this.country,
           community: this.community,
+          customCategory: this.customCategory,
         });
         this.$router.push({name: 'ReceiveHelp2'});
       },
@@ -115,15 +132,19 @@
     }
   }
 
+  .custom-category {
+    max-width: 600px;
+  }
+
   .autocomplete-input {
     padding: 9px 6px 9px 24px;
-    margin-top: 4px;
+    margin-top: 10px;
     margin-bottom: 25px;
     background-color: #fff;
     border-radius: 4px;
     font-size: 1em;
     border: 0;
-    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
     width: 100%;
   }
 

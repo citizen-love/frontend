@@ -12,7 +12,7 @@
         max : maxSteps
       })
       }}
-      Step {{ currentStep }} of {{ maxSteps }}</span>
+      </span>
   </div>
 </template>
 

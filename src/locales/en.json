@@ -25,6 +25,7 @@
       "location_placeholder": "Downing Street 10, London",
       "where_do_you_need_help": "What do you need help with?",
       "select_category": "Select one or more",
+      "other_category_placeholder": "Type...",
       "next": "Next"
     },
     "step2": {
@@ -33,12 +34,16 @@
       "title": "In one sentence: What do you need?",
       "title_explained": "Write your sentence in a way so helpers immediately understand what you need",
       "title_placeholder": "e.g. Look after my kids Monday",
+      "title_error_missing": "Please fill in this value.",
       "desc": "Details",
       "desc_explained": "Add the details of your needs here.",
+      "desc_error_missing": "Please tell us what you need.",
       "desc_placeholder": "I need someone to look after my kids during the day because I have to work at the hospital.",
       "email": "Your E-Mail",
       "email_explained": "We will send the contact details of people offering help to this e-mail address. The E-Mail address will not be shared with anyone.",
-      "email_placeholder": "you@domain.com"
+      "email_placeholder": "you@domain.com",
+      "email_error_missing": "Please provide an email address.",
+      "email_error_wrong": "Please provide a correct email address."
     },
     "confirm": {
       "title": "Great success!",

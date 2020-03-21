@@ -3,7 +3,7 @@
     <wizard-step-header current-step="2" max-steps="2"/>
     <h1>
       {{ $t("request_help_process.step2.headline")}}</h1>
-    <form ref="form">
+    <v-form v-model="isFormValid">
       <h2>
         {{ $t("request_help_process.step2.title")}}</h2>
       <span>
@@ -11,22 +11,25 @@
       <v-text-field
         required
         v-model="formData.title"
+        :rules="titleRules"
         :placeholder="$t('request_help_process.step2.title_placeholder')"/>
       <h2>{{ $t("request_help_process.step2.desc") }}</h2>
       <span>{{ $t("request_help_process.step2.desc_explained") }}</span>
       <v-textarea
         v-model="formData.description"
         :placeholder="$t('request_help_process.step2.desc_placeholder')"
+        counter="500"
+        :rules="descRules"
         required/>
 
       <h2>{{ $t("request_help_process.step2.email") }}</h2>
       <span>{{ $t("request_help_process.step2.email_explained") }}</span>
       <v-text-field
         required
-        email
         v-model="formData.email"
+        :rules="emailRules"
         :placeholder="$t('request_help_process.step2.email_placeholder')"/>
-    </form>
+    </v-form>
     <wizard-next-button
       @click.native="next"
       :loading="isBusy"
@@ -49,24 +52,29 @@
     data() {
       const state = this.$store.state[helpRequestWizardState.name];
       return {
+        isFormValid: false,
         isBusy: false,
         formData: {
           description: state.description,
           title: state.title,
           email: state.email,
-        }
-      }
-    },
-    mounted() {
-    },
-    computed: {
-      isFormValid() {
-        const formData = this.formData;
-        return formData.description && formData.title && formData.email;
+        },
+        emailRules: [
+          v => !!v || this.$t('request_help_process.step2.email_error_missing'),
+          v => /.+@.+/.test(v) || this.$t('request_help_process.step2.email_error_wrong'),
+        ],
+        descRules: [
+          v => !!v || this.$t('request_help_process.step2.desc_error_missing'),
+        ],
+        titleRules: [
+          v => !!v || this.$t('request_help_process.step2.title_error_missing'),
+        ]
       }
     },
     methods: {
       next() {
+        console.log("validate", this.valid);
+        this.$refs.form.validate()
         if (!this.isFormValid) {
           return;
         }
