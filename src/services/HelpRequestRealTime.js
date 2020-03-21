@@ -1,4 +1,4 @@
-import { db } from "../firebase/firebaseConfig";
+import { db, geoPoint } from "../firebase/firebaseConfig";
 
 class HelpRequestRealTime {
   collectionName = "help-requests";
@@ -10,10 +10,13 @@ class HelpRequestRealTime {
     this.getAllRequests = this.getAllRequests.bind(this);
   }
 
-  async getAllRequests() {
+  async getAllRequests({lat, lon}, limit = 50) {
     let documents = [];
     try {
-      const collectionSnapshot = await db.collection(this.collectionName).get();
+      const collectionSnapshot = await db.collection(this.collectionName).near({
+        center: new geoPoint(lat,lon),
+        radius: 300
+      }).limit(limit).get();
       collectionSnapshot.forEach(doc => {
         documents.push({ id: doc.id, data: doc.data() });
       });
