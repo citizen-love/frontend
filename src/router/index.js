@@ -5,6 +5,7 @@ import Confirmation from "../views/receive-help/Confirmation";
 import Step2 from "../views/receive-help/Step2";
 import Step3 from "../views/receive-help/Step3";
 import ReceiveHelp from "../views/receive-help/ReceiveHelp";
+import MyRequest from "../views/my-request/MyRequest"
 
 Vue.use(VueRouter)
 
@@ -13,7 +14,13 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Index
-  },  {
+  },
+  {
+    path: '/my-request/:requesthash',
+    name: 'MyRequest',
+    component: MyRequest
+  },
+    {
     path: '/receive-help/new',
     name: 'ReceiveHelp',
     component: ReceiveHelp
