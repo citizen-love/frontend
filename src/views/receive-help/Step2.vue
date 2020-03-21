@@ -61,7 +61,7 @@
         },
         emailRules: [
           v => !!v || this.$t('request_help_process.step2.email_error_missing'),
-          v => /.+@.+/.test(v) || this.$t('request_help_process.step2.email_error_wrong'),
+          v => /[^@\s]+@[^@\s]+\.[^@\s]/.test(v) || this.$t('request_help_process.step2.email_error_wrong'),
         ],
         descRules: [
           v => !!v || this.$t('request_help_process.step2.desc_error_missing'),
@@ -73,8 +73,6 @@
     },
     methods: {
       next() {
-        console.log("validate", this.valid);
-        this.$refs.form.validate()
         if (!this.isFormValid) {
           return;
         }
