@@ -8,6 +8,7 @@
         id="map"
         class="autocomplete-input"
         enable-geolocation
+        ref="locationField"
         :placeholder="$t('request_help_process.step1.location_placeholder')"
         v-on:placechanged="getAddressData"
       />
@@ -83,6 +84,9 @@
       showOtherCategory() {
         return this.selected.indexOf('else') !== -1;
       }
+    },
+    mounted(){
+      this.$refs.locationField.focus();
     },
     methods: {
       toggle(categoryKey) {
