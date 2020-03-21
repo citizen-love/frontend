@@ -10,13 +10,13 @@ class HelpRequestRealTime {
     this.getAllRequests = this.getAllRequests.bind(this);
   }
 
-  async getAllRequests(lat = 0, len = 0) {
+  async getAllRequests({lat, lon}, limit = 50) {
     let documents = [];
     try {
       const collectionSnapshot = await db.collection(this.collectionName).near({
-        center: new geoPoint(lat,len),
+        center: new geoPoint(lat,lon),
         radius: 300
-      }).get();
+      }).limit(limit).get();
       collectionSnapshot.forEach(doc => {
         documents.push({ id: doc.id, data: doc.data() });
       });
