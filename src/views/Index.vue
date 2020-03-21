@@ -13,10 +13,17 @@
 
 <script>
 
+import GeoLocationService from "../services/GeoLocation/GeoLocation"
+
 export default {
   name: "Index",
   components: {
   },
+  mounted() {
+    GeoLocationService.getCoordinates((data) => {
+      console.log(data)
+    })
+  }
 };
 </script>
 
