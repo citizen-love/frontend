@@ -2,11 +2,11 @@
 
 <template>
   <div class="center">
-    <h1>Hilfe einfach gemacht</h1>
-    <p>CitizenLove verbinden Hifeanbietende ganz einfach mit Leuten, welche Hilfe benötigen.</p>
+    <h1>{{ $t("index.main_headline") }} </h1>
+    <p>{{ $t("index.teaser") }}</p>
     <div class="button-container">
-      <v-btn color="primary" outlined block x-large :to="{name: 'ReceiveHelp'}">I need help</v-btn>
-      <v-btn color="primary" outlined block x-large>I want to help</v-btn>
+      <v-btn color="primary" outlined block x-large :to="{name: 'ReceiveHelp'}">{{ $t("index.need_help") }}</v-btn>
+      <v-btn color="primary" outlined block x-large>{{ $t("index.can_help") }}</v-btn>
     </div>
     <div class="requests-container">
         <HelpRequestCard

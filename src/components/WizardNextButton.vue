@@ -7,7 +7,7 @@
       block
       :loading="loading"
       :to="to"
-    >Next
+    ><slot />
     </v-btn>
   </div>
 </template>
