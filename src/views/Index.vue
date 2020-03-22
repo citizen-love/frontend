@@ -15,6 +15,7 @@
         v-bind:title="request.data.title"
         v-bind:description="request.data.description"
         v-bind:id="request.id"
+        v-bind:mobile="mobile"
         />
     </div>
   </div>
@@ -33,7 +34,8 @@ export default {
   components: {HelpRequestCard, AutoComplete},
   data() {
     return {
-      relevantRequests: []
+      relevantRequests: [],
+      mobile:window.innerWidth <= 650
     }
   },
   async mounted() {
@@ -43,6 +45,11 @@ export default {
       100)
     this.relevantRequests = getRelevantRequests
   },
+    created(){
+  addEventListener('resize', () => {
+    this.mobile = innerWidth <= 650
+  })
+},
   methods: {
     async updateLocation({ latitude, longitude }){
       const getRelevantRequests = await HelpRequestRealTime.getAllRequests(
@@ -60,6 +67,12 @@ export default {
     text-align: left;
     max-width: 350px;
     margin: auto;
+  }
+
+  @media only screen and (min-width: 650px) {
+    .requests-container {
+      display: block!important;
+    }
   }
 
   .requests-container {

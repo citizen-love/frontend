@@ -23,10 +23,15 @@ export default {
 <style lang="scss" scoped>
 @import "../../styles/variables";
 
+@media only screen and (max-width: 650px) {
+  .header {
+  background-size: cover;
+  background-image: url("../../assets/header-asset-background.jpg");
+  }
+}
+
 .header {
   display: grid;
-  background-size: cover;
-  background-image: url("../../assets/header-asset-background-bw.jpg");
   padding: 30px;
   color: white;
   border-radius: 0 0 5px 5px;

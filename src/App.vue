@@ -9,11 +9,12 @@
       ogLocale="TODO"
       url="TODO"
     />
-    <Header/>
-    <v-content>
+    <Header v-if="mobile"/>
+    <v-content class="desktop--app-wrapper">
       <v-container>
         <router-view></router-view>
       </v-container>
+      <Footer v-if="!mobile"/>
     </v-content>
   </v-app>
 </template>
@@ -21,21 +22,47 @@
 <script>
 
 import Header from "./components/header/header"
+import Footer from "./components/footer/footer"
 
 export default {
   name: "App",
-  components: {Header},
+  components: {Header, Footer},
   data: () => ({
-    drawer: false
+    drawer: false,
+    mobile:window.innerWidth <= 650
   }),
   methods: {
     changeLocale(locale) {
       this.$i18n.locale = locale;
     }
-  }
+  },
+  created(){
+  addEventListener('resize', () => {
+    this.mobile = innerWidth <= 650
+  })
+}
 };
 </script>
 
 <style lang="scss">
 @import "./styles/globals";
+
+@media only screen and (min-width: 650px) {
+  #app {
+  background-image: url("./assets/header-asset-background.jpg")!important;
+  background-size: cover;
+}
+.desktop--app-wrapper {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  background-color:white;
+  box-shadow: 1px 1px 3px #c0c0c0;
+  max-height: 90vh;
+  border-radius: 4px;
+  overflow-y: scroll;
+}
+}
+
 </style>
