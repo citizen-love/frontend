@@ -72,6 +72,9 @@ export default {
   @media only screen and (min-width: 650px) {
     .requests-container {
       display: block!important;
+      & > :last-child {
+        border: 0!important;
+      }
     }
   }
 

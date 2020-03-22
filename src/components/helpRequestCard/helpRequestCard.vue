@@ -26,7 +26,7 @@
   </div>
 
   <div class="card--desktop" v-else>
-    <v-img class="white--text align-end" v-bind:src="snapshotSrc"></v-img>
+    <img class="card--desktop--mapimage" v-bind:src="snapshotSrc"/>
 
     <div class="card--desktop--content">
       <v-card-title>{{ title }}</v-card-title>
@@ -34,16 +34,13 @@
       <v-card-subtitle>{{ description }}</v-card-subtitle>
       <div class="card--desktop--actions">
         <div>
-          <v-card-subtitle
+          <span
             v-for="item in limitedCategories"
             :key="item"
             class="card--desktop--categoryElement"
-          >{{item}}</v-card-subtitle>
+          >{{item}}</span>
         </div>
-        <v-btn
-          color="primary"
-          :to="{name: 'ReceiveHelp', query: { helpRequestId: id} }"
-        >{{ $t("index.cards_offer_help") }}</v-btn>
+        <v-icon :to="{name: 'ReceiveHelp', query: { helpRequestId: id} }">mdi-arrow-right</v-icon>
       </div>
     </div>
   </div>
@@ -64,7 +61,7 @@ export default {
     "mobile"
   ],
   data() {
-    const snapshotSrc = `https://maps.googleapis.com/maps/api/staticmap?center=${this.coordinates.latitude},${this.coordinates.longitude}&zoom=12&size=200x100&key=${GOOGLE_API_KEY}`;
+    const snapshotSrc = `https://maps.googleapis.com/maps/api/staticmap?center=${this.coordinates.latitude},${this.coordinates.longitude}&zoom=10&size=200x100&key=${GOOGLE_API_KEY}`;
     const limitedCategories =
       this.category.length > 3
         ? [...this.category.filter((item, index) => index < 4), "More..."]
@@ -110,25 +107,28 @@ export default {
     }
   }
 }
+
 .card--desktop {
   display: flex;
   border-bottom: 1px solid #d3d3d3;
   padding: 18px;
   & > div {
-    width: 50%;
+    width: 100%;
   }
   &--content {
     text-align: left;
+    display: grid;
   }
   &--categoryElement {
     font-size: 9px;
     line-height: 20px;
     letter-spacing: 0.25px;
     opacity: 0.6;
+    padding-left: 16px;
   }
   &--actions {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
     & > div {
       display: flex;
