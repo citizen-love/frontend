@@ -7,19 +7,30 @@
       <img src="../../assets/github-mini.svg"/>
     </div>
     <div class="footer--lang-wrapper">
-      <span>Language: </span>
-      <a>English</a>
+      <span>{{ $t("general.language") }}: </span>
+            <router-link
+        :to="{ name: 'SelectLanguage'}"
+        v-on="on"
+        class="overlay--row--languageitem"
+      >{{ languages.find( l => l.locale === $i18n.locale).name }}</router-link>
     </div>
     <div class="footer--url-wrapper">
-      <a>Privacy Policy</a>
-      <a>Contact Us</a>
+      <a>{{ $t("footer.privacyPolicy") }}</a>
+      <a>{{ $t("footer.contactUs") }}</a>
     </div>
   </div>
 </template>
 
 <script>
+import {LANGUAGES} from "../../assets/data/languages";
+
 export default {
-  name: "Footer"
+  name: "Footer",
+      data() {
+      return {
+        languages: LANGUAGES,
+      }
+  }
 };
 </script>
 

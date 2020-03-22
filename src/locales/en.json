@@ -1,5 +1,8 @@
 {
   "message": "hello i18n test test !!",
+  "general": {
+    "language": "Language"
+  },
   "index": {
     "main_headline": "Helping Made Easy",
     "teaser": "CitizenLove connects people that can help with people in need. Post your help request if you need help!",
@@ -7,6 +10,10 @@
     "can_help": "I can help",
     "amount_people_need_help": "people need help near You",
     "cards_offer_help": "I can help"
+  },
+  "footer": {
+    "privacyPolicy": "Privacy Policy",
+    "contactUs": "Contact Us"
   },
   "categories": {
     "groceries" : "Groceries",
