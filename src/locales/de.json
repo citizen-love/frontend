@@ -1,3 +1,9 @@
 {
-    "message": "hallo i18n!"
+    "message": "hallo i18n!",
+    "index": {
+        "main_headline": "Hilfe leicht gemacht"
+    },
+    "select_language": {
+        "title": "Wähle deine Sprache"
+    }
 }

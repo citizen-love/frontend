@@ -11,7 +11,13 @@
     />
     <v-container class="header" v-if="$route.path === '/'">
       <div><img src="./assets/logo.svg" alt="citizen love"></div>
-      <div><a href="/select-language">{{$t("select_language.language")}}</a></div>
+      <v-tooltip left>
+        <template v-slot:activator="{ on }">
+          <div><a href="/select-language" v-on="on">{{ languages.find( l => l.locale === $i18n.locale).name }}</a></div>
+        </template>
+        <span>{{ $t("select_language.title") }}</span>
+      </v-tooltip>
+      
     </v-container>
     <v-content>
       <v-container>
@@ -22,11 +28,17 @@
 </template>
 
 <script>
+import { LANGUAGES } from "@/assets/data/languages"
 
+  /** 
+   * @description Root layout of the application
+   * On start screen header is displayed with logo and possibility to change language of the app
+   */
   export default {
     name: 'App',
     data: () => ({
-      drawer: false
+      drawer: false,
+      languages: LANGUAGES
     }),
     methods: {
       changeLocale(locale){
