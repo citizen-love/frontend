@@ -4,7 +4,7 @@
     </v-container>
     <br/>
     <v-container>
-      <a href="/" class="close"><b>X</b></a>
+      <router-link :to="{ name: 'Home'}" class="close"><b>X</b></router-link>
       <h1>{{ $t("select_language.title") }}</h1>
     </v-container>
     <div>

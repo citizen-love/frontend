@@ -13,7 +13,13 @@
       <div><img src="./assets/logo.svg" alt="citizen love"></div>
       <v-tooltip left>
         <template v-slot:activator="{ on }">
-          <div><a href="/select-language" v-on="on">{{ languages.find( l => l.locale === $i18n.locale).name }}</a></div>
+          <div>
+            <router-link 
+              :to="{ name: 'SelectLanguage'}" 
+              v-on="on">
+                {{ languages.find( l => l.locale === $i18n.locale).name }}
+            </router-link>
+          </div>
         </template>
         <span>{{ $t("select_language.title") }}</span>
       </v-tooltip>
