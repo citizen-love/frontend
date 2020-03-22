@@ -10,6 +10,18 @@
       url="TODO"
     />
     <Header v-if="mobile"/>
+    <v-tooltip left>
+    <template v-slot:activator="{ on }">
+      <div>
+        <router-link
+          :to="{ name: 'SelectLanguage'}"
+          v-on="on">
+          {{ languages.find( l => l.locale === $i18n.locale).name }}
+        </router-link>
+      </div>
+    </template>
+    <span>{{ $t("select_language.title") }}</span>
+  </v-tooltip>
     <v-content class="desktop--app-wrapper">
       <v-container>
         <router-view></router-view>
@@ -20,13 +32,19 @@
 </template>
 
 <script>
+import { LANGUAGES } from "@/assets/data/languages"
 
 import Header from "./components/header/header"
 import Footer from "./components/footer/footer"
 
+/**
+ * @description Root layout of the application
+ * On start screen header is displayed with logo and possibility to change language of the app
+ *
 export default {
   name: "App",
   components: {Header, Footer},
+  languages: LANGUAGES
   data: () => ({
     drawer: false,
     mobile:window.innerWidth <= 650

@@ -5,6 +5,7 @@ import Confirmation from "../views/receive-help/Confirmation";
 import Step2 from "../views/receive-help/Step2";
 import Step3 from "../views/receive-help/Step3";
 import ReceiveHelp from "../views/receive-help/ReceiveHelp";
+import SelectLanguage from "@/views/SelectLanguage";
 
 Vue.use(VueRouter)
 
@@ -13,22 +14,27 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Index
-  },  {
+  }, {
     path: '/receive-help/new',
     name: 'ReceiveHelp',
     component: ReceiveHelp
-  },  {
+  }, {
     path: '/receive-help/new/2',
     name: 'ReceiveHelp2',
     component: Step2
-  },{
+  }, {
     path: '/receive-help/new/3',
     name: 'ReceiveHelp3',
     component: Step3
-  },{
+  }, {
     path: '/receive-help/confirm',
     name: 'ReceiveHelpConfirm',
     component: Confirmation
+  },
+  {
+    path: '/select-language',
+    name: 'SelectLanguage',
+    component: SelectLanguage
   },
   {
     path: '/about',
