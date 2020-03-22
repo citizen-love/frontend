@@ -2,7 +2,18 @@
   <v-container class="header" v-if="$route.path === '/'">
     <div class="header--static-row">
       <img src="../../assets/logo.svg" alt="citizen love" />
-      <a href="#">Deutsch</a>
+      <v-tooltip left>
+        <template v-slot:activator="{ on }">
+          <div>
+            <router-link
+              :to="{ name: 'SelectLanguage'}"
+              v-on="on">
+              {{ languages.find( l => l.locale === $i18n.locale).name }}
+            </router-link>
+          </div>
+        </template>
+        <span>{{ $t("select_language.title") }}</span>
+      </v-tooltip>
     </div>
     <div class="header--copy-row">
       <h1>{{ $t("index.main_headline") }}</h1>
@@ -15,8 +26,15 @@
 </template>
 
 <script>
+import {LANGUAGES} from "../../assets/data/languages";
+
 export default {
-    name: "Header"
+    name: "Header",
+  data() {
+      return {
+        languages: LANGUAGES,
+      }
+  }
 }
 </script>
 
@@ -30,6 +48,8 @@ export default {
   }
 }
 
+
+
 .header {
   display: grid;
   padding: 30px;
@@ -40,7 +60,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    & > a {
+     a {
       color: white;
       text-transform: uppercase;
     }

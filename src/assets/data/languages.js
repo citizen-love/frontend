@@ -3,6 +3,6 @@ export const LANGUAGES = [
   { locale: "de", name: "Deutsch" },
   { locale: "fr", name: "Français" },
   { locale: "it", name: "Italiano" },
-  { locale: "rm", name: "Română" }
+  { locale: "rm", name: "Rumantsch" }
   // add new languages here
 ]
