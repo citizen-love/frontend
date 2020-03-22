@@ -40,12 +40,15 @@ export default {
     const { lat, lon } = await GeoLocationService.getIpAddress()
     const getRelevantRequests = await HelpRequestRealTime.getAllRequests(
       { lat: parseFloat(lat), lon: parseFloat(lon)},
-      5)
+      100)
     this.relevantRequests = getRelevantRequests
   },
   methods: {
-    updateLocation(data){
-      console.log(data)
+    async updateLocation({ latitude, longitude }){
+      const getRelevantRequests = await HelpRequestRealTime.getAllRequests(
+      { lat: latitude, lon: longitude},
+      100)
+    this.relevantRequests = getRelevantRequests
     }
   }
 };
