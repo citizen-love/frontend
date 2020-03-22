@@ -12,22 +12,37 @@ const routes = [
   {
     path: '/',
     name: 'Home',
+    meta: {
+      title: 'CitizenLove - Get help in your neighbourhood',
+    },
     component: Index
   },  {
     path: '/receive-help/new',
     name: 'ReceiveHelp',
+    meta: {
+      title: 'CitizenLove - Receive Help Step 1',
+    },
     component: ReceiveHelp
   },  {
     path: '/receive-help/new/2',
     name: 'ReceiveHelp2',
+    meta: {
+      title: 'CitizenLove - Receive Help Step 2',
+    },
     component: Step2
   },{
     path: '/receive-help/new/3',
     name: 'ReceiveHelp3',
+    meta: {
+      title: 'CitizenLove - Receive Help Step 3',
+    },
     component: Step3
   },{
     path: '/receive-help/confirm',
     name: 'ReceiveHelpConfirm',
+    meta: {
+      title: 'CitizenLove - Receive Help Confirmation',
+    },
     component: Confirmation
   },
   {

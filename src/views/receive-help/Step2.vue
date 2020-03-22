@@ -23,8 +23,7 @@
     </form>
 
 
-    <wizard-next-button :to="{name : 'ReceiveHelpConfirm'}"
-                        :disabled="!isFormValid"/>
+    <wizard-next-button id="step-2-button" :to="{name : 'ReceiveHelpConfirm'}" :disabled="!isFormValid" />
   </div>
 </template>
 
@@ -34,6 +33,11 @@
 
   export default {
     name: "Step2",
+    created: function(){
+      this.$root.$on('next-click',function(){
+        this.$analytics.logEvent('button_click',{name:'request-next-step-2'});
+      });
+    },
     components: {WizardNextButton, WizardStepHeader},
     data(){
       return {
@@ -53,6 +57,11 @@
         const formData = this.formData;
         return formData.description && formData.title && formData.email;
       }
+    },
+    methods: {
+      // logEvent(){
+      //   this.$analytics.logEvent('button_click',{name:'request-next-step-2'});
+      // }
     }
   }
 </script>

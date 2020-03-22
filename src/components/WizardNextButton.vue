@@ -1,20 +1,18 @@
 <template>
   <div class="next">
-    <v-btn
-      color="primary"
-      :disabled="disabled"
-      large
-      block
-      :to="to"
-    >Next
-    </v-btn>
+    <v-btn color="primary" :disabled="disabled" large block :to="to" v-on:click.native="emitNext">Next</v-btn>
   </div>
 </template>
 
 <script>
   export default {
     name: "WizardNextButton",
-    props: ['disabled', 'to']
+    props: ['disabled', 'to'], 
+    methods: {
+      emitNext: function(){
+        this.$root.$emit('next-click')
+      }
+    }
   }
 </script>
 

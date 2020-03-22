@@ -25,6 +25,15 @@
 
   export default {
     name: 'App',
+    watch: {
+        $route: {
+            immediate: true,
+            handler(to) {
+                document.title = to.meta.title || 'CitizenLove - Get help in your neighbourhood';
+                this.$analytics.logEvent("page_view",{page_title: to.meta.title});
+            }
+        }
+    },
     data: () => ({
       drawer: false
     }),

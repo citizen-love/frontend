@@ -5,10 +5,18 @@ import store from './store'
 import vuetify from './plugins/vuetify';
 import i18n from './plugins/i18n'
 import vueHeadful from 'vue-headful';
+import firebase from 'firebase'
+import "firebase/analytics";
+import {config} from './firebase/apiConfig'
+
+firebase.initializeApp(config)
+// firebase.analytics();
 
 Vue.component('vue-headful', vueHeadful);
 
 Vue.config.productionTip = false
+
+Vue.prototype.$analytics = firebase.analytics();
 
 new Vue({
   router,
