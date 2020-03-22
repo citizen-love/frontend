@@ -5,7 +5,8 @@
     "teaser": "CitizenLove connects people that can help with people in need. Post your help request if you need help!",
     "need_help": "I need help",
     "can_help": "I can help",
-    "amount_people_need_help": "people need help near You"
+    "amount_people_need_help": "people need help near You",
+    "cards_offer_help": "I can help"
   },
   "categories": {
     "groceries" : "Groceries",

@@ -13,6 +13,7 @@
       <v-card-title>{{ title }}</v-card-title>
       <v-card-subtitle>{{ description }}</v-card-subtitle>
     </div>
+    <v-btn color="primary" block x-large :to="{name: 'ReceiveHelp', query: { helpRequestId: id} }">{{ $t("index.cards_offer_help") }}</v-btn>
   </div>
 </template>
 
@@ -23,7 +24,7 @@ export default {
   name: "HelpRequestCard",
   props: ["coordinates", "community", "category", "title", "description", "id"],
   data() {
-    const snapshotSrc = `https://maps.googleapis.com/maps/api/staticmap?center=${this.coordinates.latitude},${this.coordinates.longitude}&zoom=17&size=200x200&key=${GOOGLE_API_KEY}`;
+    const snapshotSrc = `https://maps.googleapis.com/maps/api/staticmap?center=${this.coordinates.latitude},${this.coordinates.longitude}&zoom=12&size=200x100&key=${GOOGLE_API_KEY}`;
     const limitedCategories = this.category.length > 3 ? [...this.category.filter((item, index) => index < 4), "More..."] : this.category
     return {
       snapshotSrc,
@@ -37,7 +38,7 @@ export default {
 <style scoped lang="scss">
 .card--main--wrapper {
   box-shadow: 1px 1px 3px #c0c0c0;
-  min-height: 650px;
+  height: 100%px;
   margin: 8px;
   display: grid;
   width: 350px;
