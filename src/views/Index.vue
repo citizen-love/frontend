@@ -2,12 +2,10 @@
 
 <template>
   <div class="center">
-    <h1>{{ $t("index.main_headline") }} </h1>
-    <p>{{ $t("index.teaser") }}</p>
-    <div class="button-container">
-      <v-btn color="primary" outlined block x-large :to="{name: 'ReceiveHelp'}">{{ $t("index.need_help") }}</v-btn>
-      <v-btn color="primary" outlined block x-large>{{ $t("index.can_help") }}</v-btn>
-    </div>
+    <div class="autosuggest-container">
+      <h1>{{relevantRequests.length}} {{ $t('index.amount_people_need_help')}}</h1>
+      <AutoComplete v-bind:updateLocation="updateLocation"/>
+      </div>
     <div class="requests-container">
         <HelpRequestCard
         v-for="request in relevantRequests" :key="request.id"
@@ -17,6 +15,7 @@
         v-bind:title="request.data.title"
         v-bind:description="request.data.description"
         v-bind:id="request.id"
+        v-bind:mobile="mobile"
         />
     </div>
   </div>
@@ -25,39 +24,58 @@
 <script>
 
 import HelpRequestCard from "../components/helpRequestCard/helpRequestCard"
+import AutoComplete from "../components/autoComplete/autoComplete"
 
 import GeoLocationService from "../services/GeoLocation/GeoLocation"
 import HelpRequestRealTime from "../services/HelpRequestRealTime"
 
 export default {
   name: "Index",
-  components: {HelpRequestCard},
+  components: {HelpRequestCard, AutoComplete},
   data() {
     return {
-      relevantRequests: []
+      relevantRequests: [],
+      mobile:window.innerWidth <= 650
     }
   },
   async mounted() {
     const { lat, lon } = await GeoLocationService.getIpAddress()
     const getRelevantRequests = await HelpRequestRealTime.getAllRequests(
       { lat: parseFloat(lat), lon: parseFloat(lon)},
-      5)
+      100)
     this.relevantRequests = getRelevantRequests
+  },
+    created(){
+  addEventListener('resize', () => {
+    this.mobile = innerWidth <= 650
+  })
+},
+  methods: {
+    async updateLocation({ latitude, longitude }){
+      const getRelevantRequests = await HelpRequestRealTime.getAllRequests(
+      { lat: latitude, lon: longitude},
+      100)
+    this.relevantRequests = getRelevantRequests
+    }
   }
 };
 </script>
 
 <style scoped lang="scss">
 
-  .button-container {
-    margin-top: 20px;
-
-    .v-btn {
-      margin: 20px 0;
-    }
+  .autosuggest-container {
+    text-align: left;
+    max-width: 350px;
+    margin: auto;
   }
-  h1 {
-    margin: 20vh 0 20px 0
+
+  @media only screen and (min-width: 650px) {
+    .requests-container {
+      display: block!important;
+      & > :last-child {
+        border: 0!important;
+      }
+    }
   }
 
   .requests-container {

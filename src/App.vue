@@ -9,58 +9,60 @@
       ogLocale="TODO"
       url="TODO"
     />
-    <v-container class="header" v-if="$route.path === '/'">
-      <div><img src="./assets/logo.svg" alt="citizen love"></div>
-      <div><a href="#">Deutsch</a></div>
-    </v-container>
-    <v-content>
+    <Header v-if="mobile"/>
+    <v-content class="desktop--app-wrapper">
       <v-container>
         <router-view></router-view>
       </v-container>
+      <Footer v-if="!mobile"/>
     </v-content>
   </v-app>
 </template>
 
 <script>
 
-  export default {
-    name: 'App',
-    data: () => ({
-      drawer: false
-    }),
-    methods: {
-      changeLocale(locale){
-        this.$i18n.locale = locale;
-      }
+import Header from "./components/header/header"
+import Footer from "./components/footer/footer"
+
+export default {
+  name: "App",
+  components: {Header, Footer},
+  data: () => ({
+    drawer: false,
+    mobile:window.innerWidth <= 650
+  }),
+  methods: {
+    changeLocale(locale) {
+      this.$i18n.locale = locale;
     }
-  };
+  },
+  created(){
+  addEventListener('resize', () => {
+    this.mobile = innerWidth <= 650
+  })
+}
+};
 </script>
 
 <style lang="scss">
-  @import "./styles/globals";
-</style>
+@import "./styles/globals";
 
-<style lang="scss" scoped>
-  @import "./styles/variables";
+@media only screen and (min-width: 650px) {
+  #app {
+  background-image: url("./assets/header-asset-background.jpg")!important;
+  background-size: cover;
+}
+.desktop--app-wrapper {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  background-color:white;
+  box-shadow: 1px 1px 3px #c0c0c0;
+  max-height: 90vh;
+  border-radius: 4px;
+  overflow-y: scroll;
+}
+}
 
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: $_color_primary;
-    padding: 30px 10px ;
-    color: white;
-    border-radius: 0 0 5px 5px;
-
-    img {
-      width: 200px;
-      vertical-align: middle;
-    }
-
-    a {
-      color: white;
-      text-transform: uppercase;
-      margin-right: 20px;
-    }
-  }
 </style>
