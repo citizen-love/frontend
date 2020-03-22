@@ -17,7 +17,7 @@
              :outlined="selected.indexOf(category.key) === -1"
              color="primary"
              large
-             @click="toggle(category.key)"
+             @click="toggle(category.key);logCategoryEvent(category.displayName)"
       >
         <v-icon>{{ category.icon }}</v-icon>
         {{ category.displayName }}
@@ -25,7 +25,7 @@
 
       <v-btn outlined color="primary" large>Something else</v-btn>
     </div>
-    <wizard-next-button id="step-1-button" :to="{name : 'ReceiveHelp2'}" :disabled="!isFormValid" />
+    <wizard-next-button :to="{name : 'ReceiveHelp2', analytics_name: 'request-next-step-1'}" :disabled="!isFormValid" />
   </div>
 </template>
 
@@ -34,11 +34,6 @@
   import WizardNextButton from "../../components/WizardNextButton";
   export default {
     name: "ReceiveHelp",
-    created: function(){
-      this.$root.$on('next-click',function(){
-        this.$analytics.logEvent('button_click',{name:'request-next-step-1'});
-      });
-    },
     components: {WizardNextButton, WizardStepHeader},
     data() {
       return {
@@ -68,11 +63,10 @@
         } else {
           this.selected = this.selected.filter(elem => elem !== categoryKey);
         }
+      },
+      logCategoryEvent(category){
+        this.$analytics.logEvent('need_category_select',{name: category});
       }
-      // logEvent(){
-      //   console.log('next');
-      //   this.$analytics.logEvent('button_click',{name:'request-next-step-1'});
-      // }
     }
   }
 </script>

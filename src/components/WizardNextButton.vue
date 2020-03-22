@@ -1,6 +1,6 @@
 <template>
   <div class="next">
-    <v-btn color="primary" :disabled="disabled" large block :to="to" v-on:click.native="emitNext">Next</v-btn>
+    <v-btn color="primary" :disabled="disabled" large block :to="to" @click.once="logNext(to)">Next</v-btn>
   </div>
 </template>
 
@@ -9,8 +9,8 @@
     name: "WizardNextButton",
     props: ['disabled', 'to'], 
     methods: {
-      emitNext: function(){
-        this.$root.$emit('next-click')
+      logNext: function(to){
+        this.$analytics.logEvent('button_click',{name: to.analytics_name});
       }
     }
   }

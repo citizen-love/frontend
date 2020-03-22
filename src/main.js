@@ -10,7 +10,6 @@ import "firebase/analytics";
 import {config} from './firebase/apiConfig'
 
 firebase.initializeApp(config)
-// firebase.analytics();
 
 Vue.component('vue-headful', vueHeadful);
 
