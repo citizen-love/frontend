@@ -51,5 +51,9 @@
       "text": "You will receive an e-mail to {email} with a copy of your request.",
       "back_to_start_btn" : "Back to Start"
     }
+  },
+  "select_language": {
+    "title": "Select language",
+    "language": "Language"
   }
 }

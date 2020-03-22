@@ -11,7 +11,7 @@
     />
     <v-container class="header" v-if="$route.path === '/'">
       <div><img src="./assets/logo.svg" alt="citizen love"></div>
-      <div><a href="#">Deutsch</a></div>
+      <div><a href="/select-language">{{$t("select_language.language")}}</a></div>
     </v-container>
     <v-content>
       <v-container>
