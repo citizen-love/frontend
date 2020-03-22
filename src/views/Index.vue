@@ -2,12 +2,10 @@
 
 <template>
   <div class="center">
-    <h1>{{ $t("index.main_headline") }} </h1>
-    <p>{{ $t("index.teaser") }}</p>
-    <div class="button-container">
-      <v-btn color="primary" outlined block x-large :to="{name: 'ReceiveHelp'}">{{ $t("index.need_help") }}</v-btn>
-      <v-btn color="primary" outlined block x-large>{{ $t("index.can_help") }}</v-btn>
-    </div>
+    <div class="autosuggest-container">
+      <h1>{{relevantRequests.length}} {{ $t('index.amount_people_need_help')}}</h1>
+      <AutoComplete v-bind:updateLocation="updateLocation"/>
+      </div>
     <div class="requests-container">
         <HelpRequestCard
         v-for="request in relevantRequests" :key="request.id"
@@ -25,13 +23,14 @@
 <script>
 
 import HelpRequestCard from "../components/helpRequestCard/helpRequestCard"
+import AutoComplete from "../components/autoComplete/autoComplete"
 
 import GeoLocationService from "../services/GeoLocation/GeoLocation"
 import HelpRequestRealTime from "../services/HelpRequestRealTime"
 
 export default {
   name: "Index",
-  components: {HelpRequestCard},
+  components: {HelpRequestCard, AutoComplete},
   data() {
     return {
       relevantRequests: []
@@ -43,21 +42,21 @@ export default {
       { lat: parseFloat(lat), lon: parseFloat(lon)},
       5)
     this.relevantRequests = getRelevantRequests
+  },
+  methods: {
+    updateLocation(data){
+      console.log(data)
+    }
   }
 };
 </script>
 
 <style scoped lang="scss">
 
-  .button-container {
-    margin-top: 20px;
-
-    .v-btn {
-      margin: 20px 0;
-    }
-  }
-  h1 {
-    margin: 20vh 0 20px 0
+  .autosuggest-container {
+    text-align: left;
+    max-width: 350px;
+    margin: auto;
   }
 
   .requests-container {

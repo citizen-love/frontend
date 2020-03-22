@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { VTextField } from 'vuetify/lib';
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -7,6 +8,7 @@ import i18n from './plugins/i18n'
 import vueHeadful from 'vue-headful';
 
 Vue.component('vue-headful', vueHeadful);
+Vue.component('v-text-field', VTextField);
 
 Vue.config.productionTip = false
 
