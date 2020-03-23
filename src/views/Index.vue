@@ -72,7 +72,7 @@ export default {
 <style scoped lang="scss">
 
 .desktop--header {
-  display: flex;
+  display: block;
   &--textBox {
     display: none;
   }
@@ -85,6 +85,9 @@ export default {
 font-size: 24px;
 line-height: 28px;
 color: #000000;
+font-family: Work Sans;
+font-style: normal;
+font-weight: normal;
   }
 }
 
@@ -96,8 +99,8 @@ color: #000000;
     }
   }
   .autosuggest-container {
-    margin-left: auto;
-    margin-right: 0;
+    margin-left: 5%;
+    margin-top: 42px;
   }
   .desktop--header--textBox {
     display: block !important;
@@ -109,5 +112,7 @@ color: #000000;
   overflow: hidden;
   flex-wrap: wrap;
   justify-content: center;
+  width: 90%;
+  margin: auto;
 }
 </style>
