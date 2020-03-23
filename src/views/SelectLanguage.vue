@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <v-container class="header" primary>
-    </v-container>
+  <div class="language--selector--container">
     <br/>
     <v-container>
       <router-link :to="{ name: 'Home'}" class="close"><b>X</b></router-link>
@@ -58,14 +56,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .header {
+
+.language--selector--container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+}
+  /*.header {
     position: absolute;
     width: 100vw;
     left: 0;
     top: 0;
     right: 0;
     border-radius: 0 0 5px 5px;
-  }
+  }*/
 
   .close {
     color: gray;
