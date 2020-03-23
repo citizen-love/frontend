@@ -6,6 +6,8 @@ import Step2 from "../views/receive-help/Step2";
 import Step3 from "../views/receive-help/Step3";
 import ReceiveHelp from "../views/receive-help/ReceiveHelp";
 import SelectLanguage from "@/views/SelectLanguage";
+import Register from "../views/helper/Register";
+import Confirm from "../views/helper/Confirm";
 
 Vue.use(VueRouter)
 
@@ -35,6 +37,16 @@ const routes = [
     path: '/select-language',
     name: 'SelectLanguage',
     component: SelectLanguage
+  },
+  {
+    path: '/help/register',
+    name: 'RegisterForHelp',
+    component: Register,
+  },
+  {
+    path: '/help/register/confirm',
+    name: 'RegisterForHelpConfirm',
+    component: Confirm,
   },
   {
     path: '/about',

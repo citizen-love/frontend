@@ -3,6 +3,7 @@
       <h1>{{ $t("index.main_headline") }}</h1>
       <p>{{ $t("index.teaser") }}</p>
       <v-btn color="primary" block x-large :to="{name: 'ReceiveHelp'}">{{ $t("index.need_help") }}</v-btn>
+      <v-btn color="green" block x-large :to="{name: 'RegisterForHelp'}">{{ $t("index.need_help") }}</v-btn>
     </div>
 </template>
 

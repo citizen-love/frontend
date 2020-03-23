@@ -9,23 +9,24 @@
     "need_help": "I need help",
     "can_help": "I can help",
     "amount_people_need_help": "people need help near You",
-    "cards_offer_help": "I can help"
+    "cards_offer_help": "I can help",
+    "offer_help": "Notify me when xx"
   },
   "footer": {
     "privacyPolicy": "Privacy Policy",
     "contactUs": "Contact Us"
   },
   "categories": {
-    "groceries" : "Groceries",
-    "washing" : "Washing",
+    "groceries": "Groceries",
+    "washing": "Washing",
     "babysitting": "Babysitting",
     "transport": "Transport",
     "childcare": "Childcare",
-    "loneliness" : "Loneliness",
-    "pets" : "Pets",
-    "other" : "Something else"
+    "loneliness": "Loneliness",
+    "pets": "Pets",
+    "other": "Something else"
   },
-  "step_x_out_of_y" : "Step {current} of {max}",
+  "step_x_out_of_y": "Step {current} of {max}",
   "request_help_process": {
     "step1": {
       "headline": "Where do you need help?",
@@ -58,7 +59,28 @@
       "title": "Great success!",
       "subtitle": "Our helpers will contact you shortly by e-mail!",
       "text": "You will receive an e-mail to {email} with a copy of your request.",
-      "back_to_start_btn" : "Back to Start"
+      "back_to_start_btn": "Back to Start"
+    }
+  },
+  "register_as_helper": {
+    "register": {
+      "headline": "Give a helping hand - register now!",
+      "location": "Your location",
+      "location_explained": "Provide the location where you would like to provide help around.",
+      "radius": "Radius",
+      "radius_explained": "Provide in which radius you want to be notified.",
+      "email": "Your E-Mail address",
+      "email_explained": "We will send help requests from people in need to this address.",
+      "phone": "Your phone number (optional)",
+      "phone_explained": "In a later version we would like to send help requests to your phone numbers so that you can help faster. If you want, you can enter it already.",
+      "phone_placeholder": "e.g. +41 73 ....",
+      "next" : "Registrierung abschliessen"
+    },
+    "confirm": {
+      "title": "Great success!",
+      "subtitle": "We will notify you when there is someone in your area who needs help!",
+      "text": "You will receive an e-mail to {email} with a copy of your request.",
+      "back_to_start_btn": "Back to Start"
     }
   },
   "select_language": {

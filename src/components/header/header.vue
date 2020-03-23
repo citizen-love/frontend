@@ -21,6 +21,7 @@
     </div>
     <div class="header--button-row">
       <v-btn color="primary" block x-large :to="{name: 'ReceiveHelp'}">{{ $t("index.need_help") }}</v-btn>
+      <v-btn class="helper-register" color="green" block x-large :to="{name: 'RegisterForHelp'}">{{ $t("index.offer_help") }}</v-btn>
     </div>
   </v-container>
 </template>
@@ -48,7 +49,9 @@ export default {
   }
 }
 
-
+.helper-register{
+  margin-top: 20px;
+}
 
 .header {
   display: grid;
