@@ -6,6 +6,8 @@ import Step2 from "../views/receive-help/Step2";
 import Step3 from "../views/receive-help/Step3";
 import ReceiveHelp from "../views/receive-help/ReceiveHelp";
 import MyRequest from "../views/my-request/MyRequest"
+import HelpGivingConfirmation from "../views/detailed-help/Confirmation"
+import DetailedHelpRequest from "../views/detailed-help/DetailedHelpRequest"
 import SelectLanguage from "@/views/SelectLanguage";
 import Register from "../views/helper/Register";
 import Confirm from "../views/helper/Confirm";
@@ -22,6 +24,16 @@ const routes = [
     path: '/my-request/:requesthash',
     name: 'MyRequest',
     component: MyRequest
+  },
+  {
+    path: '/help/:helprequestid',
+    name: 'DetailedHelpRequest',
+    component: DetailedHelpRequest
+  },
+  {
+    path: '/offer-help/confirm',
+    name: 'HelpGivingConfirmation',
+    component: HelpGivingConfirmation
   },
     {
     path: '/receive-help/new',

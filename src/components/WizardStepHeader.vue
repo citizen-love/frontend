@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <v-btn icon x-large @click="$router.go(-1)">
+      <v-btn icon x-large @click="navigate">
         <v-icon>mdi-arrow-left</v-icon>
       </v-btn>
     </div>
@@ -19,7 +19,12 @@
 <script>
   export default {
     name: "WizardStepHeader",
-    props: ['currentStep', 'maxSteps']
+    props: ['currentStep', 'maxSteps', 'toHome'],
+    methods: {
+      navigate() {
+        return this.toHome ? this.$router.push("/") : this.$router.go(-1)
+      }
+    }
   }
 </script>
 
