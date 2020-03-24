@@ -9,58 +9,87 @@
       ogLocale="TODO"
       url="TODO"
     />
-    <v-container class="header" v-if="$route.path === '/'">
-      <div><img src="./assets/logo.svg" alt="citizen love"></div>
-      <div><a href="#">Deutsch</a></div>
-    </v-container>
-    <v-content>
+    <Header v-if="mobile" />
+    <OverlayText v-if="!mobile" />
+    <v-content class="desktop--app-wrapper">
       <v-container>
         <router-view></router-view>
       </v-container>
+      <Footer v-if="!mobile" />
     </v-content>
   </v-app>
 </template>
 
 <script>
+import Header from "./components/header/header";
+import Footer from "./components/footer/footer";
+import OverlayText from "./components/header/overlay";
 
-  export default {
-    name: 'App',
-    data: () => ({
-      drawer: false
-    }),
-    methods: {
-      changeLocale(locale){
-        this.$i18n.locale = locale;
-      }
+/**
+ * @description Root layout of the application
+ * On start screen header is displayed with logo and possibility to change language of the app
+ *
+ * */
+export default {
+  name: "App",
+  components: { Header, Footer, OverlayText },
+  data: () => ({
+    drawer: false,
+    mobile: window.innerWidth <= 650
+  }),
+  methods: {
+    changeLocale(locale) {
+      this.$i18n.locale = locale;
     }
-  };
+  },
+  created() {
+    addEventListener("resize", () => {
+      this.mobile = innerWidth <= 650;
+    });
+  }
+};
 </script>
 
 <style lang="scss">
-  @import "./styles/globals";
-</style>
+@import "./styles/globals";
 
-<style lang="scss" scoped>
-  @import "./styles/variables";
-
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: $_color_primary;
-    padding: 30px 10px ;
-    color: white;
-    border-radius: 0 0 5px 5px;
-
-    img {
-      width: 200px;
-      vertical-align: middle;
-    }
-
-    a {
-      color: white;
-      text-transform: uppercase;
-      margin-right: 20px;
-    }
+@media only screen and (min-width: 650px) {
+  #app {
+    background-image: url("./assets/header-asset-background.jpg") !important;
+    background-size: cover;
   }
+  .desktop--app-wrapper {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    left: 15%;
+    width: 70%;
+    background-color: #fafafa;
+    box-shadow: 0 1px 3px #c0c0c0;
+    max-height: 90vh;
+    border-radius: 5px;
+    padding-top: 25px !important;
+    overflow-y: scroll;
+  }
+
+  .desktop--app-wrapper::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    background-color: #f5f5f5;
+
+  }
+
+  .desktop--app-wrapper::-webkit-scrollbar {
+    width: 6px;
+    background-color: #f5f5f538;
+  
+  }
+
+  .desktop--app-wrapper::-webkit-scrollbar-thumb {
+  
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #FA4659;
+       border-radius: 5px;
+  }
+}
 </style>

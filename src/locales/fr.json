@@ -1,3 +1,9 @@
 {
-    "message": "bonjour i18n !"
+    "message": "bonjour i18n !",
+    "index": {
+        "main_headline": "Aider en toute simplicité"
+    },
+    "select_language": {
+        "title": "Choisissez votre langue"
+    }
 }

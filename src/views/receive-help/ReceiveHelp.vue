@@ -15,7 +15,7 @@
     </div>
     <h2>{{ $t('request_help_process.step1.where_do_you_need_help')}}</h2>
     <div class="categories">
-      <p>{{ $t("") }}</p>
+      <p>{{ $t("request_help_process.step1.select_category") }}</p>
       <v-btn v-for="category in categories"
              v-bind:key="category.key"
              :outlined="selected.indexOf(category.key) === -1"

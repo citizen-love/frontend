@@ -2,68 +2,117 @@
 
 <template>
   <div class="center">
-    <h1>{{ $t("index.main_headline") }} </h1>
-    <p>{{ $t("index.teaser") }}</p>
-    <div class="button-container">
-      <v-btn color="primary" outlined block x-large :to="{name: 'ReceiveHelp'}">{{ $t("index.need_help") }}</v-btn>
-      <v-btn color="primary" outlined block x-large>{{ $t("index.can_help") }}</v-btn>
+    <div class="desktop--header">
+      <div class="desktop--header--textBox">
+        <DesktopHeader/>
+      </div>
+      <div class="autosuggest-container">
+        <h1>{{relevantRequests.length}} {{ $t('index.amount_people_need_help')}}</h1>
+        <AutoComplete v-bind:updateLocation="updateLocation" />
+      </div>
     </div>
     <div class="requests-container">
-        <HelpRequestCard
-        v-for="request in relevantRequests" :key="request.id"
+      <HelpRequestCard
+        v-for="request in relevantRequests"
+        :key="request.id"
         v-bind:coordinates="request.data.coordinates"
         v-bind:community="request.data.community"
         v-bind:category="request.data.category"
         v-bind:title="request.data.title"
         v-bind:description="request.data.description"
         v-bind:id="request.id"
-        />
+        v-bind:mobile="mobile"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import HelpRequestCard from "../components/helpRequestCard/helpRequestCard";
+import DesktopHeader from "../components/header/desktop"
+import AutoComplete from "../components/autoComplete/autoComplete";
 
-import HelpRequestCard from "../components/helpRequestCard/helpRequestCard"
-
-import GeoLocationService from "../services/GeoLocation/GeoLocation"
-import HelpRequestRealTime from "../services/HelpRequestRealTime"
+import GeoLocationService from "../services/GeoLocation/GeoLocation";
+import HelpRequestRealTime from "../services/HelpRequestRealTime";
 
 export default {
   name: "Index",
-  components: {HelpRequestCard},
+  components: { HelpRequestCard, AutoComplete, DesktopHeader },
   data() {
     return {
-      relevantRequests: []
-    }
+      relevantRequests: [],
+      mobile: window.innerWidth <= 650
+    };
   },
   async mounted() {
-    const { lat, lon } = await GeoLocationService.getIpAddress()
+    const { lat, lon } = await GeoLocationService.getIpAddress();
     const getRelevantRequests = await HelpRequestRealTime.getAllRequests(
-      { lat: parseFloat(lat), lon: parseFloat(lon)},
-      5)
-    this.relevantRequests = getRelevantRequests
+      { lat: parseFloat(lat), lon: parseFloat(lon) },
+      100
+    );
+    this.relevantRequests = getRelevantRequests;
+  },
+  created() {
+    addEventListener("resize", () => {
+      this.mobile = innerWidth <= 650;
+    });
+  },
+  methods: {
+    async updateLocation({ latitude, longitude }) {
+      const getRelevantRequests = await HelpRequestRealTime.getAllRequests(
+        { lat: latitude, lon: longitude },
+        100
+      );
+      this.relevantRequests = getRelevantRequests;
+    }
   }
 };
 </script>
 
 <style scoped lang="scss">
 
-  .button-container {
-    margin-top: 20px;
+.desktop--header {
+  display: block;
+  &--textBox {
+    display: none;
+  }
+}
+.autosuggest-container {
+  text-align: left;
+  max-width: 350px;
+  margin: auto;
+  & > h1 {
+font-size: 24px;
+line-height: 28px;
+color: #000000;
+font-family: Work Sans;
+font-style: normal;
+font-weight: normal;
+  }
+}
 
-    .v-btn {
-      margin: 20px 0;
+@media only screen and (min-width: 650px) {
+  .requests-container {
+    display: block !important;
+    & > :last-child {
+      border: 0 !important;
     }
   }
-  h1 {
-    margin: 20vh 0 20px 0
+  .autosuggest-container {
+    margin-left: 5%;
+    margin-top: 42px;
   }
+  .desktop--header--textBox {
+    display: block !important;
+  }
+}
 
-  .requests-container {
-    display: flex;   
-    overflow: hidden;
-    flex-wrap: wrap;
-    justify-content:center;
-  }
+.requests-container {
+  display: flex;
+  overflow: hidden;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90%;
+  margin: auto;
+}
 </style>

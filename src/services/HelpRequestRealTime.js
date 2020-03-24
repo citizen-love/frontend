@@ -20,6 +20,7 @@ class HelpRequestRealTime {
       collectionSnapshot.forEach(doc => {
         documents.push({ id: doc.id, data: doc.data() });
       });
+      documents = documents.filter(help => help.data.status === "started" && help.data.counter < 6)
     } catch (e) {
       return Promise.reject(e)
     }
