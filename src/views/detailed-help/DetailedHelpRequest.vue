@@ -1,8 +1,5 @@
 <style scoped lang="scss">
 @import "../../styles/_typography";
-* {
-  //border: 1px solid red;
-}
 
 .detailedview {
   &--center {
@@ -53,6 +50,19 @@
     margin-bottom: 80px;
   }
 }
+
+.mobile--nav--icon {
+  display: none;
+}
+
+@media only screen and (max-width: 650px) {
+  .mobile--nav--icon {
+    display: block;
+  }
+  .offer--form {
+    width: 100%;
+  }
+}
 </style>
 
 <template>
@@ -66,6 +76,9 @@
     </div>
 
     <div v-else class="detailedview--root">
+      <v-btn icon x-large @click="backToHome" class="mobile--nav--icon">
+        <v-icon>mdi-arrow-left</v-icon>
+      </v-btn>
       <div class="detailedview--header">
         <v-img v-bind:src="help.mapSource"></v-img>
         <p>{{help.timeOfCreation}}</p>
@@ -110,10 +123,10 @@
           :loading="isButtonLoading"
         >{{ $t("offerHelp.send_offer") }}</v-btn>
       </v-form>
-              <div v-if="operationFinished" class="detailedview--confirmation">
-          <img src="../../assets/green-checkmark.svg"/>
-          <span>{{ $t("offerHelp.successfull_help") }}</span>
-        </div>
+      <div v-if="operationFinished" class="detailedview--confirmation">
+        <img src="../../assets/green-checkmark.svg" />
+        <span>{{ $t("offerHelp.successfull_help") }}</span>
+      </div>
     </div>
   </div>
 </template>
@@ -190,6 +203,9 @@ export default {
         this.isButtonLoading = false;
         this.hasError = true;
       }
+    },
+    backToHome() {
+      this.$router.push("/");
     }
   }
 };
