@@ -170,7 +170,6 @@ export default {
       const requestObject = await HelpRequestDirectService.getSingleRequest(
         this.requestId
       );
-      console.log(requestObject);
       this.help = {
         ...requestObject,
         timeOfCreation: humanTime(requestObject.createdAt),

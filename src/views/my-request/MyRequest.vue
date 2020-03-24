@@ -36,7 +36,6 @@ export default {
       const requestObject = await HelpRequestService.getHelpRequestData(
         this.requestHash
       );
-      console.log(requestObject);
       this.requestObject = requestObject;
       this.loading = false;
     } catch (e) {
