@@ -1,65 +1,62 @@
 <!-- we should utilize the skeleton loader methods from vuetify: https://vuetifyjs.com/en/components/skeleton-loaders/ -->
 
 <template>
-  <div>
-    <h2>Hilfe einfach gemacht</h2>
-    <p>CitizenLove verbinden Hifeanbietende ganz einfach mit Leuten, welche Hilfe benötigen.</p>
-    <div class="button-container">
-      <v-btn color="primary" outlined block x-large v-on:click.native="logEvent('New need')" :to="{name: 'ReceiveHelp'}">I need help</v-btn>
-      <v-btn color="primary" outlined block x-large v-on:click.native="logEvent('New help')">I want to help</v-btn>
+
+  <div class="center">
+    <div class="autosuggest-container">
+      <h1>{{relevantRequests.length}} {{ $t('index.amount_people_need_help')}}</h1>
+      <AutoComplete v-bind:updateLocation="updateLocation"/>
+      </div>
+    <div class="requests-container">
+        <HelpRequestCard
+        v-for="request in relevantRequests" :key="request.id"
+        v-bind:coordinates="request.data.coordinates"
+        v-bind:community="request.data.community"
+        v-bind:category="request.data.category"
+        v-bind:title="request.data.title"
+        v-bind:description="request.data.description"
+        v-bind:id="request.id"
+        v-bind:mobile="mobile"
+        />
     </div>
   </div>
 </template>
 
 <script>
 
+import HelpRequestCard from "../components/helpRequestCard/helpRequestCard"
+import AutoComplete from "../components/autoComplete/autoComplete"
+
+import GeoLocationService from "../services/GeoLocation/GeoLocation"
+import HelpRequestRealTime from "../services/HelpRequestRealTime"
+
 export default {
   name: "Index",
-  components: {
-  },
-  data: function() {
-    // dummy call, currently only for debugging
+  components: {HelpRequestCard, AutoComplete},
+  data() {
     return {
-      helpNeeds: [
-        {
-          id: 1,
-          title: "Hilfe beim Wäschewaschen",
-          details:
-            "I'm baby swag 8-bit shaman mlkshk sustainable, poutine blog cloud bread fanny live-edge af XOXO roof party hoodie. ",
-          category: "Hausarbeit",
-          zipcode: "8004",
-          city: "Zurich",
-          latlng: "47.378594, 8.510398",
-          helpcount: 3
-        },
-        {
-          id: 2,
-          title: "Brauche jemanden der für mich Einkaufen geht",
-          details:
-            "nackwave kombucha viral roof party art party pop-up yuccie activated charcoal celiac enamel pin street art tote bag thundercats before they sold out church-key",
-          category: "Einläufe erledigen",
-          zipcode: "8004",
-          city: "Zurich",
-          latlng: "47.378594, 8.510398",
-          helpcount: 3
-        },
-        {
-          id: 3,
-          title: "Babysitting an Nachmittagen",
-          details:
-            " Man bun DIY migas normcore chambray chartreuse try-hard yuccie hammock.",
-          category: "Kinderbetreuung",
-          zipcode: "8004",
-          city: "Zurich",
-          latlng: "47.378594, 8.510398",
-          helpcount: 3
-        }
-      ]
-    };
+      relevantRequests: [],
+      mobile:window.innerWidth <= 650
+    }
   },
+  async mounted() {
+    const { lat, lon } = await GeoLocationService.getIpAddress()
+    const getRelevantRequests = await HelpRequestRealTime.getAllRequests(
+      { lat: parseFloat(lat), lon: parseFloat(lon)},
+      100)
+    this.relevantRequests = getRelevantRequests
+  },
+    created(){
+  addEventListener('resize', () => {
+    this.mobile = innerWidth <= 650
+  })
+},
   methods: {
-    logEvent(event_name){
-        this.$analytics.logEvent('button_click',{name:event_name});
+    async updateLocation({ latitude, longitude }){
+      const getRelevantRequests = await HelpRequestRealTime.getAllRequests(
+      { lat: latitude, lon: longitude},
+      100)
+    this.relevantRequests = getRelevantRequests
     }
   }
 };
@@ -67,19 +64,25 @@ export default {
 
 <style scoped lang="scss">
 
-  .button-container {
-    padding-top: 20px;
-
-    .v-btn {
-      margin: 20px 0;
-    }
-
-
+  .autosuggest-container {
+    text-align: left;
+    max-width: 350px;
+    margin: auto;
   }
 
-  img {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  @media only screen and (min-width: 650px) {
+    .requests-container {
+      display: block!important;
+      & > :last-child {
+        border: 0!important;
+      }
+    }
+  }
+
+  .requests-container {
+    display: flex;   
+    overflow: hidden;
+    flex-wrap: wrap;
+    justify-content:center;
   }
 </style>

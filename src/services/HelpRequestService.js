@@ -20,8 +20,7 @@ import axios from 'axios';
       })
       return data
     } catch (e) {
-      console.log(e)
-      return null;
+      return Promise.reject(e);
     }
   }
 
@@ -33,8 +32,7 @@ import axios from 'axios';
       })
       return data
     } catch (e) {
-      console.log(e)
-      return null;
+      return Promise.reject();
     }
 
   }
@@ -48,8 +46,7 @@ import axios from 'axios';
       })
       return data
     } catch (e) {
-      console.log(e)
-      return null;
+      return Promise.reject(e);
     }
   }
 }

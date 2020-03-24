@@ -1,18 +1,21 @@
 <template>
   <div class="next">
-    <v-btn color="primary" :disabled="disabled" large block :to="to" @click.once="logNext(to)">Next</v-btn>
+    <v-btn
+      color="primary"
+      :disabled="disabled"
+      large
+      block
+      :loading="loading"
+      :to="to"
+    ><slot />
+    </v-btn>
   </div>
 </template>
 
 <script>
   export default {
     name: "WizardNextButton",
-    props: ['disabled', 'to'], 
-    methods: {
-      logNext: function(to){
-        this.$analytics.logEvent('button_click',{name: to.analytics_name});
-      }
-    }
+    props: ['disabled', 'to','loading']
   }
 </script>
 

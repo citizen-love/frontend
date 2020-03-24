@@ -5,7 +5,14 @@
         <v-icon>mdi-arrow-left</v-icon>
       </v-btn>
     </div>
-    <span>Step {{ currentStep }} of {{ maxSteps }}</span>
+    <span>
+      {{
+      $t('step_x_out_of_y', {
+        current: currentStep,
+        max : maxSteps
+      })
+      }}
+      </span>
   </div>
 </template>
 

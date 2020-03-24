@@ -1,57 +1,105 @@
 <template>
-  <div>
+  <div class="has-wizard">
     <wizard-step-header current-step="2" max-steps="2"/>
-    <h1 ref="abasdf">Tell us a bit more...</h1>
-    <form ref="form">
-      <h2>What do you need in one sentence?</h2>
-      <span>So that helpers immediately understand if the can help.</span>
+    <h1>
+      {{ $t("request_help_process.step2.headline")}}</h1>
+    <v-form v-model="isFormValid">
+      <h2>
+        {{ $t("request_help_process.step2.title")}}</h2>
+      <span>
+      {{ $t("request_help_process.step2.title_explained")}}</span>
       <v-text-field
         required
         v-model="formData.title"
-        placeholder="e.g. Kinder hüten tagsüber Mittwoch & donnerstag"/>
-      <h2>Details</h2>
-      <span>Add the details of your needs here:</span>
-      <v-textarea v-model="formData.description" required/>
+        :rules="titleRules"
+        :placeholder="$t('request_help_process.step2.title_placeholder')"/>
+      <h2>{{ $t("request_help_process.step2.desc") }}</h2>
+      <span>{{ $t("request_help_process.step2.desc_explained") }}</span>
+      <v-textarea
+        v-model="formData.description"
+        :placeholder="$t('request_help_process.step2.desc_placeholder')"
+        counter="500"
+        :rules="descRules"
+        required/>
 
-      <h2>Your E-mail</h2>
-      <span>You will receive help offers on this e-mail address.</span>
+      <h2>{{ $t("request_help_process.step2.email") }}</h2>
+      <span>{{ $t("request_help_process.step2.email_explained") }}</span>
       <v-text-field
         required
-        email
         v-model="formData.email"
-        placeholder="Your E-Mail"/>
-    </form>
-
-
-    <wizard-next-button :to="{name : 'ReceiveHelpConfirm', analytics_name: 'request-next-step-2'}" :disabled="!isFormValid" />
+        :rules="emailRules"
+        :placeholder="$t('request_help_process.step2.email_placeholder')"/>
+    </v-form>
+    <wizard-next-button
+      @click.native="next"
+      :loading="isBusy"
+      :disabled="!isFormValid">
+      {{ $t("request_help_process.step2.next")}}
+    </wizard-next-button>
   </div>
 </template>
 
 <script>
   import WizardStepHeader from "../../components/WizardStepHeader";
   import WizardNextButton from "../../components/WizardNextButton";
+  import {mapMutations} from 'vuex';
+  import * as helpRequestWizardState from '../../store/HelpRequestWizardState';
+  import HelpRequestService from "../../services/HelpRequestService";
 
   export default {
     name: "Step2",
     components: {WizardNextButton, WizardStepHeader},
-    data(){
+    data() {
+      const state = this.$store.state[helpRequestWizardState.name];
       return {
-        isMounted: false,
+        isFormValid: false,
+        isBusy: false,
         formData: {
-          description: undefined,
-          title: undefined,
-          email: undefined,
+          description: state.description,
+          title: state.title,
+          email: state.email,
+        },
+        emailRules: [
+          v => !!v || this.$t('request_help_process.step2.email_error_missing'),
+          v => /[^@\s]+@[^@\s]+\.[^@\s]/.test(v) || this.$t('request_help_process.step2.email_error_wrong'),
+        ],
+        descRules: [
+          v => !!v || this.$t('request_help_process.step2.desc_error_missing'),
+        ],
+        titleRules: [
+          v => !!v || this.$t('request_help_process.step2.title_error_missing'),
+        ]
+      }
+    },
+    methods: {
+      next() {
+        if (!this.isFormValid) {
+          return;
         }
-      }
-    },
-    mounted(){
-      this.isMounted = true;
-    },
-    computed: {
-      isFormValid() {
-        const formData = this.formData;
-        return formData.description && formData.title && formData.email;
-      }
+        this.isBusy = true;
+        this.updateStore({
+          description: this.formData.description,
+          title: this.formData.title,
+          email: this.formData.email,
+        });
+        const payload = Object.assign({}, this.$store.state[helpRequestWizardState.name]);
+        payload.language = this.$i18n.locale;
+
+        this.$analytics.logEvent('button_click','request-next-step-2');
+
+        HelpRequestService.createHelpRequest(payload)
+          .then(() => {
+            this.isBusy = false;
+            this.updateStore(helpRequestWizardState.getPlainState());
+            this.$router.push({name: 'ReceiveHelpConfirm', params: {request: payload}})
+          }).catch(e => {
+          this.isBusy = false;
+          window.alert(e);
+        });
+      },
+      ...mapMutations(helpRequestWizardState.name, {
+        updateStore: 'set'
+      })
     }
   }
 </script>

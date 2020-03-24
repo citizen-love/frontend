@@ -1,23 +1,20 @@
 import firebase from 'firebase'
 import 'firebase/firestore'
+import { GeoFirestore } from 'geofirestore';
 import {config} from './apiConfig'
 
 // firebase init goes here
 // firebase.initializeApp(config)
 
 // firebase utils
-const db = firebase.firestore()
+const db = new GeoFirestore(firebase.firestore());
+const geoPoint = firebase.firestore.GeoPoint
+
+firebase.analytics();
 //const auth = firebase.auth()
 //const currentUser = auth.currentUser
 
-// firebase collections
-const helpOffersCollection = db.collection('help_offers')
-const helpRequestCollection = db.collection('help_requests')
-
 export {
   db,
-  //auth,
-  //currentUser,
-  helpOffersCollection,
-  helpRequestCollection,
+  geoPoint
 }

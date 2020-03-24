@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { VTextField } from 'vuetify/lib';
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -12,6 +13,7 @@ import {config} from './firebase/apiConfig'
 firebase.initializeApp(config)
 
 Vue.component('vue-headful', vueHeadful);
+Vue.component('v-text-field', VTextField);
 
 Vue.config.productionTip = false
 
