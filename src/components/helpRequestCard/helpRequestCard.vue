@@ -21,7 +21,7 @@
       color="primary"
       block
       x-large
-      :to="{name: 'ReceiveHelp', query: { helpRequestId: id} }"
+      :to="`/help/${id}`"
     >{{ $t("index.cards_offer_help") }}</v-btn>
   </div>
 
@@ -40,7 +40,7 @@
             class="card--desktop--categoryElement"
           >{{item}}</span>
         </div>
-        <v-icon :to="{name: 'ReceiveHelp', query: { helpRequestId: id} }">mdi-arrow-right</v-icon>
+        <v-icon @click="navigateToSingle">mdi-arrow-right</v-icon>
       </div>
     </div>
   </div>
@@ -70,6 +70,11 @@ export default {
       snapshotSrc,
       limitedCategories
     };
+  },
+  methods: {
+    navigateToSingle(){
+      return this.$router.replace(`/help/${this.id}`)
+    }
   }
 };
 </script>
