@@ -51,21 +51,33 @@ const routes = [
   {
     path: '/select-language',
     name: 'SelectLanguage',
+    meta: {
+      title: 'CitizenLove - Language selection',
+    },
     component: SelectLanguage
   },
   {
     path: '/help/register',
     name: 'RegisterForHelp',
+    meta: {
+      title: 'CitizenLove - Give a helping hand: register now!',
+    },
     component: Register,
   },
   {
     path: '/help/register/confirm',
     name: 'RegisterForHelpConfirm',
+    meta: {
+      title: 'CitizenLove - Give a helping hand: Confirmation',
+    },
     component: Confirm,
   },
   {
     path: '/about',
     name: 'About',
+    meta: {
+      title: 'CitizenLove - About',
+    },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.

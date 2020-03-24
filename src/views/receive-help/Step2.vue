@@ -91,6 +91,7 @@
           .then(() => {
             this.isBusy = false;
             this.updateStore(helpRequestWizardState.getPlainState());
+            this.$analytics.logEvent('action',{name:'Help request registered'});
             this.$router.push({name: 'ReceiveHelpConfirm', params: {request: payload}})
           }).catch(e => {
           this.isBusy = false;
