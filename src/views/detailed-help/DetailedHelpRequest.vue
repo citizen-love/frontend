@@ -1,29 +1,89 @@
+<style scoped lang="scss">
+@import "../../styles/_typography";
+* {
+  //border: 1px solid red;
+}
+
+.detailedview {
+  &--center {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+  &--root {
+    width: 96%;
+    margin: auto;
+  }
+  &--confirmation {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  &--header {
+    border-bottom: 1px solid #d3d3d3;
+    & > p {
+      @include actionPage--minorText;
+    }
+  }
+  &--description {
+    & > h3 {
+      margin-top: 8px;
+      @include actionPage--title;
+    }
+    & > p {
+      @include actionPage--description;
+    }
+    &--community {
+      @include actionPage--minorText;
+    }
+  }
+}
+
+.offer--form {
+  width: 65%;
+  & > h2 {
+    @include actionPage--title;
+  }
+  &--submitbutton {
+    margin-bottom: 80px;
+  }
+}
+</style>
+
 <template>
   <div>
-    <div v-if="loading">
+    <div v-if="loading" class="detailedview--center">
       <v-progress-circular indeterminate color="primary"></v-progress-circular>
     </div>
 
-    <div v-if="hasError">
+    <div v-if="hasError" class="detailedview--center">
       <p>{{ $t("offerHelp.error_happened_notfound") }}</p>
     </div>
 
-    <div v-else>
-      <wizard-step-header current-step="1" max-steps="1" toHome="true" />
-      <div>
+    <div v-else class="detailedview--root">
+      <div class="detailedview--header">
         <v-img v-bind:src="help.mapSource"></v-img>
         <p>{{help.timeOfCreation}}</p>
       </div>
 
-      <div>
-        <p>{{help.title}}</p>
+      <div class="detailedview--description">
+        <h3>{{help.title}}</h3>
         <p>{{help.description}}</p>
-        <p>{{help.community}}</p>
+        <p class="detailedview--description--community">{{help.community}}</p>
       </div>
 
-      <v-form v-model="isOfferValid">
+      <v-form v-model="isOfferValid" class="offer--form">
         <h2>{{ $t("offerHelp.phone_label") }}</h2>
-        <v-text-field v-model="offer.phone" :placeholder="$t(`offerHelp.phone_placeholder`)" />
+        <v-text-field
+          v-model="offer.phone"
+          prepend-inner-icon="mdi-phone-outline"
+          :placeholder="$t(`offerHelp.phone_placeholder`)"
+        />
         <h2>{{ $t("offerHelp.message_label") }}</h2>
         <v-textarea
           required
@@ -40,20 +100,25 @@
           :placeholder="$t(`offerHelp.email_placeholder`)"
         />
 
-        <wizard-next-button
+        <v-btn
+          v-if="!operationFinished"
+          large
+          color="primary"
+          class="offer--form--submitbutton"
           @click.native="send"
           :disabled="!isOfferValid"
           :loading="isButtonLoading"
-        >{{ $t("offerHelp.send_offer") }}</wizard-next-button>
+        >{{ $t("offerHelp.send_offer") }}</v-btn>
       </v-form>
+              <div v-if="operationFinished" class="detailedview--confirmation">
+          <img src="../../assets/green-checkmark.svg"/>
+          <span>{{ $t("offerHelp.successfull_help") }}</span>
+        </div>
     </div>
   </div>
 </template>
 
 <script>
-import WizardNextButton from "../../components/WizardNextButton";
-import WizardStepHeader from "../../components/WizardStepHeader";
-
 import HelpRequestDirectService from "../../services/HelpRequestRealTime";
 import HelpOfferService from "../../services/HelpOfferService";
 import MapSnapshot from "../../services/MapSnapshot";
@@ -62,12 +127,12 @@ import humanTime from "../../utils/timestampToDate";
 
 export default {
   name: "MyRequest",
-  components: { WizardNextButton, WizardStepHeader },
   data() {
     return {
       requestId: this.$route.params.helprequestid,
       loading: true,
       isButtonLoading: false,
+      operationFinished: false,
       hasError: false,
       help: {},
       offer: {
@@ -118,15 +183,12 @@ export default {
       }
       try {
         this.isButtonLoading = true;
-        await HelpOfferService.createHelpOffer(
-          this.requestId,
-          this.offer
-        );
-        this.$router.push({name: 'HelpGivingConfirmation'});
+        await HelpOfferService.createHelpOffer(this.requestId, this.offer);
+        this.operationFinished = true;
         return;
       } catch (e) {
-      this.isButtonLoading = false;
-      this.hasError = true;
+        this.isButtonLoading = false;
+        this.hasError = true;
       }
     }
   }
