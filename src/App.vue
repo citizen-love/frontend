@@ -24,12 +24,6 @@
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import OverlayText from "./components/header/overlay";
-
-<<<<<<< HEAD
-
-import Header from "./components/header/header"
-import Footer from "./components/footer/footer"
-
 /**
  * @description Root layout of the application
  * On start screen header is displayed with logo and possibility to change language of the app
