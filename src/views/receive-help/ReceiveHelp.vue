@@ -121,7 +121,7 @@
           community: this.community,
           customCategory: this.customCategory,
         });
-        this.$analytics.logEvent('button_click','request-next-step-1');
+        this.$analytics.logEvent('button_click',{name:'request-next-step-1'});
         this.$router.push({name: 'ReceiveHelp2'});
       },
       ...mapMutations(helpRequestWizardState.name, {

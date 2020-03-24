@@ -85,7 +85,7 @@
         const payload = Object.assign({}, this.$store.state[helpRequestWizardState.name]);
         payload.language = this.$i18n.locale;
 
-        this.$analytics.logEvent('button_click','request-next-step-2');
+        this.$analytics.logEvent('button_click',{name:'create-help-request'});
 
         HelpRequestService.createHelpRequest(payload)
           .then(() => {
