@@ -5,6 +5,9 @@ import Confirmation from "../views/receive-help/Confirmation";
 import Step2 from "../views/receive-help/Step2";
 import Step3 from "../views/receive-help/Step3";
 import ReceiveHelp from "../views/receive-help/ReceiveHelp";
+import SelectLanguage from "@/views/SelectLanguage";
+import Register from "../views/helper/Register";
+import Confirm from "../views/helper/Confirm";
 
 Vue.use(VueRouter)
 
@@ -16,34 +19,49 @@ const routes = [
       title: 'CitizenLove - Get help in your neighbourhood',
     },
     component: Index
-  },  {
+  }, {
     path: '/receive-help/new',
     name: 'ReceiveHelp',
     meta: {
       title: 'CitizenLove - Receive Help Step 1',
     },
     component: ReceiveHelp
-  },  {
+  }, {
     path: '/receive-help/new/2',
     name: 'ReceiveHelp2',
     meta: {
       title: 'CitizenLove - Receive Help Step 2',
     },
     component: Step2
-  },{
+  }, {
     path: '/receive-help/new/3',
     name: 'ReceiveHelp3',
     meta: {
       title: 'CitizenLove - Receive Help Step 3',
     },
     component: Step3
-  },{
+  }, {
     path: '/receive-help/confirm',
     name: 'ReceiveHelpConfirm',
     meta: {
       title: 'CitizenLove - Receive Help Confirmation',
     },
     component: Confirmation
+  },
+  {
+    path: '/select-language',
+    name: 'SelectLanguage',
+    component: SelectLanguage
+  },
+  {
+    path: '/help/register',
+    name: 'RegisterForHelp',
+    component: Register,
+  },
+  {
+    path: '/help/register/confirm',
+    name: 'RegisterForHelpConfirm',
+    component: Confirm,
   },
   {
     path: '/about',

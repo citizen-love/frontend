@@ -61,7 +61,7 @@ export default {
     "mobile"
   ],
   data() {
-    const snapshotSrc = `https://maps.googleapis.com/maps/api/staticmap?center=${this.coordinates.latitude},${this.coordinates.longitude}&zoom=10&size=200x100&key=${GOOGLE_API_KEY}`;
+    const snapshotSrc = `https://maps.googleapis.com/maps/api/staticmap?center=${this.coordinates.latitude},${this.coordinates.longitude}&zoom=10&size=240x160&key=${GOOGLE_API_KEY}`;
     const limitedCategories =
       this.category.length > 3
         ? [...this.category.filter((item, index) => index < 4), "More..."]
@@ -112,6 +112,8 @@ export default {
   display: flex;
   border-bottom: 1px solid #d3d3d3;
   padding: 18px;
+  padding-left: 0px;
+  width: 75%;
   & > div {
     width: 100%;
   }
