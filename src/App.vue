@@ -70,31 +70,35 @@ export default {
   .desktop--app-wrapper {
     position: absolute;
     top: 10%;
-    left: 10%;
     right: 10%;
-    background-color: white;
-    box-shadow: 1px 1px 3px #c0c0c0;
+    left: 15%;
+    width: 70%;
+    background-color: #fafafa;
+    box-shadow: 0 1px 3px #c0c0c0;
     max-height: 90vh;
-    border-radius: 4px;
+    border-radius: 5px;
     padding-top: 25px !important;
     overflow-y: scroll;
   }
 
   .desktop--app-wrapper::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    border-radius: 2px;
+    border-radius: 5px;
     background-color: #f5f5f5;
+
   }
 
   .desktop--app-wrapper::-webkit-scrollbar {
     width: 6px;
     background-color: #f5f5f538;
+  
   }
 
   .desktop--app-wrapper::-webkit-scrollbar-thumb {
-    border-radius: 2px;
+  
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #FA4659;
+       border-radius: 5px;
   }
 }
 </style>

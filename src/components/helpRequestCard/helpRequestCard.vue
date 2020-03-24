@@ -107,12 +107,17 @@ export default {
     }
   }
 }
-
+.card--desktop--mapimage{
+  object-fit:cover;
+  object-position: center;
+}
 .card--desktop {
   display: flex;
   border-bottom: 1px solid #d3d3d3;
   padding: 18px;
   padding-left: 0px;
+  min-height: 200px;
+  height: 100%;
   width: 75%;
   & > div {
     width: 100%;
