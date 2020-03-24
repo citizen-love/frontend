@@ -8,43 +8,46 @@ import ReceiveHelp from "../views/receive-help/ReceiveHelp";
 import SelectLanguage from "@/views/SelectLanguage";
 import Register from "../views/helper/Register";
 import Confirm from "../views/helper/Confirm";
+// import i18n from '../plugins/i18n';
 
 Vue.use(VueRouter)
+// console.log(this.$i18n.locale)
+
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     meta: {
-      title: 'CitizenLove - Get help in your neighbourhood',
+      title: 'index.page_title'
     },
     component: Index
   }, {
     path: '/receive-help/new',
     name: 'ReceiveHelp',
     meta: {
-      title: 'CitizenLove - Receive Help Step 1',
+      title: 'request_help_process.step1.page_title'
     },
     component: ReceiveHelp
   }, {
     path: '/receive-help/new/2',
     name: 'ReceiveHelp2',
     meta: {
-      title: 'CitizenLove - Receive Help Step 2',
+      title: 'request_help_process.step2.page_title'
     },
     component: Step2
   }, {
     path: '/receive-help/new/3',
     name: 'ReceiveHelp3',
     meta: {
-      title: 'CitizenLove - Receive Help Step 3',
+      title: 'request_help_process.step3.page_title'
     },
     component: Step3
   }, {
     path: '/receive-help/confirm',
     name: 'ReceiveHelpConfirm',
     meta: {
-      title: 'CitizenLove - Receive Help Confirmation',
+      title: 'request_help_process.confirm.page_title'
     },
     component: Confirmation
   },
@@ -52,7 +55,7 @@ const routes = [
     path: '/select-language',
     name: 'SelectLanguage',
     meta: {
-      title: 'CitizenLove - Language selection',
+      title: 'select_language.page_title',
     },
     component: SelectLanguage
   },
@@ -60,7 +63,7 @@ const routes = [
     path: '/help/register',
     name: 'RegisterForHelp',
     meta: {
-      title: 'CitizenLove - Give a helping hand: register now!',
+      title: 'register_as_helper.register.page_title'
     },
     component: Register,
   },
@@ -68,7 +71,7 @@ const routes = [
     path: '/help/register/confirm',
     name: 'RegisterForHelpConfirm',
     meta: {
-      title: 'CitizenLove - Give a helping hand: Confirmation',
+      title:'register_as_helper.register.confirm'
     },
     component: Confirm,
   },
@@ -76,7 +79,7 @@ const routes = [
     path: '/about',
     name: 'About',
     meta: {
-      title: 'CitizenLove - About',
+      title: 'about.page_title',
     },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route

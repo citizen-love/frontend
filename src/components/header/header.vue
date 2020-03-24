@@ -20,8 +20,8 @@
       <p>{{ $t("index.teaser") }}</p>
     </div>
     <div class="header--button-row">
-      <v-btn color="primary" block x-large :to="{name: 'ReceiveHelp'}">{{ $t("index.need_help") }}</v-btn>
-      <v-btn class="helper-register" color="green" block x-large :to="{name: 'RegisterForHelp'}">{{ $t("index.offer_help") }}</v-btn>
+      <v-btn @click.native="logEvent('New need')" color="primary" block x-large :to="{name: 'ReceiveHelp'}">{{ $t("index.need_help") }}</v-btn>
+      <v-btn @click.native="logEvent('New helper')" class="helper-register" color="green" block x-large :to="{name: 'RegisterForHelp'}">{{ $t("index.offer_help") }}</v-btn>
     </div>
   </v-container>
 </template>
@@ -35,6 +35,11 @@ export default {
       return {
         languages: LANGUAGES,
       }
+  },
+  methods: {
+    logEvent(event_name){
+        this.$analytics.logEvent('button_click',{name:event_name, device: 'Mobile', lang: this.$i18n.locale});
+    }
   }
 }
 </script>

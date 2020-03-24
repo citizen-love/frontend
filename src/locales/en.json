@@ -4,6 +4,7 @@
     "language": "Language"
   },
   "index": {
+    "page_title": "Get help in your neighbourhood",
     "main_headline": "Helping Made Easy",
     "teaser": "CitizenLove connects people that can help with people in need. Post your help request if you need help!",
     "need_help": "I need help",
@@ -29,6 +30,7 @@
   "step_x_out_of_y": "Step {current} of {max}",
   "request_help_process": {
     "step1": {
+      "page_title": "Where do you need help?",
       "headline": "Where do you need help?",
       "location": "",
       "location_explained": "Your location will not be shared with anyone. We only use it to notify people near you that want to help.",
@@ -39,6 +41,7 @@
       "next": "Next"
     },
     "step2": {
+      "page_title": "What is your need?",
       "next": "Create help request",
       "headline": "Tell us a bit more...",
       "title": "In one sentence: What do you need?",
@@ -56,6 +59,7 @@
       "email_error_wrong": "Please provide a correct email address."
     },
     "confirm": {
+      "page_title": "Need confirmed",
       "title": "Great success!",
       "subtitle": "Our helpers will contact you shortly by e-mail!",
       "text": "You will receive an e-mail to {email} with a copy of your request.",
@@ -64,6 +68,7 @@
   },
   "register_as_helper": {
     "register": {
+      "page_title": "Helper registration",
       "headline": "Give a helping hand - register now!",
       "location": "Your location",
       "location_explained": "Provide the location where you would like to provide help around.",
@@ -77,6 +82,7 @@
       "next" : "Registrierung abschliessen"
     },
     "confirm": {
+      "page_title": "Helper registration confirmed",
       "title": "Great success!",
       "subtitle": "We will notify you when there is someone in your area who needs help!",
       "text": "You will receive an e-mail to {email} with a copy of your request.",
@@ -84,6 +90,11 @@
     }
   },
   "select_language": {
+    "page_title": "Select your language",
     "title": "Select your language"
+  }
+  ,
+  "about": {
+    "page_title": "About"
   }
 }

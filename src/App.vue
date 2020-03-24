@@ -36,8 +36,9 @@ export default {
         $route: {
             immediate: true,
             handler(to) {
-                document.title = to.meta.title || 'CitizenLove - Get help in your neighbourhood';
-                this.$analytics.logEvent("page_view",{page_title: document.title} );
+              let title = to.meta.title || 'index.page_title'
+              document.title = 'CitizenLove - ' + this.$i18n.t(title)
+              this.$analytics.logEvent("page_view", {name: document.title, lang: this.$i18n.locale} )
             }
         }
   },

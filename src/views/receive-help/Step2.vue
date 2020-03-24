@@ -85,13 +85,13 @@
         const payload = Object.assign({}, this.$store.state[helpRequestWizardState.name]);
         payload.language = this.$i18n.locale;
 
-        this.$analytics.logEvent('button_click',{name:'create-help-request'});
+        this.$analytics.logEvent('button_click', {name:'create-help-request', lang: this.$i18n.locale});
 
         HelpRequestService.createHelpRequest(payload)
           .then(() => {
             this.isBusy = false;
             this.updateStore(helpRequestWizardState.getPlainState());
-            this.$analytics.logEvent('action',{name:'Help request registered'});
+            this.$analytics.logEvent('action', {name:'Help request registered', lang: this.$i18n.locale});
             this.$router.push({name: 'ReceiveHelpConfirm', params: {request: payload}})
           }).catch(e => {
           this.isBusy = false;

@@ -111,13 +111,13 @@
         this.formData.location = `${latitude},${longitude}`
       },
       registerHelper() {
-        this.$analytics.logEvent('button_click',{name:'register-helper'});
+        this.$analytics.logEvent('button_click', {name:'register-helper', lang: this.$i18n.locale});
         this.isBusy = true;
         const postObject = Object.assign({}, this.formData)
         postObject.language = this.$i18n.locale;
         HelperService.registerHelper(postObject)
           .then(() => {
-            this.$analytics.logEvent('action',{name:'Helper registered'});
+            this.$analytics.logEvent('action',{name:'Helper registered', lang: this.$i18n.locale});
             this.$router.push({name: 'RegisterForHelpConfirm', params: {request: postObject}},);
             this.isBusy = false;
           })

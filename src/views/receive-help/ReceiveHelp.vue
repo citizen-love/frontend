@@ -98,7 +98,7 @@
         }
       },
       logCategoryEvent(category){
-        this.$analytics.logEvent('need_category_select',{name: category});
+        this.$analytics.logEvent('need_category_select',{name: category, lang: this.$i18n.locale});
       },
       getAddressData({
                        locality = '',
@@ -121,7 +121,7 @@
           community: this.community,
           customCategory: this.customCategory,
         });
-        this.$analytics.logEvent('button_click',{name:'request-next-step-1'});
+        this.$analytics.logEvent('button_click', {name:'request-next-step-1', lang: this.$i18n.locale});
         this.$router.push({name: 'ReceiveHelp2'});
       },
       ...mapMutations(helpRequestWizardState.name, {
