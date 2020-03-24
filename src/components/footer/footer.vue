@@ -39,27 +39,42 @@ export default {
 
 .footer--row {
   border-top: 1px solid #d3d3d3;
-  width: 90%;
+  width: 100%;
+  padding: 0 5%;
   margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
+  height: 50px;
   & > div {
     width: 33%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: Work Sans;
-    font-size: 10px;
+    font-size: 11px;
     line-height: 16px;
     letter-spacing: 0.25px;
   }
 }
 .footer--sm-wrapper {
     justify-content: flex-start!important;
+    & > img{
+      cursor: pointer;
+      height: 16px;
+      margin: 0 8px;
+    }
 }
 .footer--url-wrapper {
     justify-content: space-around!important;
+    & > a{
+      color: #000;
+    }
+}
+.overlay--row--languageitem{
+  color: #000;
+  font-weight: 500;
+  padding-left: 4px;
+  text-decoration: none;
 }
 </style>

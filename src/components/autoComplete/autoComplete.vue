@@ -15,7 +15,6 @@
   margin: auto;
   margin-top: 10px;
   margin-bottom: 25px;
-  background-color: #fff;
   font-size: 1em;
   border: 0;
   max-width: 350px;
