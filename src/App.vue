@@ -55,7 +55,7 @@ export default {
 
 @media only screen and (min-width: 650px) {
   html {
-    background: url("./assets/header-asset-background.jpg") no-repeat center
+    background: url("./assets/background-hd-min.jpg") no-repeat center
       center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
