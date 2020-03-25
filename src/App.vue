@@ -54,9 +54,19 @@ export default {
 @import "./styles/globals";
 
 @media only screen and (min-width: 650px) {
-  #app {
-    background-image: url("./assets/header-asset-background.jpg") !important;
+  html {
+    background: url("./assets/header-asset-background.jpg") no-repeat center
+      center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
+  }
+  #app {
+    background: 0!important;
+  }
+  #app > .v-application--wrap {
+    height: 100%;
   }
   .desktop--app-wrapper {
     position: absolute;
@@ -66,30 +76,9 @@ export default {
     width: 70%;
     background-color: #fafafa;
     box-shadow: 0 1px 3px #c0c0c0;
-    max-height: 90vh;
+    //min-height: 90vh;
     border-radius: 5px;
     padding-top: 25px !important;
-    overflow-y: scroll;
-  }
-
-  .desktop--app-wrapper::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
-    background-color: #f5f5f5;
-
-  }
-
-  .desktop--app-wrapper::-webkit-scrollbar {
-    width: 6px;
-    background-color: #f5f5f538;
-  
-  }
-
-  .desktop--app-wrapper::-webkit-scrollbar-thumb {
-  
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #FA4659;
-       border-radius: 5px;
   }
 }
 </style>
