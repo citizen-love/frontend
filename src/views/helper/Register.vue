@@ -1,16 +1,16 @@
 <template>
   <div class="has-wizard">
     <div>
-      <v-btn icon x-large @click="$router.go(-1)">
+      <v-btn class='arrow-left' icon x-large @click="$router.go(-1)">
         <v-icon>mdi-arrow-left</v-icon>
       </v-btn>
     </div>
     <v-form :v-model="isFormValid">
       <h1>{{ $t("register_as_helper.register.headline")}}</h1>
-      <h2>
+      <h5>
         {{ $t("register_as_helper.register.location")}}
-      </h2>
-      <span>{{ $t("register_as_helper.register.location_explained") }}</span>
+      </h5>
+      <span >{{ $t("register_as_helper.register.location_explained") }}</span>
       <div>
         <vue-google-autocomplete
           id="map"
@@ -21,9 +21,9 @@
           v-on:placechanged="getAddressData"
         />
       </div>
-      <h2>
+      <h5>
         {{ $t("register_as_helper.register.radius")}}
-      </h2>
+      </h5>
       <span>{{ $t("register_as_helper.register.radius_explained") }}</span>
       <v-slider
         class="slider"
@@ -38,45 +38,49 @@
         </template>
       </v-slider>
 
-      <h2>
+      <h5>
         {{ $t("register_as_helper.register.email")}}
-      </h2>
+      </h5>
       <span>{{ $t("register_as_helper.register.email_explained") }}</span>
       <v-text-field
+       class="text-input"
         required
         v-model="formData.email"
         :rules="emailRules"
         :placeholder="$t('request_help_process.step2.email_placeholder')"/>
-      <h2>
+      <h5>
         {{ $t("register_as_helper.register.phone")}}
-      </h2>
+      </h5>
       <span>{{ $t("register_as_helper.register.phone_explained") }}</span>
       <v-text-field
+       class="text-input"
         v-model="formData.phone"
         :placeholder="$t('register_as_helper.register.phone_placeholder')">
 
       </v-text-field>
     </v-form>
-
-    <wizard-next-button
+    
+   
+    <v-btn
+      class='next-button'
+      color="secondary"
       @click.native="registerHelper"
       :disabled="!isFormDataValid"
       :loading="isBusy"
       :placeholder="$t('request_help_process.step2.email_placeholder')">
       {{ $t("register_as_helper.register.next")}}
-    </wizard-next-button>
+    </v-btn>
 
   </div>
 </template>
 
 <script>
   import VueGoogleAutocomplete from 'vue-google-autocomplete'
-  import WizardNextButton from '../../components/WizardNextButton'
   import HelperService from "../../services/HelperService";
 
   export default {
     name: "Register",
-    components: {VueGoogleAutocomplete, WizardNextButton},
+    components: {VueGoogleAutocomplete},
     data() {
       return {
         isBusy: false,
@@ -129,21 +133,86 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+  .has-wizard{
+    width: 90%;
+    margin: auto;
+  
+  }
+  .v-form {
+      width: 90%;
+      & > h5{
+        font-family: Work Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 28px;
+        margin-top: 24px;
+        margin-bottom: 12px;
+      }
+    & > span{
+      display: block;
+      width: 70%;
+  font-family: Work Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
 
+  }
+  }
   .slider {
     margin-top: 60px;
+    width: 50%;
   }
-
+   .arrow-left{
+     margin-left: -2%;
+   }
+    .text-input{
+      width: 50%;
+      & :placeholder{
+                font-family: Work Sans;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 20px;
+                letter-spacing: 0.25px;
+      }
+    }
+   
   .autocomplete-input {
-    padding: 9px 6px 9px 24px;
+    padding: 9px 6px 9px 0px;
     margin-top: 10px;
     margin-bottom: 25px;
-    background-color: #fff;
-    border-radius: 4px;
     font-size: 1em;
     border: 0;
-    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
-    width: 100%;
+    border-bottom: 0.5px solid #B5B5B5;
+    width: 50%;
+    outline: none;
+         & :placeholder{
+                font-family: Work Sans;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 20px;
+                letter-spacing: 0.25px;
+      }
+  }
+  .next{
+    position: relative;
+    padding: 0;
+    width: calc(50% - 39px);
+ }
+    .next-button{
+    min-width: fit-content;
+    font-family: Work Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    color: #FFFFFF;
+    background-color: #3EA060;
+    border-radius: 5px;
   }
 </style>

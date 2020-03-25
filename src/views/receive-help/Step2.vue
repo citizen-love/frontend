@@ -1,36 +1,40 @@
 <template>
   <div class="has-wizard">
-    <wizard-step-header current-step="2" max-steps="2"/>
+    <wizard-step-header current-step="2" max-steps="2" class='step-header'/>
     <h1>
       {{ $t("request_help_process.step2.headline")}}</h1>
     <v-form v-model="isFormValid">
-      <h2>
-        {{ $t("request_help_process.step2.title")}}</h2>
+      <h5>
+        {{ $t("request_help_process.step2.title")}}</h5>
       <span>
       {{ $t("request_help_process.step2.title_explained")}}</span>
       <v-text-field
+      class='text-input'
         required
         v-model="formData.title"
         :rules="titleRules"
         :placeholder="$t('request_help_process.step2.title_placeholder')"/>
-      <h2>{{ $t("request_help_process.step2.desc") }}</h2>
+      <h5>{{ $t("request_help_process.step2.desc") }}</h5>
       <span>{{ $t("request_help_process.step2.desc_explained") }}</span>
       <v-textarea
+        class='text-area'
         v-model="formData.description"
         :placeholder="$t('request_help_process.step2.desc_placeholder')"
         counter="500"
         :rules="descRules"
         required/>
 
-      <h2>{{ $t("request_help_process.step2.email") }}</h2>
+      <h5>{{ $t("request_help_process.step2.email") }}</h5>
       <span>{{ $t("request_help_process.step2.email_explained") }}</span>
       <v-text-field
+      class='text-input'
         required
         v-model="formData.email"
         :rules="emailRules"
         :placeholder="$t('request_help_process.step2.email_placeholder')"/>
     </v-form>
     <wizard-next-button
+    class='next'
       @click.native="next"
       :loading="isBusy"
       :disabled="!isFormValid">
@@ -102,6 +106,65 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang='scss'>
+  .has-wizard{
+    width: 90%;
+    margin: auto;
+    & > h1{
+      margin-left: -4px;
+    }
+  
+  }
+  .step-header{
+    margin-bottom: 24px;
+  }
+  .next{
+      position: relative;
+    padding: 0;
+    width: calc(60% - 39px);
+    margin-top: 24px;
 
+  }
+  .text-area{
+    width: 60%;
+       & :placeholder{
+                font-family: Work Sans;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 20px;
+                letter-spacing: 0.25px;
+      }
+  }
+   .text-input{
+      width: 60%;
+      & :placeholder{
+                font-family: Work Sans;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 20px;
+                letter-spacing: 0.25px;
+      }
+    }
+    .v-form {
+      width: 90%;
+      & > h5{
+        font-family: Work Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 28px;
+        margin-top: 24px;
+        margin-bottom: 12px;
+      }
+        & > span{
+      display: block;
+      width: 60%;
+  font-family: Work Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+      }}
 </style>

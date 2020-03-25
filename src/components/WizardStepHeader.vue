@@ -28,6 +28,8 @@
   }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.v-btn{
+  margin-left: -2%;
+}
 </style>
