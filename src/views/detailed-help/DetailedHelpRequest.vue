@@ -179,7 +179,7 @@ export default {
             lon: requestObject.coordinates.longitude
           },
           14,
-          "340x160"
+          "680x320"
         )
       };
       this.loading = false;

@@ -129,10 +129,8 @@ export default {
       locality = "",
       country = "",
       latitude = 0,
-      longitude = 0,
-      ...rest
+      longitude = 0
     }) {
-      console.log(rest);
       this.community = locality;
       this.country = country;
       this.location = `${latitude},${longitude}`;

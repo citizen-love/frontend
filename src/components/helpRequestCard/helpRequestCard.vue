@@ -25,7 +25,7 @@
     >{{ $t("index.cards_offer_help") }}</v-btn>
   </div>
 
-  <div class="card--desktop" v-else>
+  <div class="card--desktop" v-else @click="navigateToSingle">
     <img class="card--desktop--mapimage" v-bind:src="snapshotSrc"/>
 
     <div class="card--desktop--content">
@@ -40,7 +40,7 @@
             class="card--desktop--categoryElement"
           >{{item}}</span>
         </div>
-        <v-icon @click="navigateToSingle">mdi-arrow-right</v-icon>
+        <v-icon>mdi-arrow-right</v-icon>
       </div>
     </div>
   </div>
@@ -92,11 +92,9 @@ export default {
     align-items: center;
     justify-content: space-between;
     margin-top: 16px;
-    margin-bottom: 16px;
     padding: 16px;
   }
   &--content {
-    margin-top: 16px;
     margin-bottom: 16px;
     text-align: left;
   }
@@ -118,6 +116,7 @@ export default {
 }
 .card--desktop {
   display: flex;
+  cursor: pointer;
   border-bottom: 1px solid #d3d3d3;
   padding: 18px;
   padding-left: 0px;
