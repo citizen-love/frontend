@@ -139,8 +139,8 @@ export default {
         timeOfCreation: humanTime(help.createdAt),
         mapSource: MapSnapshot.getStaticUrl(
           {
-            lat: help.coordinates.latitude,
-            lon: help.coordinates.longitude
+            lat: help.coordinates._latitude,
+            lon: help.coordinates._longitude
           },
           14,
           "680x320"
