@@ -134,7 +134,6 @@ export default {
       const help = await HelpRequestService.getHelpRequestData(
         this.requestHash
       );
-      console.log(help);
       this.help = {
         ...help,
         timeOfCreation: humanTime(help.createdAt),
