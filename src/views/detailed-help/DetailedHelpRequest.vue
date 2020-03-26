@@ -72,7 +72,7 @@
     </div>
 
     <div v-if="hasError" class="detailedview--center">
-      <p>{{ $t("offerHelp.error_happened_notfound") }}</p>
+      <p>{{ $t("offerHelp.pageNotFound") }}</p>
     </div>
 
     <div v-else class="detailedview--root">
@@ -91,26 +91,26 @@
       </div>
 
       <v-form v-model="isOfferValid" class="offer--form">
-        <h2>{{ $t("offerHelp.phone_label") }}</h2>
+        <h2>{{ $t("offerHelp.phoneTitle") }}</h2>
         <v-text-field
           v-model="offer.phone"
           prepend-inner-icon="mdi-phone-outline"
-          :placeholder="$t(`offerHelp.phone_placeholder`)"
+          :placeholder="$t(`offerHelp.phonePlaceholder`)"
         />
-        <h2>{{ $t("offerHelp.message_label") }}</h2>
+        <h2>{{ $t("offerHelp.messageTitle") }}</h2>
         <v-textarea
           required
           counter="500"
           v-model="offer.offerBody"
           :rules="descRules"
-          :placeholder="$t(`offerHelp.message_placeholder`)"
+          :placeholder="$t(`offerHelp.messagePlaceholder`)"
         />
-        <h2>{{ $t("offerHelp.email_label") }}</h2>
+        <h2>{{ $t("offerHelp.emailTitle") }}</h2>
         <v-text-field
           required
           v-model="offer.email"
           :rules="emailRules"
-          :placeholder="$t(`offerHelp.email_placeholder`)"
+          :placeholder="$t(`offerHelp.emailPlaceholder`)"
         />
 
         <v-btn
@@ -121,7 +121,7 @@
           @click.native="send"
           :disabled="!isOfferValid"
           :loading="isButtonLoading"
-        >{{ $t("offerHelp.send_offer") }}</v-btn>
+        >{{ $t("offerHelp.sendButton") }}</v-btn>
       </v-form>
       <div v-if="operationFinished" class="detailedview--confirmation">
         <img src="../../assets/green-checkmark.svg" />

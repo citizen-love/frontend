@@ -6,14 +6,14 @@
       </v-btn>
     </div>
     <v-form :v-model="isFormValid">
-      <h1>{{ $t("register_as_helper.register.headline")}}</h1>
-      <h5>{{ $t("register_as_helper.register.location")}}</h5>
-      <span>{{ $t("register_as_helper.register.location_explained") }}</span>
+      <h1>{{ $t("register.mainTitle")}}</h1>
+      <h5>{{ $t("register.locationTitle")}}</h5>
+      <span>{{ $t("register.locationDescription") }}</span>
       <div>
         <AutoComplete v-bind:updateLocation="getAddressData" />
       </div>
-      <h5>{{ $t("register_as_helper.register.radius")}}</h5>
-      <span>{{ $t("register_as_helper.register.radius_explained") }}</span>
+      <h5>{{ $t("register.radiusTitle")}}</h5>
+      <span>{{ $t("register.radiusDescription") }}</span>
       <v-slider
         class="slider"
         thumb-label="always"
@@ -25,21 +25,21 @@
         <template v-slot:thumb-label="{ value }">{{ value }} km</template>
       </v-slider>
 
-      <h5>{{ $t("register_as_helper.register.email")}}</h5>
-      <span>{{ $t("register_as_helper.register.email_explained") }}</span>
+      <h5>{{ $t("register.emailTitle")}}</h5>
+      <span>{{ $t("register.emailDescription") }}</span>
       <v-text-field
         class="text-input"
         required
         v-model="formData.email"
         :rules="emailRules"
-        :placeholder="$t('request_help_process.step2.email_placeholder')"
+        :placeholder="$t('register.emailDescription')"
       />
-      <h5>{{ $t("register_as_helper.register.phone")}}</h5>
-      <span>{{ $t("register_as_helper.register.phone_explained") }}</span>
+      <h5>{{ $t("register.phoneTitle")}}</h5>
+      <span>{{ $t("register.phoneDescription") }}</span>
       <v-text-field
         class="text-input"
         v-model="formData.phone"
-        :placeholder="$t('register_as_helper.register.phone_placeholder')"
+        :placeholder="$t('register.phonePlaceholder')"
       ></v-text-field>
     </v-form>
 
@@ -49,8 +49,7 @@
       @click.native="registerHelper"
       :disabled="!isFormDataValid"
       :loading="isBusy"
-      :placeholder="$t('request_help_process.step2.email_placeholder')"
-    >{{ $t("register_as_helper.register.next")}}</v-btn>
+    >{{ $t("register.registerButton")}}</v-btn>
   </div>
 </template>
 
@@ -73,10 +72,10 @@ export default {
       },
       isFormValid: false,
       emailRules: [
-        v => !!v || this.$t("request_help_process.step2.email_error_missing"),
+        v => !!v || this.$t("receiveHelp2.formEmailError"),
         v =>
           /[^@\s]+@[^@\s]+\.[^@\s]/.test(v) ||
-          this.$t("request_help_process.step2.email_error_wrong")
+          this.$t("receiveHelp2.formEmailWrong")
       ]
     };
   },

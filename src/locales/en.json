@@ -68,17 +68,16 @@
     "emailTitle": "Your E-Mail address",
     "emailDescription": "We will send help requests from people in need to this address.",
     "emailPlaceholder": "you@domain.com",
-    "emailError": "UNDEFINED",
     "phoneTitle": "Your phone number (optional)",
     "phoneDescription": "In a later version we would like to send help requests to your phone numbers so that you can help faster. If you want, you can enter it already.",
     "phonePlaceholder": "e.g. +41 73 ....",
-    "registerButton": "Succesful registration"
+    "registerButton": "Register"
   },
   "registerHelpConfirm": {
-    "mainTitle": "Great success!",
-    "mainDescription": "We will notify you when there is someone in your area who needs help!",
-    "mainExplanation": "You will receive an e-mail to {email} with a copy of your request.",
-    "backToButton": "Back to start"
+    "mainTitle": "High five!",
+    "mainDescription": "You are awesome! We will notify you about people in your area who need help.",
+    "mainExplanation": "You will receive a confirmation to {email} with a copy of your request.",
+    "backToButton": "Back to Homepage"
   },
   "offerHelp": {
     "phoneTitle": "Your phone number (optional)",
@@ -91,11 +90,12 @@
     "emailError": "Please provide a valid email",
     "sendButton": "Send",
     "helpConfirmation": "UNDEFINED",
-    "pagenotFound": "Page not found",
+    "pageNotFound": "There is no request for this id, sorry!",
     "pageErrorHappened": "Unexpected error happened"
   },
   "editHelp": {
-    "buttonCompleted": "Completed",
-    "buttonCancelled": "Abandoned"
+    "buttonCompleted": "Mark as complete",
+    "buttonCancelled": "Delete",
+    "notFound": "There is no request with this ID."
   }
 }

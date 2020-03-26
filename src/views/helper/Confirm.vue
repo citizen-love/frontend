@@ -3,14 +3,14 @@
     <div>
       <v-icon size="160px" color="green">mdi-check-circle-outline</v-icon>
     </div>
-    <h1>{{ $t("register_as_helper.confirm.title") }}</h1>
-    <h2> {{ $t("register_as_helper.confirm.subtitle") }}</h2>
-    <i18n tag="p" path="request_help_process.confirm.text">
+    <h1>{{ $t("registerHelpConfirm.mainTitle") }}</h1>
+    <h2> {{ $t("registerHelpConfirm.mainDescription") }}</h2>
+    <i18n tag="p" path="registerHelpConfirm.mainExplanation">
       <strong place="email">{{ email }}</strong>
     </i18n>
     <p>
       <v-btn :to="{name: 'Home'}" color="primary">
-        {{ $t("register_as_helper.confirm.back_to_start_btn")}}
+        {{ $t("registerHelpConfirm.backToButton")}}
       </v-btn>
     </p>
   </div>
