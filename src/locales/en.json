@@ -1,7 +1,8 @@
 {
   "general": {
-    "language": "Choose a language:",
-    "step_x_out_of_y": "Step {current} of {max}"
+    "language": "Language",
+    "step_x_out_of_y": "Step {current} of {max}",
+    "chooseLanguage": "Choose a language:"
   },
   "index": {
     "mainTitle": "Find people who need help during the COVID-19 outbreak.",
@@ -26,7 +27,7 @@
   "receiveHelp": {
     "navigationTitle": "UNDEFINED",
     "mainTitle": "Where do you need help?",
-    "mainDescription": "Your location will not be shared with anyone. We only use it to notify people near you that someone needs help.",
+    "mainDescription": "Your location will not be shared with anyone. We only need it so that we now more or less where you are in order to find people in your area that can help you.",
     "locationPlaceholder": "e.g. 10 Downing Street, London SW1A 2AA",
     "categoryTitle": "What do you need help with?",
     "categoryDescription": "Select one or more",
@@ -48,8 +49,6 @@
     "formEmailPlaceholder": "you@domain.com",
     "formEmailError": "Please provide an email address.",
     "formEmailWrong": "Please provide a valid email address.",
-    "categoryTitle": "UNDEFINED",
-    "categoryDescription": "UNDEFINED",
     "createButton": "Publish help request"
   },
   "receiveHelpConfirm": {
@@ -62,14 +61,13 @@
     "mainTitle": "Give a helping hand - register now!",
     "locationTitle": "Your location",
     "locationDescription": "Provide the location where you would like to provide help around.",
-    "locationPlaceholder": "UDNEFINED",
     "radiusTitle": "Radius",
     "radiusDescription": "Provide in which radius you want to be notified.",
     "emailTitle": "Your E-Mail address",
     "emailDescription": "We will send help requests from people in need to this address.",
-    "emailPlaceholder": "you@domain.com",
+    "emailPlaceholder": "e.g. you@domain.com",
     "phoneTitle": "Your phone number (optional)",
-    "phoneDescription": "In a later version we would like to send help requests to your phone numbers so that you can help faster. If you want, you can enter it already.",
+    "phoneDescription": "At a later stage, we would like to send help requests to your phone numbers so that you can help faster. If you want, you can enter it already.",
     "phonePlaceholder": "e.g. +41 73 ....",
     "registerButton": "Register"
   },
@@ -83,7 +81,7 @@
     "phoneTitle": "Your phone number (optional)",
     "phonePlaceholder": "e.g. +41 73 ....",
     "messageTitle": "Your message",
-    "messagePlaceholder": "Yes I can help You",
+    "messagePlaceholder": "Yes I can help you",
     "messageError": "Please provide a message!",
     "emailTitle": "Your E-Mail address",
     "emailPlaceholder": "you@domain.com",
