@@ -1,17 +1,17 @@
 <template>
   <div class="has-wizard">
     <wizard-step-header current-step="1" max-steps="2" class="step-header" />
-    <h1>{{ $t('request_help_process.step1.headline')}}</h1>
+    <h1>{{ $t('receiveHelp.mainTitle')}}</h1>
     <div class="adress-part">
-      <span>{{ $t("request_help_process.step1.location_explained") }}</span>
+      <span>{{ $t("receiveHelp.mainDescription") }}</span>
       <AutoComplete
         v-bind:updateLocation="getAddressData"
         v-bind:defaultValue="inputShownAddress"
       />
     </div>
-    <h5 class="categories-heading">{{ $t('request_help_process.step1.where_do_you_need_help')}}</h5>
+    <h5 class="categories-heading">{{ $t('receiveHelp.categoryTitle')}}</h5>
     <div class="categories">
-      <span>{{ $t("request_help_process.step1.select_category") }}</span>
+      <span>{{ $t("receiveHelp.categoryDescription") }}</span>
       <v-btn
         v-for="category in categories"
         v-bind:key="category.key"
@@ -29,14 +29,14 @@
         v-if="showOtherCategory"
         outlined
         v-model="customCategory"
-        :placeholder="$t('request_help_process.step1.other_category_placeholder')"
+        :placeholder="$t('receiveHelp.otherCategoryPlaceholder')"
       />
     </div>
     <wizard-next-button
       class="next"
       @click.native="next"
       :disabled="!isFormValid"
-    >{{ $t("request_help_process.step1.next")}}</wizard-next-button>
+    >{{ $t("receiveHelp.nextButton")}}</wizard-next-button>
   </div>
 </template>
 

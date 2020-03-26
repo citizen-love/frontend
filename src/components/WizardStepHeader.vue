@@ -7,7 +7,7 @@
     </div>
     <span>
       {{
-      $t('step_x_out_of_y', {
+      $t('general.step_x_out_of_y', {
         current: currentStep,
         max : maxSteps
       })

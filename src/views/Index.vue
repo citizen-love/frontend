@@ -7,7 +7,7 @@
         <DesktopHeader/>
       </div>
       <div class="autosuggest-container">
-        <h1>{{relevantRequests.length}} {{ $t('index.amount_people_need_help')}}</h1>
+        <h1>{{relevantRequests.length}} {{ $t('index.peopleAroundYou')}}</h1>
         <AutoComplete v-bind:updateLocation="updateLocation" />
       </div>
     </div>

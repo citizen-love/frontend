@@ -15,8 +15,8 @@
       >{{ languages.find( l => l.locale === $i18n.locale).name }}</router-link>
     </div>
     <div class="footer--url-wrapper">
-      <a>{{ $t("footer.privacyPolicy") }}</a>
-      <a>{{ $t("footer.contactUs") }}</a>
+      <a>{{ $t("index.privacyPolicy") }}</a>
+      <a>{{ $t("index.contactUs") }}</a>
     </div>
   </div>
 </template>

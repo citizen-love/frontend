@@ -12,16 +12,16 @@
             </router-link>
           </div>
         </template>
-        <span>{{ $t("select_language.title") }}</span>
+        <span>{{ $t("general.language") }}</span>
       </v-tooltip>
     </div>
     <div class="header--copy-row">
-      <h1>{{ $t("index.main_headline") }}</h1>
-      <p>{{ $t("index.teaser") }}</p>
+      <h1>{{ $t("index.mainTitle") }}</h1>
+      <p>{{ $t("index.mainDescription") }}</p>
     </div>
     <div class="header--button-row">
-      <v-btn color="primary" block x-large :to="{name: 'ReceiveHelp'}">{{ $t("index.need_help") }}</v-btn>
-      <v-btn class="helper-register" color="green" block x-large :to="{name: 'RegisterForHelp'}">{{ $t("index.offer_help") }}</v-btn>
+      <v-btn color="primary" block x-large :to="{name: 'ReceiveHelp'}">{{ $t("index.buttonNeedHelp") }}</v-btn>
+      <v-btn class="helper-register" color="green" block x-large :to="{name: 'RegisterForHelp'}">{{ $t("index.buttonNotifyMe") }}</v-btn>
     </div>
   </v-container>
 </template>
