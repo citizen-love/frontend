@@ -41,7 +41,8 @@ export default {
   data() {
     return {
       relevantRequests: [],
-      mobile: window.innerWidth <= 650
+      mobile: window.innerWidth <= 650,
+      inputShownAddress: "",
     };
   },
   async mounted() {
