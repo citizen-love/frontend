@@ -35,16 +35,16 @@
         "nextButton": "Weiter"
     },
     "receiveHelp2": {
-        "mainTitle": "Tell us a bit more...",
+        "mainTitle": "Erzähl uns etwas mehr...",
         "formDescTitle": "In einem Satz: Was benötigst du?",
         "formDescDescription": "Fasse dich kurz aber sei spezifisch.",
         "formDescPlaceholder": "z.B. Kinderbetreuung für 5 Stunden am Montag 23.03.",
         "formDescError": "Dies ist ein Pflichtfeld.",
         "formDetailsTitle": "Details",
         "formDetailsDescription": "Bitte gib alle Details zu deiner Anfrage (ausser Standort und Kontaktangaben) an so dass Helfer wissen ob sie dich unterstützen können. (z.B. was, wann, wie lange, benötigte Hilfsmittel etc.)",
-        "formDetailsPlaceholder": "z.B. Ich arbeite als Krankenschwester im Spital und habe eine Zusatzschicht am Montag 23.03.2020. Meine drei Mädchen im Alter von 7, 10 und 12 benötigen jemanden der sich für 5 Stunden, von 13:00 bis 18:00 Uhr, um sie kümmert. Ich kann sie überall innerhalb 30 Minuten vom Spital vorbeibringen und wieder abholen. Ich kann Sie leider nicht finanziell entschädigen aber wäre Ihnen wahnsinnig dankbar!",
+        "formDetailsPlaceholder": "z.B. Ich arbeite als Krankenschwester im Spital und habe eine Zusatzschicht am Montag 23.03.2020. Meine drei Mädchen im Alter von 7, 10 und 12 benötigen jemanden der sich für 5 Stunden, von 13:00 bis 18:00 Uhr, um sie kümmert. Ich kann sie überall innerhalb 30 Minuten vom Spital vorbeibringen und wieder abholen. Ich kann Sie leider nicht finanziell entschädigen aber wäre Ihnen wahnsinnig dankbar.",
         "formDetailsError": "Dies ist ein Pflichtfeld.",
-        "formEmailTitle": "Deine Emailadresse:",
+        "formEmailTitle": "Deine Emailadresse",
         "formEmailDescription": "Wir senden Hilfeangebote an diese Emailadresse.\nDeine Emailadresse wird niemals mit jemandem geteilt.",
         "formEmailPlaceholder": "z.B. du@gmail.com",
         "formEmailError": "Bitte gib deine Emailadresse an.",
@@ -62,44 +62,44 @@
     "register": {
         "mainTitle": "Give a helping hand - register now!",
         "mainDescription": "Register as a helper in your neighborhood. We will inform you as soon somebody requires support.",
-        "locationTitle": "Your location",
+        "locationTitle": "Wo können wir dich unterstützen?",
         "locationDescription": "Provide the location where you would like to provide help around.",
         "locationPlaceholder": "UDNEFINED",
-        "radiusTitle": "Radius",
+        "radiusTitle": "Wie weit entfernt möchtest du helfen?",
         "radiusDescription": "Provide in which radius you want to be notified.",
-        "emailTitle": "Your E-Mail address",
+        "emailTitle": "Deine E-Mail-Adresse",
         "emailDescription": "We will send help requests from people in need to this address.",
         "emailPlaceholder": "you@domain.com",
-        "phoneTitle": "Your phone number (optional)",
+        "phoneTitle": "Deine Telefonnummer (optional)",
         "phoneDescription": "In a later version we would like to send help requests to your phone numbers so that you can help faster. If you want, you can enter it already.",
         "phonePlaceholder": "e.g. +41 73 ....",
-        "registerButton": "Register"
+        "registerButton": "Registrieren"
     },
     "registerHelpConfirm": {
         "mainTitle": "High five!",
         "mainDescription": "You are awesome! We will notify you about people in your area who need help.",
         "mainExplanation": "You will receive a confirmation to {email} with a copy of your request.",
-        "backToButton": "Back to Homepage"
+        "backToButton": "Zurück zur Startseite"
     },
     "offerHelp": {
-        "phoneTitle": "Your phone number (optional)",
+        "phoneTitle": "Deine Telefonnummer (optional)",
         "phonePlaceholder": "e.g. +41 73 ....",
-        "messageTitle": "Your message",
+        "messageTitle": "Wie kannst du helfen?",
         "messagePlaceholder": "Yes I can help You",
-        "messageError": "Please provide a message!",
-        "emailTitle": "Your E-Mail address",
+        "messageError": "Sag uns, wie du helfen kannst.",
+        "emailTitle": "Deine E-Mail-Adresse",
         "emailPlaceholder": "you@domain.com",
-        "emailError": "Please provide a valid email",
+        "emailError": "Bitte gib eine gültige E-Mail-Adresse an",
         "sendButton": "Send",
-        "helpConfirmation": "UNDEFINED",
-        "pageNotFound": "There is no request for this id, sorry!",
-        "pageErrorHappened": "Unexpected error happened",
+        "helpConfirmation": "Grossartig! Deine Nachricht ist auf dem Weg.",
+        "pageNotFound": "Für diese ID gibt es keine Anfrage, sorry!",
+        "pageErrorHappened": "Da ist etwas schiefgegangen",
         "offerTitle": "Kannst du helfen?",
         "offerDescription": "Gib unten deine Details in und wir werden die Person bitten, dich zu kontaktieren."
     },
     "editHelp": {
         "buttonCompleted": "Mark as complete",
         "buttonCancelled": "Delete",
-        "notFound": "There is no request with this ID."
+        "notFound": "Für diese ID gibt es keine Anfrage."
     }
 }
