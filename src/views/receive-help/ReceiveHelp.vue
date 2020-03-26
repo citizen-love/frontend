@@ -4,10 +4,7 @@
     <h1>{{ $t('receiveHelp.mainTitle')}}</h1>
     <div class="adress-part">
       <span>{{ $t("receiveHelp.mainDescription") }}</span>
-      <AutoComplete
-        v-bind:updateLocation="getAddressData"
-        v-bind:defaultValue="inputShownAddress"
-      />
+      <AutoComplete v-bind:updateLocation="getAddressData" />
     </div>
     <h5 class="categories-heading">{{ $t('receiveHelp.categoryTitle')}}</h5>
     <div class="categories">
@@ -46,8 +43,6 @@ import WizardNextButton from "../../components/WizardNextButton";
 import AutoComplete from "../../components/autoComplete/autoComplete";
 import { mapMutations } from "vuex";
 import * as helpRequestWizardState from "../../store/HelpRequestWizardState";
-
-import GeoLocation from "../../services/GeoLocation/GeoLocation";
 
 export default {
   name: "ReceiveHelp",
@@ -111,10 +106,6 @@ export default {
     showOtherCategory() {
       return this.selected.indexOf("else") !== -1;
     }
-  },
-  async mounted(){
-      const fullAddress = await GeoLocation.getReverseLocation();
-      this.inputShownAddress = fullAddress;
   },
   methods: {
     toggle(categoryKey) {
@@ -193,7 +184,7 @@ export default {
     font-family: Work Sans;
     font-style: normal;
     font-weight: normal;
-    font-size: 10px;
+    font-size: 13px;
     line-height: 12px;
   }
 }
@@ -213,7 +204,7 @@ export default {
     font-family: Work Sans;
     font-style: normal;
     font-weight: normal;
-    font-size: 10px;
+    font-size: 13px;
     line-height: 12px;
     margin-bottom: 24px;
   }
@@ -226,23 +217,4 @@ export default {
 .custom-category {
   max-width: 600px;
 }
-
-/*.autocomplete-input {
-   padding: 9px 6px 9px 0px;
-    margin-top: 10px;
-    margin-bottom: 25px;
-    font-size: 1em;
-    border: 0;
-    border-bottom: 0.5px solid #B5B5B5;
-    width: 45%;
-    outline: none;
-         & :placeholder{
-                font-family: Work Sans;
-                font-style: normal;
-                font-weight: normal;
-                font-size: 14px;
-                line-height: 20px;
-                letter-spacing: 0.25px;
-      }
-  }*/
 </style>

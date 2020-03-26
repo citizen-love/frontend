@@ -21,7 +21,7 @@
     </div>
     <div class="header--button-row">
       <v-btn color="primary" block x-large :to="{name: 'ReceiveHelp'}">{{ $t("index.buttonNeedHelp") }}</v-btn>
-      <v-btn class="helper-register" color="green" block x-large :to="{name: 'RegisterForHelp'}">{{ $t("index.buttonNotifyMe") }}</v-btn>
+      <v-btn class="helper-register" color="green" x-large :to="{name: 'RegisterForHelp'}">{{ $t("index.buttonNotifyMe") }}</v-btn>
     </div>
   </v-container>
 </template>
@@ -51,10 +51,11 @@ export default {
 
 .helper-register{
   margin-top: 20px;
+  overflow: hidden;
+  width: 100%;
 }
 
 .header {
-  display: grid;
   padding: 30px;
   color: white;
   border-radius: 0 0 5px 5px;

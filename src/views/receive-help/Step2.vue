@@ -132,7 +132,7 @@ export default {
   margin-top: 24px;
 }
 .text-area {
-  width: 60%;
+  width: 100%;
   & :placeholder {
     font-family: Work Sans;
     font-style: normal;
@@ -143,7 +143,7 @@ export default {
   }
 }
 .text-input {
-  width: 60%;
+  width: 100%;
   & :placeholder {
     font-family: Work Sans;
     font-style: normal;
@@ -166,11 +166,11 @@ export default {
   }
   & > span {
     display: block;
-    width: 60%;
+    width: 100%;
     font-family: Work Sans;
     font-style: normal;
     font-weight: normal;
-    font-size: 10px;
+    font-size: 13px;
     line-height: 12px;
   }
 }
