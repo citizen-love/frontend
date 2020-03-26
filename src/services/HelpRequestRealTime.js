@@ -27,6 +27,20 @@ class HelpRequestRealTime {
     return documents;
   }
 
+  async getSingleRequest(helpRequestId) {
+    try {
+      const detailedRequestSnap = await db.collection(this.collectionName).doc(helpRequestId).get()
+      const detailedRequest = detailedRequestSnap.data()
+
+      if (detailedRequest) {
+        return detailedRequest
+      }
+      return Promise.reject("notfound")
+    } catch (e) {
+      return Promise.reject(e)
+    }
+  }
+
   subscribeRequests(callback) {
     this.unsubscribe = db.collection(this.collectionName).onSnapshot(snap => {
       snap.forEach(help => {

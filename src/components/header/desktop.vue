@@ -12,12 +12,13 @@
 </template>
 
 <script>
+import firebase from 'firebase';
 
 export default {
     name: "Header",
     methods: {
       logEvent(event_name){
-          this.$analytics.logEvent('button_click',{name:event_name, device: 'Desktop', lang: this.$i18n.locale});
+          firebase.analytics().logEvent('button_click',{name:event_name, device: 'Desktop', lang: this.$i18n.locale});
       }
     }
   }

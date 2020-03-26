@@ -1,0 +1,86 @@
+{
+  "index": {
+    "buttonNeedhelp": "I need help",
+    "buttonNotifyMe": "Notify me",
+    "peopleAroundYou": "people need help near You",
+    "language": "Language",
+    "privacyPolicy": "Privacy Policy",
+    "contactUs": "Contact Us",
+    "mainTitle": "Helping Made Easy",
+    "mainDescription": "CitizenLove connects people that can help with people in need. Post your help request if you need help!",
+    "helpCardButton": "I can help"
+  },
+  "receiveHelp": {
+    "navigationTitle": "UNDEFINED",
+    "mainTitle": "Where do you need help?",
+    "mainDescription": "Your location will not be shared with anyone. We only use it to notify people near you that want to help.",
+    "locationPlaceholder": "Downing Street 10, London",
+    "categoryTitle": "What do you need help with?",
+    "categoryDescription": "Select one or more",
+    "nextButton": "Next"
+  },
+  "receiveHelp2": {
+    "mainTitle": "Tell us a bit more...",
+    "formDescTitle": "In one sentence: What do you need?",
+    "formDescDescription": "Write your sentence in a way so helpers immediately understand what you need",
+    "formDescPlaceholder": "e.g. Look after my kids Monday",
+    "formDescError": "Please fill in this value.",
+    "formDetailsTitle": "Details",
+    "formDetailsDescription": "Add the details of your needs here.",
+    "formDetailsPlaceholder": "I need someone to look after my kids during the day because I have to work at the hospital.",
+    "formDetailsError": "Please tell us what you need.",
+    "formEmailTitle": "Your E-mail",
+    "formEmailDescription": "We will send the contact details of people offering help to this e-mail address. The E-Mail address will not be shared with anyone.",
+    "formEmailPlaceholder": "you@domain.com",
+    "formEmailError": "Please provide a correct email address.",
+    "categoryTitle": "UNDEFINED",
+    "categoryDescription": "UNDEFINED",
+    "createButton": "Ask for help!"
+  },
+  "receiveHelpConfirm": {
+    "mainTitle": "Great success!",
+    "mainDescription": "Our helpers will contact you shortly by e-mail!",
+    "mainExplanation": "You will receive an e-mail to {email} with a copy of your request.",
+    "backToButton": "Back to Start"
+  },
+  "register": {
+    "mainTitle": "Give a helping hand - register now!",
+    "locationTitle": "Your location",
+    "locationDescription": "Provide the location where you would like to provide help around.",
+    "locationPlaceholder": "UDNEFINED",
+    "radiusTitle": "Radius",
+    "radiusDescription": "Provide in which radius you want to be notified.",
+    "emailTitle": "Your E-Mail address",
+    "emailDescription": "We will send help requests from people in need to this address.",
+    "emailPlaceholder": "you@domain.com",
+    "emailError": "UNDEFINED",
+    "phoneTitle": "Your phone number (optional)",
+    "phoneDescription": "In a later version we would like to send help requests to your phone numbers so that you can help faster. If you want, you can enter it already.",
+    "phonePlaceholder": "e.g. +41 73 ....",
+    "registerButton": "Succesful registration"
+  },
+  "registerHelpConfirm": {
+    "mainTitle": "Great success!",
+    "mainDescription": "We will notify you when there is someone in your area who needs help!",
+    "mainExplanation": "You will receive an e-mail to {email} with a copy of your request.",
+    "backToButton": "Back to start"
+  },
+  "offerHelp": {
+    "phoneTitle": "Your phone number (optional)",
+    "phonePlaceholder": "e.g. +41 73 ....",
+    "messageTitle": "Your message",
+    "messagePlaceholder": "Yes I can help You",
+    "messageError": "Please provide a message!",
+    "emailTitle": "Your E-Mail address",
+    "emailPlaceholder": "you@domain.com",
+    "emailError": "Please provide a valid email",
+    "sendButton": "Send",
+    "helpConfirmation": "UNDEFINED",
+    "pagenotFound": "Page not found",
+    "pageErrorHappened": "Unexpected error happened"
+  },
+  "editHelp": {
+    "buttonCompleted": "Completed",
+    "buttonCancelled": "Abandoned"
+  }
+}

@@ -28,6 +28,7 @@
 
 <script>
 import {LANGUAGES} from "../../assets/data/languages";
+import firebase from 'firebase';
 
 export default {
     name: "Header",
@@ -38,7 +39,7 @@ export default {
   },
   methods: {
     logEvent(event_name){
-        this.$analytics.logEvent('button_click',{name:event_name, device: 'Mobile', lang: this.$i18n.locale});
+        firebase.analytics().logEvent('button_click',{name:event_name, device: 'Mobile', lang: this.$i18n.locale});
     }
   }
 }

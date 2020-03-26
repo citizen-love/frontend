@@ -5,6 +5,7 @@
     class="autocomplete-input"
     :placeholder="$t('request_help_process.step1.location_placeholder')"
     v-on:placechanged="getAddressData"
+    :value="defaultValue"
   />
 </template>
 
@@ -12,7 +13,6 @@
 <style lang="scss" scoped>
 .autocomplete-input {
   padding: 9px 0px 9px 0px;
-  margin: auto;
   margin-top: 10px;
   margin-bottom: 25px;
   font-size: 1em;
@@ -26,7 +26,7 @@
 <script>
 
 export default {
-  props: ["updateLocation"],
+  props: ["updateLocation", "defaultValue"],
   methods: {
     getAddressData(data) {
       this.updateLocation(data);

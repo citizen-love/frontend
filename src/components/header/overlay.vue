@@ -1,6 +1,6 @@
 <template>
   <div class="overlay--row">
-    <img src="../../assets/logo.svg" alt="citizen love" />
+    <img src="../../assets/logo.svg" alt="citizen love" @click="navigateHome" />
     <div>
       <router-link
         :to="{ name: 'SelectLanguage'}"
@@ -20,6 +20,11 @@ export default {
       return {
         languages: LANGUAGES,
       }
+  },
+  methods: {
+    navigateHome(){
+      this.$router.replace("/")
+    }
   }
 };
 </script>
