@@ -17,7 +17,7 @@
       <v-card-title>{{ title }}</v-card-title>
       <v-card-subtitle>{{ description }}</v-card-subtitle>
     </div>
-    <v-btn color="primary" block x-large :to="`/help/${id}`">{{ $t("index.cards_offer_help") }}</v-btn>
+    <v-btn color="primary" block x-large :to="`/help/${id}`">{{ $t("index.helpCardButton") }}</v-btn>
   </div>
 
   <div class="card--desktop" v-else @click="navigateToSingle">
@@ -35,7 +35,7 @@
             class="card--desktop--categoryElement"
           >{{item}}</span>
         </div>
-        <v-btn color="primary" small :to="`/help/${id}`">{{ $t("index.cards_offer_help") }}</v-btn>
+        <v-btn color="primary" small :to="`/help/${id}`">{{ $t("index.helpCardButton") }}</v-btn>
       </div>
     </div>
   </div>
