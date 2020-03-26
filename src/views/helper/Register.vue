@@ -139,7 +139,7 @@ export default {
   }
   & > span {
     display: block;
-    width: 70%;
+    width: 100%;
     font-family: Work Sans;
     font-style: normal;
     font-weight: normal;
@@ -149,13 +149,13 @@ export default {
 }
 .slider {
   margin-top: 60px;
-  width: 50%;
+  width: 100%;
 }
 .arrow-left {
   margin-left: -2%;
 }
 .text-input {
-  width: 50%;
+  width: 100%;
   & :placeholder {
     font-family: Work Sans;
     font-style: normal;

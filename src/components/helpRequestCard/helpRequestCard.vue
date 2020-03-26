@@ -17,21 +17,16 @@
       <v-card-title>{{ title }}</v-card-title>
       <v-card-subtitle>{{ description }}</v-card-subtitle>
     </div>
-    <v-btn
-      color="primary"
-      block
-      x-large
-      :to="`/help/${id}`"
-    >{{ $t("index.cards_offer_help") }}</v-btn>
+    <v-btn color="primary" block x-large :to="`/help/${id}`">{{ $t("index.cards_offer_help") }}</v-btn>
   </div>
 
   <div class="card--desktop" v-else @click="navigateToSingle">
-    <img class="card--desktop--mapimage" v-bind:src="snapshotSrc"/>
+    <img class="card--desktop--mapimage" v-bind:src="snapshotSrc" />
 
     <div class="card--desktop--content">
       <v-card-title>{{ title }}</v-card-title>
       <v-card-subtitle>{{community}}</v-card-subtitle>
-      <v-card-subtitle>{{ description }}</v-card-subtitle>
+      <v-card-subtitle>{{ trimmedDescription }}</v-card-subtitle>
       <div class="card--desktop--actions">
         <div>
           <span
@@ -40,7 +35,7 @@
             class="card--desktop--categoryElement"
           >{{item}}</span>
         </div>
-        <v-icon>mdi-arrow-right</v-icon>
+        <v-btn color="primary" small :to="`/help/${id}`">{{ $t("index.cards_offer_help") }}</v-btn>
       </div>
     </div>
   </div>
@@ -66,14 +61,16 @@ export default {
       this.category.length > 3
         ? [...this.category.filter((item, index) => index < 4), "More..."]
         : this.category;
+    const previewedDescription = this.description.length > 250 ? this.description.slice(0, 125) : this.description;
     return {
       snapshotSrc,
-      limitedCategories
+      limitedCategories,
+      trimmedDescription: `${previewedDescription} ...`
     };
   },
   methods: {
-    navigateToSingle(){
-      return this.$router.replace(`/help/${this.id}`)
+    navigateToSingle() {
+      return this.$router.replace(`/help/${this.id}`);
     }
   }
 };
@@ -110,8 +107,8 @@ export default {
     }
   }
 }
-.card--desktop--mapimage{
-  object-fit:cover;
+.card--desktop--mapimage {
+  object-fit: cover;
   object-position: center;
 }
 .card--desktop {
@@ -122,7 +119,7 @@ export default {
   padding-left: 0px;
   min-height: 200px;
   height: 100%;
-  width: 75%;
+  width: 100%;
   & > div {
     width: 100%;
   }
@@ -131,7 +128,7 @@ export default {
     display: grid;
   }
   &--categoryElement {
-    font-size: 9px;
+    font-size: 12px;
     line-height: 20px;
     letter-spacing: 0.25px;
     opacity: 0.6;

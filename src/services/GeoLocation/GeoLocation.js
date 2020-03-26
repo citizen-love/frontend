@@ -24,7 +24,7 @@ class GeoLocationService {
   async getReverseLocation() {
     try {
       const places = await fetch(
-        `${this.rootUrl}?latlng=${this.coordinates.lat},${this.coordinates.lon}&key=${this.API_KEY}`
+        `${this.rootUrl}?latlng=${this.coordinates.lat},${this.coordinates.lon}&language=EN&key=${this.API_KEY}`
       );
       const placeJson = await places.json()
       const { formatted_address: fullAddress } = placeJson.results[0]

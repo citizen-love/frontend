@@ -8,7 +8,7 @@
       </div>
       <div class="autosuggest-container">
         <h1>{{relevantRequests.length}} {{ $t('index.peopleAroundYou')}}</h1>
-        <AutoComplete v-bind:updateLocation="updateLocation" />
+        <AutoComplete v-bind:updateLocation="updateLocation" v-bind:defaultValue="inputShownAddress" />
       </div>
     </div>
     <div class="requests-container">
@@ -46,11 +46,13 @@ export default {
   },
   async mounted() {
     const { lat, lon } = await GeoLocationService.getIpAddress();
+    const fullAddress = await GeoLocationService.getReverseLocation();
     const getRelevantRequests = await HelpRequestRealTime.getAllRequests(
       { lat: parseFloat(lat), lon: parseFloat(lon) },
       100
     );
     this.relevantRequests = getRelevantRequests;
+    this.inputShownAddress = fullAddress;
   },
   created() {
     addEventListener("resize", () => {
