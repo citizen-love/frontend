@@ -61,6 +61,7 @@
   },
   "register": {
     "mainTitle": "Give a helping hand - register now!",
+    "mainDescription": "Register as a helper in your neighborhood. We will inform you as soon somebody requires support.",
     "locationTitle": "Your location",
     "locationDescription": "Provide the location where you would like to provide help around.",
     "locationPlaceholder": "UDNEFINED",

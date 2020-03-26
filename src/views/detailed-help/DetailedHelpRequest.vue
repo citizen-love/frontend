@@ -89,7 +89,8 @@
         <p>{{help.description}}</p>
         <p class="detailedview--description--community">{{help.community}}</p>
       </div>
-
+      <h1>{{ $t("offerHelp.offerTitle")}}</h1>
+      <span>{{ $t("offerHelp.offerDescription") }}</span>
       <v-form v-model="isOfferValid" class="offer--form">
         <h2>{{ $t("offerHelp.phoneTitle") }}</h2>
         <v-text-field
@@ -125,7 +126,7 @@
       </v-form>
       <div v-if="operationFinished" class="detailedview--confirmation">
         <img src="../../assets/green-checkmark.svg" />
-        <span>{{ $t("offerHelp.successfull_help") }}</span>
+        <span>{{ $t("offerHelp.helpConfirmation") }}</span>
       </div>
     </div>
   </div>
@@ -155,10 +156,10 @@ export default {
       },
       isOfferValid: false,
       emailRules: [
-        v => !!v || this.$t("request_help_process.step2.email_error_missing"),
+        v => !!v || this.$t("receiveHelp2.formEmailError"),
         v =>
           /[^@\s]+@[^@\s]+\.[^@\s]/.test(v) ||
-          this.$t("request_help_process.step2.email_error_wrong")
+          this.$t("receiveHelp2.formEmailWrong")
       ],
       descRules: [
         v => !!v || this.$t("request_help_process.step2.desc_error_missing")

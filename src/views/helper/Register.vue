@@ -7,6 +7,7 @@
     </div>
     <v-form :v-model="isFormValid">
       <h1>{{ $t("register.mainTitle")}}</h1>
+      <span>{{ $t("register.mainDescription") }}</span>
       <h5>{{ $t("register.locationTitle")}}</h5>
       <span>{{ $t("register.locationDescription") }}</span>
       <div>

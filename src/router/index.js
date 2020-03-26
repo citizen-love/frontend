@@ -55,12 +55,12 @@ const routes = [
     component: SelectLanguage
   },
   {
-    path: "/help/register",
+    path: "/helpforce/register",
     name: "RegisterForHelp",
     component: Register
   },
   {
-    path: "/help/register/confirm",
+    path: "/helpforce/register/confirm",
     name: "RegisterForHelpConfirm",
     component: Confirm
   },

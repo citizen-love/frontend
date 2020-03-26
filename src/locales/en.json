@@ -6,7 +6,7 @@
   },
   "index": {
     "mainTitle": "Find people who need help during the COVID-19 outbreak.",
-    "mainDescription": "CitizenLove is a non-profit project sponsored by Campax. It was initiated in Switzerland but is meant to be used all over the world.",
+    "mainDescription": "CitizenLove is a non-profit project aimed to organize ourselves better in these extraordinary times. It was initiated in Switzerland but is meant to be used all over the world.",
     "buttonNotifyMe": "I want to help",
     "helpCardButton": "help now",
     "buttonNeedHelp": "I need help!",
@@ -25,7 +25,6 @@
     "other": "Something else"
   },
   "receiveHelp": {
-    "navigationTitle": "UNDEFINED",
     "mainTitle": "Where do you need help?",
     "mainDescription": "Your location will not be shared with anyone. We only need it so that we now more or less where you are in order to find people in your area that can help you.",
     "locationPlaceholder": "e.g. 10 Downing Street, London SW1A 2AA",
@@ -58,42 +57,45 @@
     "backToButton": "Back to the homepage"
   },
   "register": {
-    "mainTitle": "Give a helping hand - register now!",
-    "locationTitle": "Your location",
-    "locationDescription": "Provide the location where you would like to provide help around.",
-    "radiusTitle": "Radius",
-    "radiusDescription": "Provide in which radius you want to be notified.",
+    "mainTitle": "Join the helpforce!",
+    "mainDescription": "Sign up as a helper in your neighborhood and help people close to you. We will inform you as soon somebody requires support who is in your radius.",
+    "locationTitle": "Where can you help?",
+    "locationDescription": "We will use this location as a reference point. It will not be shared with anyone.",
+    "radiusTitle": "How far do you want to go?",
+    "radiusDescription": "Tell us in which radius around your location you want to be notified.",
     "emailTitle": "Your E-Mail address",
-    "emailDescription": "We will send help requests from people in need to this address.",
+    "emailDescription": "We will send help requests from people in need to this address. You won't receive anything else.",
     "emailPlaceholder": "e.g. you@domain.com",
     "phoneTitle": "Your phone number (optional)",
-    "phoneDescription": "At a later stage, we would like to send help requests to your phone numbers so that you can help faster. If you want, you can enter it already.",
+    "phoneDescription": "At a later stage, we would like to send help requests to your phone numbers so that we can help faster. If you want, you can enter it already.",
     "phonePlaceholder": "e.g. +41 73 ....",
     "registerButton": "Register"
   },
   "registerHelpConfirm": {
     "mainTitle": "High five!",
-    "mainDescription": "You are awesome! We will notify you about people in your area who need help.",
-    "mainExplanation": "You will receive a confirmation to {email} with a copy of your request.",
+    "mainDescription": "You are awesome! We will notify you when people in your area need help.",
+    "mainExplanation": "You will receive a confirmation to {email} with a confirmation of your request.",
     "backToButton": "Back to Homepage"
   },
   "offerHelp": {
+    "offerTitle": "Can you help?",
+    "offerDescription": "Provide your details below and we will ask this person to contact you.",
     "phoneTitle": "Your phone number (optional)",
     "phonePlaceholder": "e.g. +41 73 ....",
-    "messageTitle": "Your message",
-    "messagePlaceholder": "Yes I can help you",
-    "messageError": "Please provide a message!",
+    "messageTitle": "How can you help?",
+    "messagePlaceholder": "Describe how you can help",
+    "messageError": "Please tell how you can help.",
     "emailTitle": "Your E-Mail address",
     "emailPlaceholder": "you@domain.com",
     "emailError": "Please provide a valid email",
-    "sendButton": "Send",
-    "helpConfirmation": "UNDEFINED",
+    "sendButton": "Offer help",
+    "helpConfirmation": "Awesome! You message is under way.",
     "pageNotFound": "There is no request for this id, sorry!",
     "pageErrorHappened": "Unexpected error happened"
   },
   "editHelp": {
-    "buttonCompleted": "Mark as complete",
-    "buttonCancelled": "Delete",
+    "buttonCompleted": "I have been helped",
+    "buttonCancelled": "Delete my request",
     "notFound": "There is no request with this ID."
   }
 }
