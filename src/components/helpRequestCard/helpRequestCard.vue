@@ -88,8 +88,8 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 16px;
     padding: 16px;
+    padding-bottom: 0;
   }
   &--content {
     margin-bottom: 16px;
