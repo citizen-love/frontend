@@ -34,6 +34,18 @@
         "mainDescription": "La Tua posizione non sarà condivisa con nessuno. Ne abbiamo bisogno solo per sapere più o meno dove ti trovi, al fine di individuare persone che possano aiutarti nella tua zona.",
         "locationPlaceholder": "PT. 10 Downing Street, London SW1A 2AA",
         "categoryTitle": "Per cosa hai bisogno di aiuto?",
-        "categoryDescription": "Seleziona uno o più campi"
+        "categoryDescription": "Seleziona uno o più campi",
+        "otherCategoryPlaceholder": "",
+        "nextButton": ""
+    },
+    "receiveHelp2": {
+        "mainTitle": "",
+        "formDescTitle": "",
+        "formDescDescription": "",
+        "formDescPlaceholder": "",
+        "formDescError": "",
+        "formDetailsTitle": "",
+        "formDetailsDescription": "",
+        "formDetailsPlaceholder": "Ad esempio: Lavoro in ospedale come infermiere/a e ho un turno extra lunedì 23/03/20. Le mie tre ragazze di 7, 10 e 12 anni sono abbastanza indipendenti, ma hanno bisogno di qualcuno/a che si occupi di loro per 5 ore, dalle 13 alle 18. Posso portarle ovunque nel giro di 30 minuti dall'ospedale e posso anche andarle a prendere di nuovo. Non posso pagare, ma ne sarei eternamente grato/a."
     }
 }
