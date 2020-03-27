@@ -1,101 +1,102 @@
 {
-  "general": {
-    "language": "Language",
-    "step_x_out_of_y": "Step {current} of {max}",
-    "chooseLanguage": "Choose a language:"
-  },
-  "index": {
-    "mainTitle": "Find people who need help during the COVID-19 outbreak.",
-    "mainDescription": "CitizenLove is a non-profit project aimed to organize ourselves better in these extraordinary times. It was initiated in Switzerland but is meant to be used all over the world.",
-    "buttonNotifyMe": "I want to help",
-    "helpCardButton": "help now",
-    "buttonNeedHelp": "I need help!",
-    "contactUs": "About Citizen Love",
-    "privacyPolicy": "Privacy Policy",
-    "peopleAroundYou": "people need help near you"
-  },
-  "categories": {
-    "groceries": "Grocery Shopping",
-    "washing": "Laundry",
-    "babysitting": "Babysitting",
-    "transport": "Transport",
-    "childcare": "Childcare",
-    "loneliness": "Loneliness",
-    "pets": "Pets",
-    "other": "Something else"
-  },
-  "receiveHelp": {
-    "mainTitle": "Where do you need help?",
-    "mainDescription": "Your location will not be shared with anyone. We only need it so that we now more or less where you are in order to find people in your area that can help you.",
-    "locationPlaceholder": "e.g. 10 Downing Street, London SW1A 2AA",
-    "categoryTitle": "What do you need help with?",
-    "categoryDescription": "Select one or more",
-    "otherCategoryPlaceholder": "What do you need help with?",
-    "nextButton": "Next"
-  },
-  "receiveHelp2": {
-    "mainTitle": "Tell us a bit more...",
-    "formDescTitle": "In one sentence: What do you need?",
-    "formDescDescription": "Be concise but specific.",
-    "formDescPlaceholder": "e.g. Looking after my kids for 5 hours on Monday 29/03",
-    "formDescError": "This field is mandatory.",
-    "formDetailsTitle": "Details about your request",
-    "formDetailsDescription": "Please note all the details (e.g. what, when, duration, tools needed etc.) of your request, except location and contact details, so a helper knows if they are able to help you.",
-    "formDetailsPlaceholder": "e.g. I work at the hospital as a nurse and have an extra shift on Monday 23/03/20. My three girls aged 7, 10 and 12 are quite independent but need someone to look after them for 5 hours from 1pm to 6pm. I can bring them to anywhere within 30 minutes of the hospital and can also pick them up again. I cannot pay you but would be eternally grateful.",
-    "formDetailsError": "Please tell us what you need.",
-    "formEmailTitle": "Your Email Address",
-    "formEmailDescription": "We will send the contact details of people offering you help to this email address.\nYour email address will never be shared with anyone.",
-    "formEmailPlaceholder": "you@domain.com",
-    "formEmailError": "Please provide an email address.",
-    "formEmailWrong": "Please provide a valid email address.",
-    "createButton": "Publish help request"
-  },
-  "receiveHelpConfirm": {
-    "mainTitle": "Your help request is now public.",
-    "mainDescription": "All offers for help will be sent to you by email.",
-    "mainExplanation": "We have sent a copy of your request, with the possibility to edit it, delete it or mark it as completed, to {email}.",
-    "backToButton": "Back to the homepage"
-  },
-  "register": {
-    "mainTitle": "Join the helpforce!",
-    "mainDescription": "Sign up as a helper in your neighborhood and help people close to you. We will inform you as soon somebody requires support who is in your radius.",
-    "locationTitle": "Where can you help?",
-    "locationDescription": "We will use this location as a reference point. It will not be shared with anyone.",
-    "radiusTitle": "How far do you want to go?",
-    "radiusDescription": "Tell us in which radius around your location you want to be notified.",
-    "emailTitle": "Your E-Mail address",
-    "emailDescription": "We will send help requests from people in need to this address. You won't receive anything else.",
-    "emailPlaceholder": "e.g. you@domain.com",
-    "phoneTitle": "Your phone number (optional)",
-    "phoneDescription": "At a later stage, we would like to send help requests to your phone numbers so that we can help faster. If you want, you can enter it already.",
-    "phonePlaceholder": "e.g. +41 73 ....",
-    "registerButton": "Register"
-  },
-  "registerHelpConfirm": {
-    "mainTitle": "High five!",
-    "mainDescription": "You are awesome! We will notify you when people in your area need help.",
-    "mainExplanation": "You will receive a confirmation to {email} with a confirmation of your request.",
-    "backToButton": "Back to Homepage"
-  },
-  "offerHelp": {
-    "offerTitle": "Can you help?",
-    "offerDescription": "Provide your details below and we will ask this person to contact you.",
-    "phoneTitle": "Your phone number (optional)",
-    "phonePlaceholder": "e.g. +41 73 ....",
-    "messageTitle": "How can you help?",
-    "messagePlaceholder": "Describe how you can help",
-    "messageError": "Please tell how you can help.",
-    "emailTitle": "Your E-Mail address",
-    "emailPlaceholder": "you@domain.com",
-    "emailError": "Please provide a valid email",
-    "sendButton": "Offer help",
-    "helpConfirmation": "Awesome! You message is under way.",
-    "pageNotFound": "There is no request for this id, sorry!",
-    "pageErrorHappened": "Unexpected error happened"
-  },
-  "editHelp": {
-    "buttonCompleted": "I have been helped",
-    "buttonCancelled": "Delete my request",
-    "notFound": "There is no request with this ID."
-  }
+    "general": {
+        "language": "Language",
+        "step_x_out_of_y": "Step {current} of {max}",
+        "chooseLanguage": "Choose a language:"
+    },
+    "index": {
+        "mainTitle": "Find people who need help during the COVID-19 outbreak.",
+        "mainDescription": "CitizenLove is a non-profit project aimed to organize ourselves better in these extraordinary times. It was initiated in Switzerland but is meant to be used all over the world.",
+        "buttonNotifyMe": "I want to help",
+        "helpCardButton": "help now",
+        "buttonNeedHelp": "I need help!",
+        "contactUs": "About Citizen Love",
+        "privacyPolicy": "Privacy Policy",
+        "peopleAroundYou": "people need help near you",
+        "imprint": "Imprint"
+    },
+    "categories": {
+        "groceries": "Grocery Shopping",
+        "washing": "Laundry",
+        "babysitting": "Babysitting",
+        "transport": "Transport",
+        "childcare": "Childcare",
+        "loneliness": "Loneliness",
+        "pets": "Pets",
+        "other": "Something else"
+    },
+    "receiveHelp": {
+        "mainTitle": "Where do you need help?",
+        "mainDescription": "Your location will not be shared with anyone. We only need it so that we now more or less where you are in order to find people in your area that can help you.",
+        "locationPlaceholder": "e.g. 10 Downing Street, London SW1A 2AA",
+        "categoryTitle": "What do you need help with?",
+        "categoryDescription": "Select one or more",
+        "otherCategoryPlaceholder": "What do you need help with?",
+        "nextButton": "Next"
+    },
+    "receiveHelp2": {
+        "mainTitle": "Tell us a bit more...",
+        "formDescTitle": "In one sentence: What do you need?",
+        "formDescDescription": "Be concise but specific.",
+        "formDescPlaceholder": "e.g. Looking after my kids for 5 hours on Monday 29/03",
+        "formDescError": "This field is mandatory.",
+        "formDetailsTitle": "Details about your request",
+        "formDetailsDescription": "Please note all the details (e.g. what, when, duration, tools needed etc.) of your request, except location and contact details, so a helper knows if they are able to help you.",
+        "formDetailsPlaceholder": "e.g. I work at the hospital as a nurse and have an extra shift on Monday 23/03/20. My three girls aged 7, 10 and 12 are quite independent but need someone to look after them for 5 hours from 1pm to 6pm. I can bring them to anywhere within 30 minutes of the hospital and can also pick them up again. I cannot pay you but would be eternally grateful.",
+        "formDetailsError": "Please tell us what you need.",
+        "formEmailTitle": "Your Email Address",
+        "formEmailDescription": "We will send the contact details of people offering you help to this email address.\nYour email address will never be shared with anyone.",
+        "formEmailPlaceholder": "you@domain.com",
+        "formEmailError": "Please provide an email address.",
+        "formEmailWrong": "Please provide a valid email address.",
+        "createButton": "Publish help request"
+    },
+    "receiveHelpConfirm": {
+        "mainTitle": "Your help request is now public.",
+        "mainDescription": "All offers for help will be sent to you by email.",
+        "mainExplanation": "We have sent a copy of your request, with the possibility to edit it, delete it or mark it as completed, to {email}.",
+        "backToButton": "Back to the homepage"
+    },
+    "register": {
+        "mainTitle": "Join the helpforce!",
+        "mainDescription": "Sign up as a helper in your neighborhood and help people close to you. We will inform you as soon somebody requires support who is in your radius.",
+        "locationTitle": "Where can you help?",
+        "locationDescription": "We will use this location as a reference point. It will not be shared with anyone.",
+        "radiusTitle": "How far do you want to go?",
+        "radiusDescription": "Tell us in which radius around your location you want to be notified.",
+        "emailTitle": "Your E-Mail address",
+        "emailDescription": "We will send help requests from people in need to this address. You won't receive anything else.",
+        "emailPlaceholder": "e.g. you@domain.com",
+        "phoneTitle": "Your phone number (optional)",
+        "phoneDescription": "At a later stage, we would like to send help requests to your phone numbers so that we can help faster. If you want, you can enter it already.",
+        "phonePlaceholder": "e.g. +41 73 ....",
+        "registerButton": "Register"
+    },
+    "registerHelpConfirm": {
+        "mainTitle": "High five!",
+        "mainDescription": "You are awesome! We will notify you when people in your area need help.",
+        "mainExplanation": "You will receive a confirmation to {email} with a confirmation of your request.",
+        "backToButton": "Back to Homepage"
+    },
+    "offerHelp": {
+        "offerTitle": "Can you help?",
+        "offerDescription": "Provide your details below and we will ask this person to contact you.",
+        "phoneTitle": "Your phone number (optional)",
+        "phonePlaceholder": "e.g. +41 73 ....",
+        "messageTitle": "How can you help?",
+        "messagePlaceholder": "Describe how you can help",
+        "messageError": "Please tell how you can help.",
+        "emailTitle": "Your E-Mail address",
+        "emailPlaceholder": "you@domain.com",
+        "emailError": "Please provide a valid email",
+        "sendButton": "Offer help",
+        "helpConfirmation": "Awesome! You message is under way.",
+        "pageNotFound": "There is no request for this id, sorry!",
+        "pageErrorHappened": "Unexpected error happened"
+    },
+    "editHelp": {
+        "buttonCompleted": "I have been helped",
+        "buttonCancelled": "Delete my request",
+        "notFound": "There is no request with this ID."
+    }
 }
