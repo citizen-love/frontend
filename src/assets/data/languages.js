@@ -1,11 +1,11 @@
 export const LANGUAGES = [
   { locale: "en", name: "English" },
-  { locale: "de", name: "Deutsch" }
+  { locale: "de", name: "Deutsch" },
+  { locale: "it", name: "Italiano" },
+  { locale: "fr", name: "Français" },
   // add new languages here
 ]
 /*
 ,
-  { locale: "fr", name: "Français" },
-  { locale: "it", name: "Italiano" },
   { locale: "rm", name: "Rumantsch" }
 */
