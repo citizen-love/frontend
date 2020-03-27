@@ -33,6 +33,7 @@
         "mainTitle": "Dove Ti serve aiuto?",
         "mainDescription": "La Tua posizione non sarà condivisa con nessuno. Ne abbiamo bisogno solo per sapere più o meno dove ti trovi, al fine di individuare persone che possano aiutarti nella tua zona.",
         "locationPlaceholder": "PT. 10 Downing Street, London SW1A 2AA",
-        "categoryTitle": "Per cosa hai bisogno di aiuto?"
+        "categoryTitle": "Per cosa hai bisogno di aiuto?",
+        "categoryDescription": "Seleziona uno o più campi"
     }
 }
