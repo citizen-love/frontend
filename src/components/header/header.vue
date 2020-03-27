@@ -70,7 +70,7 @@ export default {
     }
   }
   &--copy-row {
-    width: 70%;
+    width: 90%;
     margin-top: 38px;
     margin-bottom: 18px;
     & > h1 {
@@ -79,7 +79,7 @@ export default {
       color: #FFFFFF;
     }
     & > p {
-      font-size: 10px;
+      font-size: 16px;
       line-height: 16px;
       margin-top: 8px;
       opacity: 0.87;
