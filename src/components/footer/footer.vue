@@ -16,6 +16,7 @@
     </div>
     <div class="footer--url-wrapper">
       <router-link :to="{name:'PrivacyPolicy'}">{{ $t("index.privacyPolicy") }}</router-link>
+      <router-link :to="{name:'Imprint'}">{{ $t("index.imprint") }}</router-link>
       <router-link :to="{name: 'About'}">{{ $t("index.contactUs") }}</router-link>
     </div>
   </div>
