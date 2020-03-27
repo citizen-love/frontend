@@ -1,10 +1,12 @@
 <template>
   <div class="footer--row">
     <div class="footer--sm-wrapper">
+    <!--
       <img src="../../assets/facebook-mini.svg"/>
       <img src="../../assets/instagram-mini.svg"/>
       <img src="../../assets/twitter-mini.svg"/>
-      <img src="../../assets/github-mini.svg"/>
+    -->
+      <a href="https://github.com/citizen-love/"><img src="../../assets/github-mini.svg"/></a>
     </div>
     <div class="footer--lang-wrapper">
       <span>{{ $t("general.language") }}: </span>
@@ -60,9 +62,9 @@ export default {
 }
 .footer--sm-wrapper {
     justify-content: flex-start!important;
-    & > img{
+    & > img, & > a img {
       cursor: pointer;
-      height: 16px;
+      height: 17px;
       margin: 0 8px;
     }
 }
