@@ -1,8 +1,36 @@
 {
-  "index": {
-    "main_headline": "Aiutare reso facile"
-  },
-  "select_language": {
-    "title": "Seleziona la tua lingua"
-  }
+    "index": {
+        "main_headline": "Aiutare reso facile",
+        "mainTitle": "Trovare persone che hanno bisogno di aiuto durante l'epidemia di COVID-19.",
+        "mainDescription": "CitizenLove è un progetto senza scopo di lucro che mira a organizzarsi meglio in questi tempi eccezionali. È stato avviato in Svizzera, ma è destinato ad essere utilizzato in tutto il mondo.",
+        "buttonNotifyMe": "Voglio aiutare",
+        "helpCardButton": "aiuta ora",
+        "buttonNeedHelp": "Ho bisogno di aiuto!",
+        "contactUs": "Su Citizen Love",
+        "privacyPolicy": "Informativa sulla privacy",
+        "peopleAroundYou": "persone vicino a te hanno bisogno di aiuto",
+        "imprint": "Impronta"
+    },
+    "select_language": {
+        "title": "Seleziona la tua lingua"
+    },
+    "general": {
+        "language": "Lingua",
+        "step_x_out_of_y": "{current} passo di {max}",
+        "chooseLanguage": "Scegli una lingua:"
+    },
+    "categories": {
+        "groceries": "Negozio di alimentari",
+        "washing": "Lavanderia",
+        "babysitting": "Babysitting",
+        "transport": "Trasporto",
+        "childcare": "Assistenza bambini",
+        "loneliness": "Solitudine",
+        "pets": "Animali domestici",
+        "other": "Qualcos'altro"
+    },
+    "receiveHelp": {
+        "mainTitle": "Dove Ti serve aiuto?",
+        "mainDescription": "La Tua posizione non sarà condivisa con nessuno. Ne abbiamo bisogno solo per sapere più o meno dove ti trovi, al fine di individuare persone che possano aiutarti nella tua zona."
+    }
 }
