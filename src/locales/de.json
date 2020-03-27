@@ -6,14 +6,15 @@
     },
     "index": {
         "mainTitle": "Finde Menschen die während der COVID-19 Pandemie deine Unterstützung benötigen.",
-        "mainDescription": "CitizenLove ist ein gemeinnütziges Projekt unterstützt durch Campax. Es wurde in der Schweiz initiiert aber soll auf der ganzen Welt genutzt werden.",
+        "mainDescription": "CitizenLove ist ein gemeinnütziges Projekt, welches Hilfe Suchende mit Helfenden verbindet. Es wurde in der Schweiz initiiert aber soll auf der ganzen Welt genutzt werden.",
         "buttonNotifyMe": "Ich möchte helfen",
         "helpCardButton": "Jetzt helfen",
         "buttonNeedHelp": "Ich brauche Hilfe!",
         "contactUs": "Über CitizenLove",
         "privacyPolicy": "Datenschutz",
         "peopleAroundYou": "Menschen in deiner Nähe benötigen Hilfe",
-        "imprint": "Impressum"
+        "imprint": "Impressum",
+        "contribute": "Mithelfen"
     },
     "categories": {
         "groceries": "Einkaufen",
@@ -61,37 +62,37 @@
         "backToButton": "Zurück zur Startseite"
     },
     "register": {
-        "mainTitle": "Give a helping hand - register now!",
-        "mainDescription": "Register as a helper in your neighborhood. We will inform you as soon somebody requires support.",
+        "mainTitle": "Werde zum Helfenden!",
+        "mainDescription": "Melde dich als Helfer/in in deinem Gebiet an und hilf Leuten in deiner Nähe. Wir werden dich benachrichtigen, sobald jemand deine Unterstützung braucht.",
         "locationTitle": "Wo können wir dich unterstützen?",
-        "locationDescription": "Provide the location where you would like to provide help around.",
+        "locationDescription": "Wir verwenden diese Adresse als Referenzpunkt. Sie ist nicht öffentlich einsehbar.",
         "locationPlaceholder": "UDNEFINED",
         "radiusTitle": "Wie weit entfernt möchtest du helfen?",
-        "radiusDescription": "Provide in which radius you want to be notified.",
+        "radiusDescription": "Sag uns, innerhalb welcher Entfernung zu deiner Adresse du über neue Hilfsanfragen benachrichtigt werden möchtest.",
         "emailTitle": "Deine E-Mail-Adresse",
-        "emailDescription": "We will send help requests from people in need to this address.",
-        "emailPlaceholder": "you@domain.com",
+        "emailDescription": "Wir werden nur Unterstützungsanfragen an diese Adresse senden.",
+        "emailPlaceholder": "e.g. du@gmail.com",
         "phoneTitle": "Deine Telefonnummer (optional)",
-        "phoneDescription": "In a later version we would like to send help requests to your phone numbers so that you can help faster. If you want, you can enter it already.",
-        "phonePlaceholder": "e.g. +41 73 ....",
+        "phoneDescription": "Zu einem späteren Zeitpunkt möchten wir dich über Unterstützungsanfragen per SMS benachrichten. Wenn du möchtest, kannst du uns deine Telefonnummer bereits angeben.",
+        "phonePlaceholder": "z.B. +41 73 ....",
         "registerButton": "Registrieren"
     },
     "registerHelpConfirm": {
         "mainTitle": "High five!",
-        "mainDescription": "You are awesome! We will notify you about people in your area who need help.",
-        "mainExplanation": "You will receive a confirmation to {email} with a copy of your request.",
+        "mainDescription": "Du bist grossartig! Wir werden dich benachrichtigen, sobald jemand in deiner Nähe hilfe braucht.",
+        "mainExplanation": "Du bekommst eine Bestätigung per Mail an {email}.",
         "backToButton": "Zurück zur Startseite"
     },
     "offerHelp": {
         "phoneTitle": "Deine Telefonnummer (optional)",
-        "phonePlaceholder": "e.g. +41 73 ....",
+        "phonePlaceholder": "z.B. +41 73 ....",
         "messageTitle": "Wie kannst du helfen?",
-        "messagePlaceholder": "Yes I can help You",
+        "messagePlaceholder": "Erzähle, wie du helfen kannst",
         "messageError": "Sag uns, wie du helfen kannst.",
         "emailTitle": "Deine E-Mail-Adresse",
-        "emailPlaceholder": "you@domain.com",
+        "emailPlaceholder": "z.B. du@gmail.com",
         "emailError": "Bitte gib eine gültige E-Mail-Adresse an",
-        "sendButton": "Send",
+        "sendButton": "Hilfe anbieten",
         "helpConfirmation": "Grossartig! Deine Nachricht ist auf dem Weg.",
         "pageNotFound": "Für diese ID gibt es keine Anfrage, sorry!",
         "pageErrorHappened": "Da ist etwas schiefgegangen",
@@ -99,8 +100,8 @@
         "offerDescription": "Gib unten deine Details in und wir werden die Person bitten, dich zu kontaktieren."
     },
     "editHelp": {
-        "buttonCompleted": "Mark as complete",
-        "buttonCancelled": "Delete",
+        "buttonCompleted": "Mir wurde geholfen",
+        "buttonCancelled": "Löschen",
         "notFound": "Für diese ID gibt es keine Anfrage."
     }
 }
