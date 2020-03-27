@@ -72,7 +72,7 @@ export default {
         v => !!v || this.$t("receiveHelp2.formDescError")
       ],
       titleRules: [
-        v => !!v || this.$t("receiveHelp2.fromDescError")
+        v => !!v || this.$t("receiveHelp2.formDescError")
       ]
     };
   },
