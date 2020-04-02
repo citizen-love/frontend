@@ -1,11 +1,10 @@
-
 export const config = {
-  apiKey: "AIzaSyD15_90dAw9ZAtnojq61vlTWyyPoW6dx-c",
-  authDomain: "citizen-love.firebaseapp.com",
-  databaseURL: "https://citizen-love.firebaseio.com",
-  projectId: "citizen-love",
-  storageBucket: "citizen-love.appspot.com",
-  messagingSenderId: "335381408480",
-  appId: "1:335381408480:web:e7aca6929867bdededfe85",
-  measurementId: "G-CFJHGML1MH"
-}
+  apiKey: "AIzaSyA0ZCIE3JnsAqaDFQ4qwTA0ePCyN5nEyeg",
+  authDomain: "citizen-love-dev.firebaseapp.com",
+  databaseURL: "https://citizen-love-dev.firebaseio.com",
+  projectId: "citizen-love-dev",
+  storageBucket: "citizen-love-dev.appspot.com",
+  messagingSenderId: "662577748015",
+  appId: "1:662577748015:web:5dcb6d679565ed71028eda",
+  measurementId: "G-BQD8JZ602B"
+};

@@ -19,11 +19,35 @@ jobs:
           name: Deploy frontend application to firebase hosting
           command: firebase deploy --token "$FIREBASE_TOKEN"
 
+  build-frontend-dev:
+    docker:
+      - image: circleci/node:12-browsers
+    steps:
+      - checkout
+      - run:
+          name: Update NPM
+          command: "sudo npm install -g npm@latest firebase-tools"
+      - run:
+          name: Get local dependencies
+          command: "npm install"
+      - run:
+          name: Build frontend application
+          command: "npm run build"
+      - run:
+          name: Deploy frontend application to firebase hosting
+          command: firebase deploy -P development --token "$FIREBASE__DEV_TOKEN"
+
+
 workflows:
   version: 2
   deploy:
-    jobs: 
-    - build-frontend:
-        filters:
-          branches:
-            only: master
+    jobs:
+      - build-frontend:
+          filters:
+            branches:
+              only: master
+
+      - build-frontend-dev:
+          filters:
+            branches:
+              only: development
