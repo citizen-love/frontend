@@ -1,7 +1,7 @@
 import axios from 'axios';
 
  class HelpRequestService {
-   rootUrl = process.env.API_URL;
+   rootUrl = process.env.VUE_APP_API_URL;
    endpoint = '/help-request';
 
    constructor() {
