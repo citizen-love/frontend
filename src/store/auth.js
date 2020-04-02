@@ -2,7 +2,7 @@ import router from "../router";
 import axiosAuth from "../auth";
 
 /** See details [https://firebase.google.com/docs/reference/rest/auth?hl=en#section-create-email-password](Firebase) */
-const FIREBASE_API_KEY = process.env.VUE_APP_FIREBASE_KEY;
+const FIREBASE_API_KEY = process.env.VUE_APP_FIREBASE_KEY; //process.env.VUE_APP_FIREBASE_KEY;
 
 const state = {
   userId: null,

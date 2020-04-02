@@ -1,4 +1,4 @@
-import axios from "axios";
+import axiosAuth from "../auth";
 
 /* User information related data */
 
@@ -65,7 +65,7 @@ const actions = {
       portfolio: [] // bought stocks will be in portfolio
     };
 
-    axios
+    axiosAuth
       .put(
         `/users/${rootState.auth.userId}.json?auth=${rootState.auth.idToken}`,
         userData
@@ -85,7 +85,7 @@ const actions = {
     if (!rootState.auth.idToken) {
       return;
     }
-    axios
+    axiosAuth
       .get(
         `/users/${rootState.auth.userId}.json?auth=${rootState.auth.idToken}`
       )
@@ -107,7 +107,7 @@ const actions = {
     if (!rootState.auth.idToken) {
       return;
     }
-    axios
+    axiosAuth
       .patch(
         `/users/${rootState.auth.userId}.json?auth=${rootState.auth.idToken}`,
         {
