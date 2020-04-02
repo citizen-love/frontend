@@ -71,18 +71,17 @@ const actions = {
         dispatch("addUser", {
           email: userObj.email,
           firstName: userObj.firstName,
-          lastName: userObj.lastName,
-          funds: 10000, // on default all users have 10000 USD to start with in the simulation
-          portfolioStocks: [] // user's stocks will be added here
+          lastName: userObj.lastName
         });
-        // redirect to user portfolio once finished registration
-        router.push("/portfolio");
+        // redirect to user profile once finished registration
+        router.push("/profile");
       })
       .catch(error => {
         commit("CREATE_USER_FAILED", error);
       });
   },
   onAuthenticateSuccess: ({ commit, dispatch }, response) => {
+    console.log("user authenticated through Firebase REST API");
     commit("AUTHENTICATE_USER", response.data);
     dispatch("setLogoutTimer", response.data.expiresIn);
     dispatch("fetchUserData");
@@ -104,8 +103,8 @@ const actions = {
       })
       .then(response => {
         dispatch("onAuthenticateSuccess", response);
-        // redirect to user portfolio once authenticated
-        router.push("/portfolio");
+        // redirect to user profile once authenticated
+        router.push("/profile");
       })
       .catch(error => {
         commit("LOGIN_USER_FAILED", error);
@@ -118,6 +117,7 @@ const actions = {
       return;
     }
     const localId = localStorage.getItem("localId");
+    console.log("Auto logging via local storage");
     commit("AUTHENTICATE_USER", { localId, idToken });
     dispatch("fetchUserData");
   },

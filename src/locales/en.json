@@ -103,6 +103,7 @@
     "auth": {
         "login": "Login",
         "loginTitle": "Welcome back",
+        "logout": "Logout",
         "signup": "Sign up",
         "signupTitle": "Welcome",
         "email": "Email",
@@ -122,5 +123,8 @@
             "USER_DISABLED": "The user account has been disabled by an administrator.",
             "WEAK_PASSWORD": "Password should be at least 6 characters"
         }
+    },
+    "userProfile": {
+        "profile": "My profile"
     }
 }

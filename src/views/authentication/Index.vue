@@ -38,7 +38,7 @@ export default {
   },
   created() {
     if (this.isAuthenticated) {
-      this.$router.push("/portfolio");
+      this.$router.push("/profile");
     }
   },
   components: {
@@ -65,12 +65,12 @@ export default {
   padding: 1em 1em 3em 1em;
 }
 .auth-button {
-  position: fixed;
   outline: none;
   border-radius: 50%;
   height: 120px;
   width: 120px;
-  bottom: 10%;
+  top: 10%;
+  position: absolute;
   right: 10%;
   font-size: 1em;
   -webkit-box-shadow: 4px -4px 0px 0px rgba(255, 255, 255, 0.5);
@@ -91,13 +91,6 @@ export default {
 
   &:focus {
     outline: none;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .auth-button {
-    top: 10%;
-    position: absolute;
-    right: 10%;
   }
 }
 </style>

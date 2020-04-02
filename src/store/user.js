@@ -1,4 +1,9 @@
-import axiosAuth from "../auth";
+import Axios from "axios";
+
+export const axios = Axios.create({
+  // Double check this, should we use firebase REST API or not?
+  baseURL: process.env.VUE_APP_FIREBASE_REST_API_URL
+});
 
 /* User information related data */
 
@@ -41,8 +46,6 @@ const mutations = {
   CLEAR_USER_INFO(state) {
     state.firstName = null;
     state.lastName = null;
-    state.funds = null;
-    state.stocks = null;
     state.error = null;
   }
 };
@@ -60,12 +63,10 @@ const actions = {
     const userData = {
       email: userObj.email,
       firstName: userObj.firstName,
-      lastName: userObj.lastName,
-      funds: 10000, // on default all users have 10000 USD in the simulation
-      portfolio: [] // bought stocks will be in portfolio
+      lastName: userObj.lastName
     };
 
-    axiosAuth
+    axios
       .put(
         `/users/${rootState.auth.userId}.json?auth=${rootState.auth.idToken}`,
         userData
@@ -81,11 +82,11 @@ const actions = {
   },
 
   /** Fetched user data by localId provided by Firebase auth endpoint, saved in login/signup as `userId` to vuex */
-  fetchUserData({ rootState, commit, dispatch }) {
+  fetchUserData({ rootState, commit }) {
     if (!rootState.auth.idToken) {
       return;
     }
-    axiosAuth
+    axios
       .get(
         `/users/${rootState.auth.userId}.json?auth=${rootState.auth.idToken}`
       )
@@ -95,7 +96,7 @@ const actions = {
       .catch(error => {
         commit("GET_USER_DATA_FAILED", error);
         // logout user if 401 (not authenticated or token expired)
-        dispatch("signOutUser");
+        // dispatch("signOutUser");
       });
   },
 
@@ -107,7 +108,7 @@ const actions = {
     if (!rootState.auth.idToken) {
       return;
     }
-    axiosAuth
+    axios
       .patch(
         `/users/${rootState.auth.userId}.json?auth=${rootState.auth.idToken}`,
         {
