@@ -12,7 +12,6 @@
       <span>{{ $t("general.language") }}: </span>
             <router-link
         :to="{ name: 'SelectLanguage'}"
-        v-on="on"
         class="overlay--row--languageitem"
       >{{ languages.find( l => l.locale === $i18n.locale).name }}</router-link>
     </div>

@@ -4,9 +4,13 @@
     <div>
       <router-link
         :to="{ name: 'SelectLanguage'}"
-        v-on="on"
         class="overlay--row--languageitem"
       >{{ languages.find( l => l.locale === $i18n.locale).name }}</router-link>
+    </div>
+      <div>
+      <router-link
+        :to="{ name: 'authentication'}"
+      ><v-btn>{{ $t("auth.signup")}}</v-btn></router-link>
     </div>
   </div>
 </template>

@@ -10,6 +10,7 @@ import DetailedHelpRequest from "../views/detailed-help/DetailedHelpRequest";
 import SelectLanguage from "@/views/SelectLanguage";
 import Register from "../views/helper/Register";
 import Confirm from "../views/helper/Confirm";
+import Authentication from "@/views/authentication/Index.vue";
 
 Vue.use(VueRouter);
 
@@ -98,6 +99,11 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ "../views/Home.vue")
+  },
+  {
+    path: "/authentication",
+    name: "authentication",
+    component: Authentication
   }
 ];
 

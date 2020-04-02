@@ -24,6 +24,7 @@
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 import OverlayText from "./components/header/overlay";
+import { mapActions } from 'vuex';
 
 /**
  * @description Root layout of the application
@@ -40,12 +41,16 @@ export default {
   methods: {
     changeLocale(locale) {
       this.$i18n.locale = locale;
-    }
+    },
+    ...mapActions({
+      tryAutoLogin: "tryAutoLogin"
+    })
   },
   created() {
     addEventListener("resize", () => {
       this.mobile = innerWidth <= 650;
     });
+    this.tryAutoLogin();
   }
 };
 </script>

@@ -99,5 +99,24 @@
         "buttonCompleted": "I have been helped",
         "buttonCancelled": "Delete my request",
         "notFound": "There is no request with this ID."
+    },
+    "auth": {
+        "login": "Login",
+        "loginTitle": "Welcome back",
+        "signup": "Sign up",
+        "signupTitle": "Welcome",
+        "email": "Email",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "password": "Password",
+        "errors": {
+            "DEFAULT": "Unkown error occured. Please try again.",
+            "EMAIL_EXISTS": "The email address is already in use by another account.",
+            "OPERATION_NOT_ALLOWED": "Password sign-in is disabled for this project.",
+            "TOO_MANY_ATTEMPTS_TRY_LATER": "Too many attempts. Try again later.",
+            "EMAIL_NOT_FOUND": "There is no user corresponding to this email.",
+            "INVALID_PASSWORD": "The password is invalid.",
+            "USER_DISABLED": "The user account has been disabled by an administrator."
+        }
     }
 }
