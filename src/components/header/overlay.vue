@@ -20,7 +20,7 @@
         v-else
         :to="{ name: 'authentication'}"
       >
-        <v-btn>{{ $t("auth.signup")}}</v-btn>
+        <v-btn color="primary">{{ $t("auth.signup")}}</v-btn>
       </router-link>
     </div>
   </div>
