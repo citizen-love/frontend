@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 class HelperService {
-  rootUrl = 'https://us-central1-citizen-love.cloudfunctions.net/api'
+  rootUrl = process.env.API_URL;
   endpoint = '/subscribe'
 
   constructor() {

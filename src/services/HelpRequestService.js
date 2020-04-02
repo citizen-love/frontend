@@ -1,8 +1,8 @@
 import axios from 'axios';
 
  class HelpRequestService {
-   rootUrl = 'https://us-central1-citizen-love.cloudfunctions.net/api'
-   endpoint = '/help-request'
+   rootUrl = process.env.API_URL;
+   endpoint = '/help-request';
 
    constructor() {
      this.createHelpRequest = this.createHelpRequest.bind(this)
