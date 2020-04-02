@@ -9,6 +9,7 @@
       ogLocale="TODO"
       url="TODO"
     />
+    <div v-if="isDevelopmentEnvironment" class="dev-notice">You're on the DEV environment</div>
     <Header v-if="mobile" />
     <OverlayText v-if="!mobile" />
     <v-content class="desktop--app-wrapper">
@@ -37,6 +38,11 @@ export default {
     drawer: false,
     mobile: window.innerWidth <= 650
   }),
+  computed: {
+    isDevelopmentEnvironment() {
+      return process.env.NODE_ENV === 'development';
+    }
+  },
   methods: {
     changeLocale(locale) {
       this.$i18n.locale = locale;
@@ -79,6 +85,12 @@ export default {
     //min-height: 90vh;
     border-radius: 5px;
     padding-top: 25px !important;
+  }
+
+  .dev-notice{
+    text-align: center;
+    background: rgba(255,255,0,0.5);
+    color:white;
   }
 }
 </style>
