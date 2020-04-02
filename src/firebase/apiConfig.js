@@ -1,11 +1,11 @@
 
 export const config = {
-  apiKey: "AIzaSyA0ZCIE3JnsAqaDFQ4qwTA0ePCyN5nEyeg",
-  authDomain: "citizen-love-dev.firebaseapp.com",
-  databaseURL: "https://citizen-love-dev.firebaseio.com",
-  projectId: "citizen-love-dev",
-  storageBucket: "citizen-love-dev.appspot.com",
-  messagingSenderId: "662577748015",
-  appId: "1:662577748015:web:5dcb6d679565ed71028eda",
-  measurementId: "G-BQD8JZ602B"
+  apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
+  authDomain: process.env.VUE_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.VUE_APP_DATABASE_URL,
+  projectId: process.env.VUE_APP_PROJECT_ID,
+  storageBucket: process.env.VUE_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.VUE_APP_MESSAGING_SENDER_ID,
+  appId: process.env.VUE_APP_APP_ID,
+  measurementId: process.env.VUE_APP_MEASUREMENT_ID
 }

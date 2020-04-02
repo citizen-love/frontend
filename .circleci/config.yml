@@ -14,10 +14,10 @@ jobs:
           command: "npm install"
       - run:
           name: Build frontend application
-          command: "npm run build"
+          command: "npm run build-production"
       - run:
           name: Deploy frontend application to firebase hosting
-          command: firebase deploy --token "$FIREBASE_TOKEN"
+          command: firebase deploy -P production --token "$FIREBASE_TOKEN"
 
   build-frontend-dev:
     docker:
