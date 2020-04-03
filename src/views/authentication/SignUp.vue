@@ -32,6 +32,12 @@
       </div>
 
       <div class="input-container">
+        <label for="phone">{{$t('auth.phone')}}</label>
+        <br />
+        <input id="phone" type="text" v-model="phone" />
+      </div>
+
+      <div class="input-container">
         <label for="password">{{$t('auth.password')}}</label>
         <br />
         <input
@@ -49,6 +55,16 @@
         </button>
       </div>
       <br/>
+       <v-switch
+        v-model="isHelper"
+        :label="$t('auth.isHelper')"
+      ></v-switch>
+      <div v-if="isHelper">
+        <label>Bio</label>
+        <textarea v-model="bio"/>
+        <br/>
+        <label>I can help in next categories</label>
+      </div>
 
       <v-btn @click="signUp">{{$t('auth.signup')}}</v-btn>
     </div>
@@ -67,8 +83,14 @@ export default {
       password: "",
       firstName: "",
       lastName: "",
+      phone: "",
       passwordType: "password",
-      imgSrc: null
+      imgSrc: null,
+      isHelper: false,
+      bio: ""
+      // helperCategories: false
+      // location
+      // phone number
     };
   },
   computed: {
@@ -81,7 +103,8 @@ export default {
         email: this.email,
         password: this.password,
         firstName: this.firstName,
-        lastName: this.lastName
+        lastName: this.lastName,
+        isHelper: this.isHelper
       });
     }
   },

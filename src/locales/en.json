@@ -110,6 +110,9 @@
         "firstName": "First name",
         "lastName": "Last name",
         "password": "Password",
+        "phone": "Phone number",
+        "isHelper": "I volunteer to help others",
+        "address": "Address",
         "errors": {
             "DEFAULT": "Unkown error occured. Please try again.",
             "EMAIL_EXISTS": "The email address is already in use by another account.",

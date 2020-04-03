@@ -1,16 +1,23 @@
-import Axios from "axios";
+// import axios from "axios";
+import UserService from "../services/UserService";
 
-export const axios = Axios.create({
+/*export const axios = Axios.create({
   // Double check this, should we use firebase REST API or not?
   baseURL: process.env.VUE_APP_FIREBASE_REST_API_URL
-});
+});*/
 
 /* User information related data */
+
+// const rootUrl = process.env.VUE_APP_API_URL;
+// const endpoint = "/users";
 
 const state = {
   firstName: null,
   lastName: null,
   email: null,
+  phoneNumber: null,
+  isHelper: null,
+  helperCategories: [],
   error: null
 };
 
@@ -23,6 +30,9 @@ const getters = {
   },
   lastName(state) {
     return state.lastName;
+  },
+  isHelper(state) {
+    return state.isHelper;
   }
 };
 
@@ -51,7 +61,7 @@ const mutations = {
 };
 
 const actions = {
-  addUser({ commit, rootState }, userObj) {
+  async addUser({ rootState }, userObj) {
     if (!rootState.auth.idToken) {
       return;
     }
@@ -63,10 +73,30 @@ const actions = {
     const userData = {
       email: userObj.email,
       firstName: userObj.firstName,
-      lastName: userObj.lastName
+      lastName: userObj.lastName,
+      phoneNumber: userObj.phoneNumber,
+      isHelper: userObj.isHelper
     };
 
-    axios
+    console.log("creating user", userData);
+    UserService.createUser(userData);
+    /*try {
+      const { data } = await axios({
+        method: "POST",
+        url: rootUrl + endpoint,
+        data: userData
+      });
+      console.log(data);
+      if (data) {
+        commit("SET_USER_DATA", data);
+      }
+      return data;
+    } catch (error) {
+      commit("SET_USER_DATA_FAILED", error);
+      // return Promise.reject(e);
+    }*/
+
+    /*axios
       .put(
         `/users/${rootState.auth.userId}.json?auth=${rootState.auth.idToken}`,
         userData
@@ -78,15 +108,16 @@ const actions = {
       })
       .catch(error => {
         commit("SET_USER_DATA_FAILED", error);
-      });
+      });*/
   },
 
   /** Fetched user data by localId provided by Firebase auth endpoint, saved in login/signup as `userId` to vuex */
-  fetchUserData({ rootState, commit }) {
+  fetchUserData({ rootState }) {
     if (!rootState.auth.idToken) {
       return;
     }
-    axios
+    UserService.getUser(rootState.auth.idToken);
+    /*axios
       .get(
         `/users/${rootState.auth.userId}.json?auth=${rootState.auth.idToken}`
       )
@@ -97,18 +128,19 @@ const actions = {
         commit("GET_USER_DATA_FAILED", error);
         // logout user if 401 (not authenticated or token expired)
         // dispatch("signOutUser");
-      });
+      });*/
   },
 
   /** update user data by localId provided by Firebase auth endpoint, saved in login/signup as `userId` to vuex,
    * note that to update data on Firebase REST API without verwriting, you have to use PATCH
    * see more [https://firebase.google.com/docs/database/rest/save-data](here)
    */
-  updateUserData({ rootState, state, commit }) {
+  updateUserData({ rootState }) {
     if (!rootState.auth.idToken) {
       return;
     }
-    axios
+    UserService.updateUser();
+    /*axios
       .patch(
         `/users/${rootState.auth.userId}.json?auth=${rootState.auth.idToken}`,
         {
@@ -121,7 +153,7 @@ const actions = {
       })
       .catch(error => {
         commit("EDIT_USER_DATA_FAILED", error);
-      });
+      });*/
   },
   clearUserInfo({ commit }) {
     commit("CLEAR_USER_INFO");
