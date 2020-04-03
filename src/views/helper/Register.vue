@@ -39,7 +39,7 @@
       <span>{{ $t("register.phoneDescription") }}</span>
       <v-text-field
         class="text-input"
-        v-model="formData.phone"
+        v-model="formData.phoneNumber"
         :placeholder="$t('register.phonePlaceholder')"
       ></v-text-field>
       <v-checkbox
@@ -77,6 +77,7 @@ export default {
         location: undefined,
         community: undefined,
         country: undefined,
+        phoneNumber: undefined,
       },
       notifyByPhone: true,
       isFormValid: false,
