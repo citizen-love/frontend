@@ -120,6 +120,7 @@ const actions = {
   async addUser({ commit }, userObj) {
     console.log("adding new user", userObj);
     if (!userObj.uid) {
+      console.error("new user must have uid");
       return;
     }
     console.log("registering");
