@@ -8,6 +8,9 @@ export default {
       warning: "#ff5722",
       info: "#03a9f4",
       success: "#8bc34a"
+    },
+    dark: {
+      primary: "#FA4659",
     }
   }
 }
