@@ -2,22 +2,31 @@
   <div class="user-profile">
     <h1>{{ $t('userProfile.profile')}}</h1>
     <br/>
-    <p><strong>Name</strong><br/>{{firstName}} {{lastName}}</p>
-    <p><strong>Email</strong><br/>{{email}}</p>
+    <p><strong>{{ $t('userProfile.name')}}</strong><br/>{{firstName}} {{lastName}}</p>
+    <p><strong>{{ $t('userProfile.email')}}</strong><br/>{{email}}</p>
+    <div class="center">
+       <v-btn color="primary">{{ $t('userProfile.cta')}}</v-btn>
+    </div>
+   
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "UserProfile",
   computed: {
-    ...mapGetters({
-      firstName: "firstName",
-      lastName: "lastName",
-      email: "email"
-    })
+    ...mapGetters(["firstName", "lastName","email"]),
+  },
+  methods: {
+    ...mapActions(["fetchUserData"])
+  },
+  updated() {
+    this.fetchUserData()
+  },
+  created() {
+    this.fetchUserData()
   },
 }
 </script>

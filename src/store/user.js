@@ -1,23 +1,29 @@
-// import axios from "axios";
-import UserService from "../services/UserService";
+import HelperService from "../services/HelperService";
 
-/*export const axios = Axios.create({
-  // Double check this, should we use firebase REST API or not?
-  baseURL: process.env.VUE_APP_FIREBASE_REST_API_URL
-});*/
+export const name = "user";
 
-/* User information related data */
-
-// const rootUrl = process.env.VUE_APP_API_URL;
-// const endpoint = "/users";
+/**
+ * Vuex store module for Helper profile
+ * Requires logging in/signing up
+ */
 
 const state = {
   firstName: null,
   lastName: null,
   email: null,
   phoneNumber: null,
-  isHelper: null,
-  helperCategories: [],
+  notifyBySMS: null,
+  createdAt: null,
+  isAvailable: null,
+  bio: null,
+  categories: [],
+  reviews: [],
+  coordinates: null,
+  radius: null, //km
+  language: null,
+  avatar: null,
+
+  // to display if fetching helper data went wrong
   error: null
 };
 
@@ -31,8 +37,35 @@ const getters = {
   lastName(state) {
     return state.lastName;
   },
-  isHelper(state) {
-    return state.isHelper;
+  phoneNumber(state) {
+    return state.phoneNumber;
+  },
+  notifyBySMS(state) {
+    return state.notifyBySMS;
+  },
+  isAvailable(state) {
+    return state.isAvailable;
+  },
+  reviews(state) {
+    return state.reviews;
+  },
+  coordinates(state) {
+    return state.coordinates;
+  },
+  categories(state) {
+    return state.categories;
+  },
+  bio(state) {
+    return state.bio;
+  },
+  radius(state) {
+    return state.radius;
+  },
+  language(state) {
+    return state.language;
+  },
+  avatar(state) {
+    return state.avatar;
   }
 };
 
@@ -42,6 +75,17 @@ const mutations = {
       state.firstName = data.firstName;
       state.lastName = data.lastName;
       state.email = data.email;
+      state.phoneNumber = data.phoneNumber;
+      state.notifyBySMS = data.notifyBySMS;
+      state.createdAt = data.createdAt;
+      state.isAvailable = data.isAvailable;
+      state.bio = data.bio;
+      state.categories = data.categories;
+      state.reviews = data.reviews;
+      state.coordinates = data.coordinates;
+      state.radius = data.radius; //km
+      state.language = data.language;
+      state.avatar = data.avatar;
     }
   },
   SET_USER_DATA_FAILED(state, error) {
@@ -53,113 +97,92 @@ const mutations = {
   EDIT_USER_DATA_FAILED(state, error) {
     state.error = error;
   },
-  CLEAR_USER_INFO(state) {
+  CLEAR_USER_INFO() {
     state.firstName = null;
     state.lastName = null;
+    state.email = null;
+    state.phoneNumber = null;
+    state.notifyBySMS = null;
+    state.createdAt = null;
+    state.isAvailable = null;
+    state.bio = null;
+    state.categories = [];
+    state.reviews = [];
+    state.coordinates = null;
+    state.radius = null; //km
+    state.language = null;
+    state.avatar = null;
     state.error = null;
   }
 };
 
 const actions = {
-  async addUser({ rootState }, userObj) {
-    if (!rootState.auth.idToken) {
+  async addUser({ commit }, userObj) {
+    console.log("adding new user", userObj);
+    if (!userObj.uid) {
       return;
     }
-    /** using unique `localId`s as identifiers, we can fetch single data without requesting firebase generated ids separately
-     * localId is returned by auth endpoint and saved in store/modules/auth as `userId`
-     * See more [https://firebase.google.com/docs/database/rest/save-data](documentation)
-     * NOTE! To avoid auto generated ids in firebase, use PUT not POST
-     */
-    const userData = {
-      email: userObj.email,
-      firstName: userObj.firstName,
-      lastName: userObj.lastName,
-      phoneNumber: userObj.phoneNumber,
-      isHelper: userObj.isHelper
-    };
+    console.log("registering");
 
-    console.log("creating user", userData);
-    UserService.createUser(userData);
-    /*try {
-      const { data } = await axios({
-        method: "POST",
-        url: rootUrl + endpoint,
-        data: userData
-      });
-      console.log(data);
-      if (data) {
-        commit("SET_USER_DATA", data);
-      }
-      return data;
-    } catch (error) {
-      commit("SET_USER_DATA_FAILED", error);
-      // return Promise.reject(e);
-    }*/
-
-    /*axios
-      .put(
-        `/users/${rootState.auth.userId}.json?auth=${rootState.auth.idToken}`,
-        userData
-      )
+    HelperService.registerHelper(userObj)
       .then(response => {
         if (response) {
-          commit("SET_USER_DATA", userObj);
+          console.log(response);
+          commit("SET_USER_DATA", response);
         }
       })
       .catch(error => {
         commit("SET_USER_DATA_FAILED", error);
-      });*/
+      });
   },
 
-  /** Fetched user data by localId provided by Firebase auth endpoint, saved in login/signup as `userId` to vuex */
-  fetchUserData({ rootState }) {
+  /**
+   * Fetched user data by localId provided by Firebase auth endpoint,
+   * saved in login/signup to vuex
+   */
+  fetchUserData({ rootState, commit }) {
+    console.log("fetching current user data", rootState);
+
     if (!rootState.auth.idToken) {
       return;
     }
-    UserService.getUser(rootState.auth.idToken);
-    /*axios
-      .get(
-        `/users/${rootState.auth.userId}.json?auth=${rootState.auth.idToken}`
-      )
+
+    HelperService.getHelper(rootState.auth.idToken)
       .then(response => {
-        commit("SET_USER_DATA", response.data);
+        commit("SET_USER_DATA", response);
       })
       .catch(error => {
         commit("GET_USER_DATA_FAILED", error);
         // logout user if 401 (not authenticated or token expired)
         // dispatch("signOutUser");
-      });*/
+      });
   },
 
-  /** update user data by localId provided by Firebase auth endpoint, saved in login/signup as `userId` to vuex,
-   * note that to update data on Firebase REST API without verwriting, you have to use PATCH
-   * see more [https://firebase.google.com/docs/database/rest/save-data](here)
+  /**
+   * update user data by current user uid (localId) provided by Firebase auth endpoint,
    */
-  updateUserData({ rootState }) {
+  updateUserData({ rootState, commit }, payload) {
     if (!rootState.auth.idToken) {
       return;
     }
-    UserService.updateUser();
-    /*axios
-      .patch(
-        `/users/${rootState.auth.userId}.json?auth=${rootState.auth.idToken}`,
-        {
-          stocks: state.stocks,
-          funds: Number(state.funds).toFixed(2)
-        }
-      )
+    HelperService.updateHelper(payload)
       .then(response => {
         commit("SET_USER_DATA", response.data);
       })
       .catch(error => {
         commit("EDIT_USER_DATA_FAILED", error);
-      });*/
+      });
   },
+
+  /**
+   * Clears user data on logout for example
+   * */
   clearUserInfo({ commit }) {
     commit("CLEAR_USER_INFO");
   }
 };
-export default {
+
+export const module = {
   state,
   mutations,
   actions,

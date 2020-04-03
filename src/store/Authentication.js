@@ -1,8 +1,11 @@
 import router from "../router";
 import axiosAuth from "../auth";
+import { Date } from "core-js";
+
+export const name = "auth";
 
 /** See details [https://firebase.google.com/docs/reference/rest/auth?hl=en#section-create-email-password](Firebase) */
-const FIREBASE_API_KEY = process.env.VUE_APP_FIREBASE_KEY; //process.env.VUE_APP_FIREBASE_KEY;
+const FIREBASE_API_KEY = process.env.VUE_APP_FIREBASE_KEY;
 
 const state = {
   userId: null,
@@ -59,6 +62,7 @@ const actions = {
       // transfer firebase token expiration time (s) to milliseconds
     }, expirationTime * 1000);
   },
+
   signUpUser: ({ commit, dispatch }, userObj) => {
     axiosAuth
       .post(`/accounts:signUp?key=${FIREBASE_API_KEY}`, {
@@ -67,12 +71,24 @@ const actions = {
         returnSecureToken: true // Firebase's own field
       })
       .then(response => {
-        dispatch("onAuthenticateSuccess", response);
+        // add successfully signed up user info to helper db
         dispatch("addUser", {
-          email: userObj.email,
           firstName: userObj.firstName,
-          lastName: userObj.lastName
+          lastName: userObj.lastName,
+          email: userObj.email,
+          /* phoneNumber: userObj.phoneNumber,
+          notifyBySMS: userObj.notifyBySMS,
+          isAvailable: userObj.isAvailable,
+          bio: userObj.bio,
+          categories: userObj.categories,
+          reviews: [],
+          coordinates: userObj.coordinates,
+          radius: userObj.radius, //km
+          language: userObj.language,
+          avatar: userObj.avatar,*/
+          uid: response.data.localId
         });
+        dispatch("onAuthenticateSuccess", response);
         // redirect to user profile once finished registration
         router.push("/profile");
       })
@@ -80,8 +96,8 @@ const actions = {
         commit("CREATE_USER_FAILED", error);
       });
   },
+
   onAuthenticateSuccess: ({ commit, dispatch }, response) => {
-    console.log("user authenticated through Firebase REST API");
     commit("AUTHENTICATE_USER", response.data);
     dispatch("setLogoutTimer", response.data.expiresIn);
     dispatch("fetchUserData");
@@ -94,6 +110,7 @@ const actions = {
     localStorage.setItem("expirationDate", expiration);
     localStorage.setItem("localId", response.data.localId);
   },
+
   loginUser: ({ commit, dispatch }, userObj) => {
     axiosAuth
       .post(`/accounts:signInWithPassword?key=${FIREBASE_API_KEY}`, {
@@ -110,27 +127,29 @@ const actions = {
         commit("LOGIN_USER_FAILED", error);
       });
   },
-  tryAutoLogin: ({ commit, dispatch }) => {
+
+  tryAutoLogin: ({ commit }) => {
     const idToken = localStorage.getItem("token");
     const expirationDate = localStorage.getItem("expirationDate");
     if (!idToken || new Date() >= expirationDate) {
       return;
     }
     const localId = localStorage.getItem("localId");
-    console.log("Auto logging via local storage");
+    console.log("auto logging in via localStorage", localId, idToken);
     commit("AUTHENTICATE_USER", { localId, idToken });
-    dispatch("fetchUserData");
   },
+
   logoutUser: ({ commit }) => {
     commit("LOGOUT_USER");
   },
+
   signOutUser: ({ commit, dispatch }) => {
     commit("SIGN_OUT_USER");
     dispatch("clearUserInfo");
   }
 };
 
-export default {
+export const module = {
   state,
   mutations,
   actions,

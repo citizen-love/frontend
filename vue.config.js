@@ -14,10 +14,6 @@ module.exports = {
     }
   },
 
-  devServer: {
-    proxy: process.env.PROXY_URL // for Firebase auth REST API to be tested on localhost without CORS error
-  },
-
   configureWebpack: {
     devServer: {
       allowedHosts: [
