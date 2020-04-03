@@ -42,6 +42,12 @@
         v-model="formData.phone"
         :placeholder="$t('register.phonePlaceholder')"
       ></v-text-field>
+      <v-checkbox
+        v-model="notifyByPhone"
+        :label="$t('register.notifySMSCheckboxLabel')"
+      ></v-checkbox>
+
+
     </v-form>
 
     <v-btn
@@ -57,6 +63,7 @@
 <script>
 import AutoComplete from "../../components/autoComplete/autoComplete";
 import HelperService from "../../services/HelperService";
+import {uuidv4} from "../../utils/uuid";
 
 export default {
   name: "Register",
@@ -69,8 +76,9 @@ export default {
         radius: 5,
         location: undefined,
         community: undefined,
-        country: undefined
+        country: undefined,
       },
+      notifyByPhone: true,
       isFormValid: false,
       emailRules: [
         v => !!v || this.$t("receiveHelp2.formEmailError"),
@@ -104,6 +112,8 @@ export default {
       this.isBusy = true;
       const postObject = Object.assign({}, this.formData);
       postObject.language = this.$i18n.locale;
+      postObject.preferences = this.notifyByPhone ? ['EMAIL','SMS'] : ['EMAIL']
+      postObject.uid = uuidv4();
       HelperService.registerHelper(postObject)
         .then(() => {
           this.$router.push({
