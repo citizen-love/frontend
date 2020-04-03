@@ -75,7 +75,8 @@
         "phoneTitle": "Deine Telefonnummer (optional)",
         "phoneDescription": "Zu einem späteren Zeitpunkt möchten wir dich über Unterstützungsanfragen per SMS benachrichten. Wenn du möchtest, kannst du uns deine Telefonnummer bereits angeben.",
         "phonePlaceholder": "z.B. +41 73 ....",
-        "registerButton": "Registrieren"
+        "registerButton": "Registrieren",
+        "notifySMSCheckboxLabel": "Per SMS über neue Unterstützungsanfragen informiert werden"
     },
     "registerHelpConfirm": {
         "mainTitle": "High five!",
