@@ -17,6 +17,7 @@
       <v-btn
         dark
         text
+        class="d-none d-sm-inline-flex"
         :to="{ name: 'SelectLanguage'}">
         <v-icon>mdi-earth</v-icon>
         {{ languages.find( l => l.locale === $i18n.locale).name }}
