@@ -22,6 +22,7 @@
         {{ languages.find( l => l.locale === $i18n.locale).name }}
       </v-btn>
       <v-btn
+        v-if="false && 'this button is hidden until profile functionality is here'"
         dark
         text>
         <v-icon>mdi-account-circle-outline</v-icon>
@@ -29,9 +30,9 @@
       </v-btn>
       <v-btn
         depressed
-        dark="false"
         color="white"
-      >Sign Up
+        :to="{name: 'RegisterForHelp'}"
+      >{{ $t('index.startHelping') }}
       </v-btn>
 
     </v-app-bar>
@@ -100,6 +101,7 @@
     }
     .content {
       max-width: 1200px;
+
     }
 
     .dev-notice {
