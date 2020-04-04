@@ -43,6 +43,7 @@ import WizardNextButton from "../../components/WizardNextButton";
 import AutoComplete from "../../components/autoComplete/autoComplete";
 import { mapMutations } from "vuex";
 import * as helpRequestWizardState from "../../store/HelpRequestWizardState";
+import categories from "../../utils/categories";
 
 export default {
   name: "ReceiveHelp",
@@ -50,44 +51,7 @@ export default {
   data() {
     const state = this.$store.state[helpRequestWizardState.name];
     return {
-      categories: [
-        {
-          key: "groceries",
-          displayName: this.$t("categories.groceries"),
-          icon: "mdi-cart-outline"
-        },
-        {
-          key: "washing",
-          displayName: this.$t("categories.washing"),
-          icon: "mdi-washing-machine"
-        },
-        {
-          key: "babysitting",
-          displayName: this.$t("categories.babysitting"),
-          icon: "mdi-baby-bottle"
-        },
-        {
-          key: "transport",
-          displayName: this.$t("categories.transport"),
-          icon: "mdi-car-hatchback"
-        },
-        {
-          key: "loneliness",
-          displayName: this.$t("categories.loneliness"),
-          icon: "mdi-emoticon-sad"
-        },
-        {
-          key: "childcare",
-          displayName: this.$t("categories.childcare"),
-          icon: "mdi-human-female-girl"
-        },
-        {
-          key: "pets",
-          displayName: this.$t("categories.pets"),
-          icon: "mdi-dog-side"
-        },
-        { key: "else", displayName: this.$t("categories.other"), icon: "" }
-      ],
+      categories: categories,
       selected: state.category,
       location: state.location,
       customCategory: state.customCategory,

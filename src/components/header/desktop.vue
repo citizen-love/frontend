@@ -1,13 +1,6 @@
 <template>
     <div class="header--copy-row">
-      <div class="header--text-box">
-      <h1>{{ $t("index.mainTitle") }}</h1>
-      <p>{{ $t("index.mainDescription") }}</p>
-      </div>
-      <div class="header--button-box">
-      <v-btn color="primary" x-large :to="{name: 'ReceiveHelp'}">{{ $t("index.buttonNeedHelp") }}</v-btn>
-      <v-btn color="primary" x-large outlined :to="{name: 'RegisterForHelp'}">{{ $t("index.buttonNotifyMe") }}</v-btn>
-      </div>
+
     </div>
 </template>
 

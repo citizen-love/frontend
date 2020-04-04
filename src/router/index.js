@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Index from "../views/Index.vue";
+import Index from "../views/Index/Index.vue";
 import Confirmation from "../views/receive-help/Confirmation";
 import Step2 from "../views/receive-help/Step2";
 import Step3 from "../views/receive-help/Step3";

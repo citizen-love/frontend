@@ -1,27 +1,36 @@
 <template>
-  <div class="footer--row">
-    <div class="footer--sm-wrapper">
+  <v-row class="footer--row">
+    <v-col
+      cols="2"
+      sm="2"
+      class="footer--sm-wrapper">
     <!--
       <img src="../../assets/facebook-mini.svg"/>
       <img src="../../assets/instagram-mini.svg"/>
       <img src="../../assets/twitter-mini.svg"/>
     -->
       <a href="https://github.com/citizen-love/"><img src="../../assets/github-mini.svg"/></a>
-    </div>
-    <div class="footer--lang-wrapper">
+    </v-col>
+    <v-col
+      cols="10"
+      sm="4"
+      class="footer--lang-wrapper">
       <span>{{ $t("general.language") }}: </span>
             <router-link
         :to="{ name: 'SelectLanguage'}"
         v-on="on"
         class="overlay--row--languageitem"
       >{{ languages.find( l => l.locale === $i18n.locale).name }}</router-link>
-    </div>
-    <div class="footer--url-wrapper">
+    </v-col>
+    <v-col
+      cols="12"
+      sm="6"
+      class="footer--url-wrapper">
       <router-link :to="{name:'PrivacyPolicy'}">{{ $t("index.privacyPolicy") }}</router-link>
       <router-link :to="{name:'Imprint'}">{{ $t("index.imprint") }}</router-link>
       <router-link :to="{name: 'About'}">{{ $t("index.contactUs") }}</router-link>
-    </div>
-  </div>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
@@ -42,26 +51,14 @@ export default {
 
 .footer--row {
   border-top: 1px solid #d3d3d3;
-  width: 100%;
-  padding: 0 5%;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 50px;
   & > div {
-    width: 33%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Work Sans;
     font-size: 11px;
     line-height: 16px;
     letter-spacing: 0.25px;
   }
 }
 .footer--sm-wrapper {
-    justify-content: flex-start!important;
     & > img, & > a img {
       cursor: pointer;
       height: 17px;
@@ -69,15 +66,13 @@ export default {
     }
 }
 .footer--url-wrapper {
-    justify-content: space-around!important;
     & > a{
       color: #000;
     }
+  display: flex;
+  justify-content: space-between;
 }
 .overlay--row--languageitem{
-  color: #000;
-  font-weight: 500;
   padding-left: 4px;
-  text-decoration: none;
 }
 </style>
