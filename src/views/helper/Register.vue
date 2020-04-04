@@ -34,13 +34,16 @@
         v-model="formData.email"
         :rules="emailRules"
         :placeholder="$t('register.emailDescription')"
+        validate-on-blur
       />
       <h5>{{ $t("register.phoneTitle")}}</h5>
       <span>{{ $t("register.phoneDescription") }}</span>
       <v-text-field
         class="text-input"
         v-model="formData.phoneNumber"
+        :rules="phoneRules"
         :placeholder="$t('register.phonePlaceholder')"
+        validate-on-blur
       ></v-text-field>
       <v-checkbox
         v-model="notifyByPhone"
@@ -81,6 +84,10 @@ export default {
       },
       notifyByPhone: true,
       isFormValid: false,
+      phoneRules: [
+        v => /[+]\d{2}.{5,}/.test(v) || v === undefined || v === '' ||
+          this.$t("register.phoneError")
+      ],
       emailRules: [
         v => !!v || this.$t("receiveHelp2.formEmailError"),
         v =>
