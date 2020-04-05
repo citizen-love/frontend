@@ -10,7 +10,9 @@ import DetailedHelpRequest from "../views/detailed-help/DetailedHelpRequest";
 import SelectLanguage from "@/views/SelectLanguage";
 import Register from "../views/helper/Register";
 import Confirm from "../views/helper/Confirm";
-import Authentication from "@/views/authentication/Index.vue";
+import Authentication from "@/views/authentication/Index";
+import Join from "@/views/helper/Join";
+import PageNotFound from "@/views/PageNotFound";
 
 Vue.use(VueRouter);
 
@@ -61,6 +63,11 @@ const routes = [
     component: Register
   },
   {
+    path: "/helpforce/join",
+    name: "JoinHelpForce",
+    component: Join
+  },
+  {
     path: "/helpforce/register/confirm",
     name: "RegisterForHelpConfirm",
     component: Confirm
@@ -93,14 +100,6 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/PrivacyPolicy")
   },
   {
-    path: "/helloworld",
-    name: "helloworld",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ "../views/Home.vue")
-  },
-  {
     path: "/authentication",
     name: "authentication",
     component: Authentication
@@ -113,7 +112,8 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/user-profile/Index.vue")
-  }
+  },
+  { path: "*", component: PageNotFound }
 ];
 
 const router = new VueRouter({

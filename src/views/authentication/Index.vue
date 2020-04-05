@@ -15,8 +15,10 @@
         variant="success"
         @click="newUser = !newUser"
       >
-        {{!newUser ? $t('auth.signup') : $t('auth.login')
-        }}
+        <span v-if="newUser">
+          <small>{{$t('auth.alreadyAccount')}}</small><br/>{{$t('auth.login')}}
+        </span>
+        <span v-else><small>{{$t('auth.noAccount')}}</small><br/>{{$t('auth.signup')}}</span>
       </button>
     </div>
   </div>
@@ -39,7 +41,12 @@ export default {
   created() {
     if (this.isAuthenticated) {
       this.$router.push("/profile");
+      return
     }
+    if(this.$route.query.type == "signup") {
+      this.newUser = true
+    }
+
   },
   components: {
     appLogin: Login,

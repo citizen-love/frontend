@@ -4,13 +4,13 @@ export default {
       primary: "#FA4659",
       secondary: "#607d8b",
       accent: "#2196f3",
-      error: "#ff9800",
-      warning: "#ff5722",
+      error: "#9e4242",
+      warning: "#ffc099",
       info: "#03a9f4",
-      success: "#8bc34a"
+      success: "#cdf59f"
     },
     dark: {
-      primary: "#FA4659",
+      primary: "#FA4659"
     }
   }
-}
+};

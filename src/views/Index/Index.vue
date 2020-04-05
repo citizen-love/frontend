@@ -28,16 +28,16 @@
           <p class="center">
             <v-btn
               color="primary"
-              class="mr-1 ml-1"
+              class="ma-1"
               large
               :to="{name: 'ReceiveHelp'}">{{ $t("index.buttonNeedHelp") }}
             </v-btn>
             <v-btn
             color="primary"
-            class="mr-1 ml-1"
+            class="ma-1"
             large
             outlined
-            :to="{name: 'RegisterForHelp'}">{{ $t("index.buttonNotifyMe") }}
+            :to="{name: 'JoinHelpForce'}">{{ $t("index.buttonNotifyMe") }}
             </v-btn>
           </p>
         </v-col>

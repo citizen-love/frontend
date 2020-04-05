@@ -37,6 +37,18 @@
         :to="{name: 'RegisterForHelp'}"
       >{{ $t('index.startHelping') }}
       </v-btn>
+      <v-btn
+        v-if="!isAuthenticated"
+        color="secondary"
+        class="ma-1"
+        :to="{name: 'authentication'}">{{ $t("auth.login") }}
+      </v-btn>
+      <v-btn
+        v-if="isAuthenticated"
+        color="secondary"
+        class="ma-1"
+        @click="signOutUser">{{ $t("auth.logout") }}
+      </v-btn>
 
     </v-app-bar>
     <!--<OverlayText v-if="!mobile" />-->
@@ -51,7 +63,7 @@
 
 <script>
 import Footer from "./components/footer/footer";
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import {LANGUAGES} from "./assets/data/languages";
 
 /**
@@ -68,6 +80,7 @@ export default {
     languages: LANGUAGES
   }),
   computed: {
+      ...mapGetters(["isAuthenticated"]),
       isDevelopmentEnvironment() {
         return process.env.NODE_ENV === 'development';
       }
@@ -77,7 +90,8 @@ export default {
       this.$i18n.locale = locale;
     },
     ...mapActions({
-      tryAutoLogin: "tryAutoLogin"
+      tryAutoLogin: "tryAutoLogin",
+      signOutUser: "signOutUser",
     })
   },
   created() {
