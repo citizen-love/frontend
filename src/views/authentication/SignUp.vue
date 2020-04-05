@@ -9,7 +9,7 @@
       <h1>{{$t('auth.signupTitle')}}</h1>
       <br />
 
-      <div class="app-alert" v-if="authErrorMessage">
+      <div class="app-alert" v-if="authErrorMessage && !showMissingFieldsError">
         <span class="light-text">{{ authErrorMessage }}</span>
       </div>
 
@@ -32,13 +32,8 @@
       </div>
 
       <div class="input-container">
-        <label for="phone">{{$t('auth.phone')}}</label>
-        <br />
-        <input id="phone" type="text" v-model="phone" />
-      </div>
-
-      <div class="input-container">
-        <label for="password">{{$t('auth.password')}}</label>
+        <label for="password">{{$t('auth.password')}}</label><br/>
+        <small>{{$t('auth.passwordExplanation')}}</small>
         <br />
         <input
           id="password"
@@ -54,18 +49,10 @@
           <v-icon v-else>mdi-eye-off-outline</v-icon>
         </button>
       </div>
-      <br/>
-       <v-switch
-        v-model="isHelper"
-        :label="$t('auth.isHelper')"
-      ></v-switch>
-      <div v-if="isHelper">
-        <label>Bio</label>
-        <textarea v-model="bio"/>
-        <br/>
-        <label>I can help in next categories</label>
+      <div class="app-alert" v-if="showMissingFieldsError">
+        <span class="light-text">{{ $t('auth.missingFieldsError') }}</span>
       </div>
-
+      <br v-else/>
       <v-btn @click="signUp">{{$t('auth.signup')}}</v-btn>
     </div>
   </div>
@@ -83,14 +70,8 @@ export default {
       password: "",
       firstName: "",
       lastName: "",
-      phone: "",
       passwordType: "password",
-      imgSrc: null,
-      isHelper: false,
-      bio: ""
-      // helperCategories: false
-      // location
-      // phone number
+      showMissingFieldsError: false
     };
   },
   computed: {
@@ -99,14 +80,19 @@ export default {
   methods: {
     ...mapActions(["signUpUser"]),
     signUp() {
-      this.signUpUser({
-        email: this.email,
-        password: this.password,
-        firstName: this.firstName,
-        lastName: this.lastName,
-        isHelper: this.isHelper
-      });
-    }
+      this.showMissingFieldsError = false
+      if(this.email && this.password && this.firstName && this.lastName) {
+        this.signUpUser({
+          email: this.email,
+          password: this.password,
+          firstName: this.firstName,
+          lastName: this.lastName,
+        });
+        this.showMissingFieldsError = false
+        return
+      }
+      this.showMissingFieldsError = true
+    },
   },
   components: {
     AppHeart
@@ -149,7 +135,7 @@ export default {
       .password-mask-button {
         position: absolute;
         right: -5px;
-        top: 27.5px;
+        top: 50px;
         width: 40px;
         text-align: center;
         margin: auto;

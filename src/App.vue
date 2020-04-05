@@ -53,7 +53,7 @@
     </v-app-bar>
     <!--<OverlayText v-if="!mobile" />-->
     <v-content>
-      <v-container class="content">
+      <v-container class="content pa-0">
         <router-view></router-view>
         <Footer/>
       </v-container>

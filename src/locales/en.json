@@ -115,9 +115,11 @@
         "firstName": "First name",
         "lastName": "Last name",
         "password": "Password",
+        "passwordExplanation": "Must contain minimum 6 characters",
         "phone": "Phone number",
         "isHelper": "I volunteer to help others",
         "address": "Address",
+        "missingFieldsError": "Please fill in all fields to proceed.",
         "errors": {
             "DEFAULT": "Unkown error occured. Please try again.",
             "EMAIL_EXISTS": "The email address is already in use by another account.",
