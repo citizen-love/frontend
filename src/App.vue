@@ -17,6 +17,28 @@
       </router-link>
       <v-spacer/>
       <v-btn
+        depressed
+        color="white"
+        :to="{name: 'JoinHelpForce'}"
+      >{{ $t('index.startHelping') }}
+      </v-btn>
+      <v-btn
+        class="mx-2"
+        v-if="!isAuthenticated"
+        dark
+        text :to="{name: 'authentication'}">
+        <v-icon class="mr-1">mdi-account-circle-outline</v-icon>
+        {{ $t("auth.login") }}
+      </v-btn>
+       <v-btn
+        class="mx-2"
+        v-if="isAuthenticated"
+        dark
+        text :to="{name: 'profile'}">
+        <v-icon class="mr-1">mdi-account-circle-outline</v-icon>
+        {{ $t("userProfile.profile") }}
+      </v-btn>
+      <v-btn
         dark
         text
         class="d-none d-sm-inline-flex"
@@ -26,23 +48,12 @@
       </v-btn>
       <v-btn
         class="mr-2"
-        v-if="!isAuthenticated"
-        dark
-        text :to="{name: 'authentication'}">
-        <v-icon class="mr-1">mdi-account-circle-outline</v-icon>
-        {{ $t("auth.login") }}
-      </v-btn>
-      <v-btn
-        depressed
-        color="white"
-        :to="{name: 'JoinHelpForce'}"
-      >{{ $t('index.startHelping') }}
-      </v-btn>
-      <v-btn
         v-if="isAuthenticated"
-        color="secondary"
-        class="ma-1"
-        @click="signOutUser">{{ $t("auth.logout") }}
+        dark
+        text
+        @click="signOutUser">
+        <v-icon class="mr-1">mdi-account-arrow-right-outline</v-icon>
+        {{ $t("auth.logout") }}
       </v-btn>
 
     </v-app-bar>

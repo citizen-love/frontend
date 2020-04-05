@@ -6,7 +6,7 @@
         <v-card-text>
           <br/>
           <v-btn color="primary" class="ma-1" @click="$router.push('/authentication?type=signup')">Join now</v-btn>
-          <v-btn color="secondary" class="ma-1"  @click="$router.push('/authentication?type=login')">I have already joined</v-btn>
+          <v-btn outlined color="primary" class="ma-1"  @click="$router.push('/authentication?type=login')">I have already joined</v-btn>
          </v-card-text>
     </v-card>
     <br/>

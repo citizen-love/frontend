@@ -1,4 +1,5 @@
 <template>
+<div class="auth">
   <div class="auth-container" :class="{'new-user': newUser }">
     <transition v-if="!newUser" enter-active-class="animated bounceInRight" mode="out-in">
       <app-login></app-login>
@@ -21,6 +22,7 @@
         <span v-else><small>{{$t('auth.noAccount')}}</small><br/>{{$t('auth.signup')}}</span>
       </button>
     </div>
+  </div>
   </div>
 </template>
 
@@ -56,10 +58,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.auth {
+  background-image: url("../../assets/background-hd-min.jpg");
+  background-size: cover;
+}
 
 .auth-container {
   min-height: 105vh;
   padding-top: 7em;
+  max-width: 500px;
+  margin: auto;
   padding-bottom: 5em;
   background-color: $_color_primary;
   background-size: cover;
@@ -83,14 +91,14 @@ export default {
   -webkit-box-shadow: 4px -4px 0px 0px rgba(255, 255, 255, 0.5);
   -moz-box-shadow: 4px -4px 0px 0px rgba(255, 255, 255, 0.5);
   box-shadow: 4px -4px 0px 0px rgba(255, 255, 255, 0.5);
-  color: white;
-  background-color: rgba(255, 255, 255, 0.2);
+  color: $_color_primary;
+  background-color: rgba(255, 255, 255, 1);
   border: none;
   transition: 1s;
   &.new-user {
     left: 10%;
     color: $_color_primary;
-    background-color: rgba(255, 255, 255, 0.8);;
+    background-color: rgba(255, 255, 255, 1);;
     -webkit-box-shadow: 4px -4px 0px 0px rgba(255, 255, 255, 0.5);
     -moz-box-shadow: 4px -4px 0px 0px rgba(255, 255, 255, 0.5);
     box-shadow: 4px -4px 0px 0px rgba(255, 255, 255, 0.5);

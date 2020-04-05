@@ -49,7 +49,34 @@ class HelperService {
       email: "john@smith.com",
       firstName: "John",
       lastName: "Smith",
-      phoneNumber: "+41 123 123"
+      phoneNumber: "+41 123 123",
+      notifyBySMS: true,
+      createdAt: "Apr 3 2020 12.32.44",
+      isAvailable: true,
+      bio:
+        "I am a friendly primary school teacher willing to help everyone in need",
+      categories: ["groceries", "pets", "childcare"],
+      reviews: [
+        {
+          timestamp: "Apr 3 2020 12.32.44",
+          rating: 5,
+          feedback: "John was a very friendly volunteer, I can recommend.",
+          categories: ["pets", "groceries"]
+        },
+        {
+          timestamp: "Apr 2 2020 12.32.44",
+          rating: 5,
+          feedback: "Very fast delivery",
+          categories: ["groceries"]
+        },
+        {
+          timestamp: "Apr 1 2020 12.32.44",
+          rating: 2,
+          feedback:
+            "John got a long well with our older daughter but he struggled with our younger one.",
+          categories: ["childcare"]
+        }
+      ]
     },
     {
       email: "susan@meyer.com",
