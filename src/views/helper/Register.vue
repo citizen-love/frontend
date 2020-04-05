@@ -34,14 +34,23 @@
         v-model="formData.email"
         :rules="emailRules"
         :placeholder="$t('register.emailDescription')"
+        validate-on-blur
       />
       <h5>{{ $t("register.phoneTitle")}}</h5>
       <span>{{ $t("register.phoneDescription") }}</span>
       <v-text-field
         class="text-input"
-        v-model="formData.phone"
+        v-model="formData.phoneNumber"
+        :rules="phoneRules"
         :placeholder="$t('register.phonePlaceholder')"
+        validate-on-blur
       ></v-text-field>
+      <v-checkbox
+        v-model="notifyByPhone"
+        :label="$t('register.notifySMSCheckboxLabel')"
+      ></v-checkbox>
+
+
     </v-form>
 
     <v-btn
@@ -57,6 +66,7 @@
 <script>
 import AutoComplete from "../../components/autoComplete/autoComplete";
 import HelperService from "../../services/HelperService";
+import {uuidv4} from "../../utils/uuid";
 
 export default {
   name: "Register",
@@ -69,9 +79,15 @@ export default {
         radius: 5,
         location: undefined,
         community: undefined,
-        country: undefined
+        country: undefined,
+        phoneNumber: undefined,
       },
+      notifyByPhone: true,
       isFormValid: false,
+      phoneRules: [
+        v => /[+]\d{2}.{5,}/.test(v) || v === undefined || v === '' ||
+          this.$t("register.phoneError")
+      ],
       emailRules: [
         v => !!v || this.$t("receiveHelp2.formEmailError"),
         v =>
@@ -104,6 +120,8 @@ export default {
       this.isBusy = true;
       const postObject = Object.assign({}, this.formData);
       postObject.language = this.$i18n.locale;
+      postObject.preferences = this.notifyByPhone ? ['EMAIL','SMS'] : ['EMAIL']
+      postObject.uid = uuidv4();
       HelperService.registerHelper(postObject)
         .then(() => {
           this.$router.push({

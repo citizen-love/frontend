@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Index from "../views/Index.vue";
+import Index from "../views/Index/Index.vue";
 import Confirmation from "../views/receive-help/Confirmation";
 import Step2 from "../views/receive-help/Step2";
 import Step3 from "../views/receive-help/Step3";
@@ -112,7 +112,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/user-profile")
+      import(/* webpackChunkName: "about" */ "../views/user-profile/Index.vue")
   }
 ];
 

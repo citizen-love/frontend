@@ -14,7 +14,8 @@
         "privacyPolicy": "Datenschutz",
         "peopleAroundYou": "Menschen in deiner Nähe benötigen Hilfe",
         "imprint": "Impressum",
-        "contribute": "Mithelfen"
+        "contribute": "Mithelfen",
+        "startHelping": "Helfer werden"
     },
     "categories": {
         "groceries": "Einkaufen",
@@ -75,7 +76,9 @@
         "phoneTitle": "Deine Telefonnummer (optional)",
         "phoneDescription": "Zu einem späteren Zeitpunkt möchten wir dich über Unterstützungsanfragen per SMS benachrichten. Wenn du möchtest, kannst du uns deine Telefonnummer bereits angeben.",
         "phonePlaceholder": "z.B. +41 73 ....",
-        "registerButton": "Registrieren"
+        "registerButton": "Registrieren",
+        "notifySMSCheckboxLabel": "Per SMS über neue Unterstützungsanfragen informiert werden",
+        "phoneError": "Bitte gib deine Telefonnummer mit dem Ländercode an (+41 79 .....)"
     },
     "registerHelpConfirm": {
         "mainTitle": "High five!",

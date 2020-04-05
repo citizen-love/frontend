@@ -2,18 +2,7 @@
   <v-container class="header" v-if="$route.path === '/'">
     <div class="header--static-row">
       <img src="../../assets/logo.svg" alt="citizen love" />
-      <v-tooltip left>
-        <template v-slot:activator="{ on }">
-          <div>
-            <router-link
-              :to="{ name: 'SelectLanguage'}"
-              v-on="on">
-              {{ languages.find( l => l.locale === $i18n.locale).name }}
-            </router-link>
-          </div>
-        </template>
-        <span>{{ $t("general.language") }}</span>
-      </v-tooltip>
+      <span>{{ $t("general.language") }}</span>
     </div>
     <div class="header--copy-row">
       <h1>{{ $t("index.mainTitle") }}</h1>
