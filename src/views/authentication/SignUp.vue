@@ -53,7 +53,7 @@
         <span class="light-text">{{ $t('auth.missingFieldsError') }}</span>
       </div>
       <br v-else/>
-      <v-btn @click="signUp">{{$t('auth.signup')}}</v-btn>
+      <v-btn color="secondary" @click="signUp">{{$t('auth.signup')}}</v-btn>
     </div>
   </div>
 </template>

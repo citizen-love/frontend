@@ -20,12 +20,7 @@
         </div>
       </v-col>
     </v-row>
-    <v-row>
-      <v-col><b>Step 1</b><br/>Show others you can help</v-col>
-      <v-col><b>Step 2</b><br/>Receive help requests</v-col>
-      <v-col><b>Step 3</b><br/>Help the selected people</v-col>
-      <v-col><b>Step 4</b><br/>Update your availability anytime</v-col>
-    </v-row>
+
     <v-row>
       <v-btn color="primary">{{ $t('userProfile.cta')}}</v-btn>
     </v-row>

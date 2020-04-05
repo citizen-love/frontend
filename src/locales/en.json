@@ -140,5 +140,25 @@
         "email": "Email",
         "edit": "Edit profile",
         "cta": "Help others now"
+    },
+    "stepsExplained": {
+        "title": "How does it work?",
+        "1": {
+            "title": "Request or offer help",
+            "text": "Choose the areas you can support with, or in which you need assistance in."
+        },
+        "2": {
+            "title": "Matching needs and help",
+            "text": "We will match the supply and demand of your needs within your neighbourhood and notify you via email or SMS."
+        },
+        "3": {
+            "title": "Getting in touch",
+            "text": "You will be notified privately via email where you can contact people directly and arrange things further."
+        },
+        "4": {
+            "title": "Everyone's a winner",
+            "text": "In these uncertain times, we must be there for each other.",
+            "quote":"Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less."
+        }
     }
 }

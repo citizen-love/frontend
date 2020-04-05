@@ -36,7 +36,7 @@
       <v-btn
         class="mb-2 mt-4 p-1 btn-block"
         style="maxWidth: 300px;"
-        variant="success"
+        color="secondary"
         @click="login"
         size="sm"
       >{{$t('auth.login')}}</v-btn>

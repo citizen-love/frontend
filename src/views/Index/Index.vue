@@ -46,12 +46,18 @@
     <div class="image d-sm-none">
       <img src="../../assets/hero/hero_image_homepage_700.jpg"/>
     </div>
+
+    <div class="ma-5 pa-3">
+      <steps-explained/>
+    </div>
+
     <div class="desktop--header">
       <div class="autosuggest-container">
         <h1>{{relevantRequests.length}} {{ $t('index.peopleAroundYou')}}</h1>
         <AutoComplete v-bind:updateLocation="updateLocation" v-bind:defaultValue="inputShownAddress"/>
       </div>
     </div>
+
     <div class="requests-container">
       <v-row>
         <v-col
@@ -85,10 +91,11 @@
   import GeoLocationService from "../../services/GeoLocation/GeoLocation";
   import HelpRequestRealTime from "../../services/HelpRequestRealTime";
   import Categories from "./CategoryTabs";
+  import StepsExplained from "@/components/StepsExplained"
 
   export default {
     name: "Index",
-    components: {Categories, HelpRequestCard, AutoComplete},
+    components: {Categories, HelpRequestCard, AutoComplete, StepsExplained},
     data() {
       return {
         relevantRequests: [],

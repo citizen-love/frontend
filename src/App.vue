@@ -21,27 +21,22 @@
         text
         class="d-none d-sm-inline-flex"
         :to="{ name: 'SelectLanguage'}">
-        <v-icon>mdi-earth</v-icon>
+        <v-icon class="mr-1">mdi-earth</v-icon>
         {{ languages.find( l => l.locale === $i18n.locale).name }}
       </v-btn>
       <v-btn
-        v-if="false && 'this button is hidden until profile functionality is here'"
+        class="mr-2"
+        v-if="!isAuthenticated"
         dark
-        text>
-        <v-icon>mdi-account-circle-outline</v-icon>
-        Log in
+        text :to="{name: 'authentication'}">
+        <v-icon class="mr-1">mdi-account-circle-outline</v-icon>
+        {{ $t("auth.login") }}
       </v-btn>
       <v-btn
         depressed
         color="white"
-        :to="{name: 'RegisterForHelp'}"
+        :to="{name: 'JoinHelpForce'}"
       >{{ $t('index.startHelping') }}
-      </v-btn>
-      <v-btn
-        v-if="!isAuthenticated"
-        color="secondary"
-        class="ma-1"
-        :to="{name: 'authentication'}">{{ $t("auth.login") }}
       </v-btn>
       <v-btn
         v-if="isAuthenticated"
