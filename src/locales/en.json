@@ -14,7 +14,8 @@
         "privacyPolicy": "Privacy Policy",
         "peopleAroundYou": "people need help near you",
         "imprint": "Imprint",
-        "contribute": "Contribute"
+        "contribute": "Contribute",
+        "startHelping": "Start helping"
     },
     "categories": {
         "groceries": "Grocery Shopping",
@@ -71,7 +72,9 @@
         "phoneTitle": "Your phone number (optional)",
         "phoneDescription": "At a later stage, we would like to send help requests to your phone numbers so that we can help faster. If you want, you can enter it already.",
         "phonePlaceholder": "e.g. +41 73 ....",
-        "registerButton": "Register"
+        "registerButton": "Register",
+        "notifySMSCheckboxLabel": "Receive  notifications about people in need also by text message",
+        "phoneError": "Please provide your phone number including the country code (+44 .....)"
     },
     "registerHelpConfirm": {
         "mainTitle": "High five!",

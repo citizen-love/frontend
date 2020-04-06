@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "citizen-love"
+    "default": "citizen-love-dev",
+    "development": "citizen-love-dev",
+    "production": "citizen-love"
   }
 }

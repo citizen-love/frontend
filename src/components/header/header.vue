@@ -5,11 +5,6 @@
       <v-tooltip left>
         <template v-slot:activator="{ on }">
           <div>
-            <router-link
-              :to="{ name: 'SelectLanguage'}"
-              v-on="on">
-              {{ languages.find( l => l.locale === $i18n.locale).name }}
-            </router-link>
           </div>
         </template>
         <span>{{ $t("general.language") }}</span>
