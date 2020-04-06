@@ -51,7 +51,7 @@ export default {
   data() {
     const state = this.$store.state[helpRequestWizardState.name];
     return {
-      categories: categories,
+      categories: categories(this.$i18n),
       selected: state.category,
       location: state.location,
       customCategory: state.customCategory,
