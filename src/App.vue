@@ -12,7 +12,9 @@
     <v-app-bar
       app
       color="primary">
-      <img src="./assets/logo.svg" alt="logo">
+      <router-link :to="{name: 'Home'}">
+        <img class="logo" src="./assets/logo.svg" alt="Citizen Love Logo">
+      </router-link>
       <v-spacer/>
       <v-btn
         dark
@@ -85,6 +87,10 @@
 <style lang="scss">
   @import "./styles/globals";
 
+  .logo {
+    vertical-align: middle;
+  }
+
   @media only screen and (min-width: 650px) {
     html {
       //background: url("./assets/background-hd-min.jpg") no-repeat center
@@ -104,6 +110,8 @@
       max-width: 1200px;
 
     }
+
+
 
     .dev-notice {
       text-align: center;
