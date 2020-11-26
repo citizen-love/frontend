@@ -48,6 +48,7 @@ import WizardNextButton from "../../components/WizardNextButton";
 import { mapMutations } from "vuex";
 import * as helpRequestWizardState from "../../store/HelpRequestWizardState";
 import HelpRequestService from "../../services/HelpRequestService";
+import firebase from 'firebase';
 
 export default {
   name: "Step2",
@@ -82,6 +83,7 @@ export default {
         return;
       }
       this.isBusy = true;
+      firebase.analytics().logEvent('button_click', {name:'create-help-request', lang: this.$i18n.locale});
       this.updateStore({
         description: this.formData.description,
         title: this.formData.title,
@@ -97,6 +99,7 @@ export default {
         .then(() => {
           this.isBusy = false;
           this.updateStore(helpRequestWizardState.getPlainState());
+          firebase.analytics().logEvent('action', {name:'Help request registered', lang: this.$i18n.locale});
           this.$router.push({
             name: "ReceiveHelpConfirm",
             params: { request: payload }

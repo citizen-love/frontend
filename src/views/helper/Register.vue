@@ -66,6 +66,7 @@
 <script>
 import AutoComplete from "../../components/autoComplete/autoComplete";
 import HelperService from "../../services/HelperService";
+import firebase from 'firebase';
 import {uuidv4} from "../../utils/uuid";
 
 export default {
@@ -118,12 +119,14 @@ export default {
     },
     registerHelper() {
       this.isBusy = true;
+      firebase.analytics().logEvent('button_click', {name:'register-helper', lang: this.$i18n.locale});
       const postObject = Object.assign({}, this.formData);
       postObject.language = this.$i18n.locale;
       postObject.preferences = this.notifyByPhone ? ['EMAIL','SMS'] : ['EMAIL']
       postObject.uid = uuidv4();
       HelperService.registerHelper(postObject)
         .then(() => {
+          firebase.analytics().logEvent('action',{name:'Helper registered', lang: this.$i18n.locale});
           this.$router.push({
             name: "RegisterForHelpConfirm",
             params: { request: postObject }

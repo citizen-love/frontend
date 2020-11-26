@@ -6,6 +6,10 @@ import store from './store'
 import vuetify from './plugins/vuetify';
 import i18n from './plugins/i18n'
 import vueHeadful from 'vue-headful';
+// import firebase from 'firebase'
+import "firebase/analytics";
+
+// Vue.prototype.$analytics = firebase.analytics();
 
 Vue.component('vue-headful', vueHeadful);
 Vue.component('v-text-field', VTextField);

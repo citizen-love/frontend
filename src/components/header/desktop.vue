@@ -1,14 +1,19 @@
 <template>
     <div class="header--copy-row">
-
     </div>
 </template>
 
 <script>
+import firebase from 'firebase';
 
 export default {
-    name: "Header"
-}
+    name: "Header",
+    methods: {
+      logEvent(event_name){
+          firebase.analytics().logEvent('button_click',{name:event_name, device: 'Desktop', lang: this.$i18n.locale});
+      }
+    }
+  }
 </script>
 
 <style lang="scss" scoped>

@@ -15,7 +15,7 @@
         :outlined="selected.indexOf(category.key) === -1"
         color="primary"
         large
-        @click="toggle(category.key)"
+        @click="toggle(category.key);logCategoryEvent(category.displayName)"
       >
         <v-icon>{{ category.icon }}</v-icon>
         {{ category.displayName }}
@@ -43,6 +43,8 @@ import WizardNextButton from "../../components/WizardNextButton";
 import AutoComplete from "../../components/autoComplete/autoComplete";
 import { mapMutations } from "vuex";
 import * as helpRequestWizardState from "../../store/HelpRequestWizardState";
+import firebase from 'firebase';
+import GeoLocation from "../../services/GeoLocation/GeoLocation";
 import categories from "../../utils/categories";
 
 export default {
@@ -80,6 +82,9 @@ export default {
         this.selected = this.selected.filter(elem => elem !== categoryKey);
       }
     },
+    logCategoryEvent(category){
+      firebase.analytics().logEvent('need_category_select',{name: category, lang: this.$i18n.locale});
+    },
     getAddressData({
       locality = "",
       country = "",
@@ -101,6 +106,7 @@ export default {
         community: this.community,
         customCategory: this.customCategory
       });
+      firebase.analytics().logEvent('button_click', {name:'request-next-step-1', lang: this.$i18n.locale});
       this.$router.push({ name: "ReceiveHelp2" });
     },
     ...mapMutations(helpRequestWizardState.name, {
