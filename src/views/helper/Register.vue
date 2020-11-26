@@ -6,14 +6,15 @@
       </v-btn>
     </div>
     <v-form :v-model="isFormValid">
-      <h1>{{ $t("register_as_helper.register.headline")}}</h1>
-      <h5>{{ $t("register_as_helper.register.location")}}</h5>
-      <span>{{ $t("register_as_helper.register.location_explained") }}</span>
+      <h1>{{ $t("register.mainTitle")}}</h1>
+      <span>{{ $t("register.mainDescription") }}</span>
+      <h5>{{ $t("register.locationTitle")}}</h5>
+      <span>{{ $t("register.locationDescription") }}</span>
       <div>
         <AutoComplete v-bind:updateLocation="getAddressData" />
       </div>
-      <h5>{{ $t("register_as_helper.register.radius")}}</h5>
-      <span>{{ $t("register_as_helper.register.radius_explained") }}</span>
+      <h5>{{ $t("register.radiusTitle")}}</h5>
+      <span>{{ $t("register.radiusDescription") }}</span>
       <v-slider
         class="slider"
         thumb-label="always"
@@ -25,22 +26,31 @@
         <template v-slot:thumb-label="{ value }">{{ value }} km</template>
       </v-slider>
 
-      <h5>{{ $t("register_as_helper.register.email")}}</h5>
-      <span>{{ $t("register_as_helper.register.email_explained") }}</span>
+      <h5>{{ $t("register.emailTitle")}}</h5>
+      <span>{{ $t("register.emailDescription") }}</span>
       <v-text-field
         class="text-input"
         required
         v-model="formData.email"
         :rules="emailRules"
-        :placeholder="$t('request_help_process.step2.email_placeholder')"
+        :placeholder="$t('register.emailDescription')"
+        validate-on-blur
       />
-      <h5>{{ $t("register_as_helper.register.phone")}}</h5>
-      <span>{{ $t("register_as_helper.register.phone_explained") }}</span>
+      <h5>{{ $t("register.phoneTitle")}}</h5>
+      <span>{{ $t("register.phoneDescription") }}</span>
       <v-text-field
         class="text-input"
-        v-model="formData.phone"
-        :placeholder="$t('register_as_helper.register.phone_placeholder')"
+        v-model="formData.phoneNumber"
+        :rules="phoneRules"
+        :placeholder="$t('register.phonePlaceholder')"
+        validate-on-blur
       ></v-text-field>
+      <v-checkbox
+        v-model="notifyByPhone"
+        :label="$t('register.notifySMSCheckboxLabel')"
+      ></v-checkbox>
+
+
     </v-form>
 
     <v-btn
@@ -49,8 +59,7 @@
       @click.native="registerHelper"
       :disabled="!isFormDataValid"
       :loading="isBusy"
-      :placeholder="$t('request_help_process.step2.email_placeholder')"
-    >{{ $t("register_as_helper.register.next")}}</v-btn>
+    >{{ $t("register.registerButton")}}</v-btn>
   </div>
 </template>
 
@@ -58,6 +67,7 @@
 import AutoComplete from "../../components/autoComplete/autoComplete";
 import HelperService from "../../services/HelperService";
 import firebase from 'firebase';
+import {uuidv4} from "../../utils/uuid";
 
 export default {
   name: "Register",
@@ -70,14 +80,20 @@ export default {
         radius: 5,
         location: undefined,
         community: undefined,
-        country: undefined
+        country: undefined,
+        phoneNumber: undefined,
       },
+      notifyByPhone: true,
       isFormValid: false,
+      phoneRules: [
+        v => /[+]\d{2}.{5,}/.test(v) || v === undefined || v === '' ||
+          this.$t("register.phoneError")
+      ],
       emailRules: [
-        v => !!v || this.$t("request_help_process.step2.email_error_missing"),
+        v => !!v || this.$t("receiveHelp2.formEmailError"),
         v =>
           /[^@\s]+@[^@\s]+\.[^@\s]/.test(v) ||
-          this.$t("request_help_process.step2.email_error_wrong")
+          this.$t("receiveHelp2.formEmailWrong")
       ]
     };
   },
@@ -106,6 +122,8 @@ export default {
       firebase.analytics().logEvent('button_click', {name:'register-helper', lang: this.$i18n.locale});
       const postObject = Object.assign({}, this.formData);
       postObject.language = this.$i18n.locale;
+      postObject.preferences = this.notifyByPhone ? ['EMAIL','SMS'] : ['EMAIL']
+      postObject.uid = uuidv4();
       HelperService.registerHelper(postObject)
         .then(() => {
           firebase.analytics().logEvent('action',{name:'Helper registered', lang: this.$i18n.locale});
@@ -143,7 +161,7 @@ export default {
   }
   & > span {
     display: block;
-    width: 70%;
+    width: 100%;
     font-family: Work Sans;
     font-style: normal;
     font-weight: normal;
@@ -153,13 +171,13 @@ export default {
 }
 .slider {
   margin-top: 60px;
-  width: 50%;
+  width: 100%;
 }
 .arrow-left {
   margin-left: -2%;
 }
 .text-input {
-  width: 50%;
+  width: 100%;
   & :placeholder {
     font-family: Work Sans;
     font-style: normal;

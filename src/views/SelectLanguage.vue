@@ -3,7 +3,7 @@
     <br/>
     <v-container>
       <router-link :to="{ name: 'Home'}" class="close"><b>X</b></router-link>
-      <h1>{{ $t("select_language.title") }}</h1>
+      <h1>{{ $t("general.chooseLanguage") }}</h1>
     </v-container>
     <div>
       <v-row>

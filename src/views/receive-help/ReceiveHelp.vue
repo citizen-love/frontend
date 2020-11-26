@@ -1,17 +1,14 @@
 <template>
   <div class="has-wizard">
     <wizard-step-header current-step="1" max-steps="2" class="step-header" />
-    <h1>{{ $t('request_help_process.step1.headline')}}</h1>
+    <h1>{{ $t('receiveHelp.mainTitle')}}</h1>
     <div class="adress-part">
-      <span>{{ $t("request_help_process.step1.location_explained") }}</span>
-      <AutoComplete
-        v-bind:updateLocation="getAddressData"
-        v-bind:defaultValue="inputShownAddress"
-      />
+      <span>{{ $t("receiveHelp.mainDescription") }}</span>
+      <AutoComplete v-bind:updateLocation="getAddressData" />
     </div>
-    <h5 class="categories-heading">{{ $t('request_help_process.step1.where_do_you_need_help')}}</h5>
+    <h5 class="categories-heading">{{ $t('receiveHelp.categoryTitle')}}</h5>
     <div class="categories">
-      <span>{{ $t("request_help_process.step1.select_category") }}</span>
+      <span>{{ $t("receiveHelp.categoryDescription") }}</span>
       <v-btn
         v-for="category in categories"
         v-bind:key="category.key"
@@ -29,14 +26,14 @@
         v-if="showOtherCategory"
         outlined
         v-model="customCategory"
-        :placeholder="$t('request_help_process.step1.other_category_placeholder')"
+        :placeholder="$t('receiveHelp.otherCategoryPlaceholder')"
       />
     </div>
     <wizard-next-button
       class="next"
       @click.native="next"
       :disabled="!isFormValid"
-    >{{ $t("request_help_process.step1.next")}}</wizard-next-button>
+    >{{ $t("receiveHelp.nextButton")}}</wizard-next-button>
   </div>
 </template>
 
@@ -48,6 +45,7 @@ import { mapMutations } from "vuex";
 import * as helpRequestWizardState from "../../store/HelpRequestWizardState";
 import firebase from 'firebase';
 import GeoLocation from "../../services/GeoLocation/GeoLocation";
+import categories from "../../utils/categories";
 
 export default {
   name: "ReceiveHelp",
@@ -55,44 +53,7 @@ export default {
   data() {
     const state = this.$store.state[helpRequestWizardState.name];
     return {
-      categories: [
-        {
-          key: "groceries",
-          displayName: this.$t("categories.groceries"),
-          icon: "mdi-cart-outline"
-        },
-        {
-          key: "washing",
-          displayName: this.$t("categories.washing"),
-          icon: "mdi-washing-machine"
-        },
-        {
-          key: "babysitting",
-          displayName: this.$t("categories.babysitting"),
-          icon: "mdi-baby-bottle"
-        },
-        {
-          key: "transport",
-          displayName: this.$t("categories.transport"),
-          icon: "mdi-car-hatchback"
-        },
-        {
-          key: "loneliness",
-          displayName: this.$t("categories.loneliness"),
-          icon: "mdi-emoticon-sad"
-        },
-        {
-          key: "childcare",
-          displayName: this.$t("categories.childcare"),
-          icon: "mdi-human-female-girl"
-        },
-        {
-          key: "pets",
-          displayName: this.$t("categories.pets"),
-          icon: "mdi-dog-side"
-        },
-        { key: "else", displayName: this.$t("categories.other"), icon: "" }
-      ],
+      categories: categories(this.$i18n),
       selected: state.category,
       location: state.location,
       customCategory: state.customCategory,
@@ -111,10 +72,6 @@ export default {
     showOtherCategory() {
       return this.selected.indexOf("else") !== -1;
     }
-  },
-  async mounted(){
-      const fullAddress = await GeoLocation.getReverseLocation();
-      this.inputShownAddress = fullAddress;
   },
   methods: {
     toggle(categoryKey) {
@@ -197,7 +154,7 @@ export default {
     font-family: Work Sans;
     font-style: normal;
     font-weight: normal;
-    font-size: 10px;
+    font-size: 13px;
     line-height: 12px;
   }
 }
@@ -217,7 +174,7 @@ export default {
     font-family: Work Sans;
     font-style: normal;
     font-weight: normal;
-    font-size: 10px;
+    font-size: 13px;
     line-height: 12px;
     margin-bottom: 24px;
   }
@@ -230,23 +187,4 @@ export default {
 .custom-category {
   max-width: 600px;
 }
-
-/*.autocomplete-input {
-   padding: 9px 6px 9px 0px;
-    margin-top: 10px;
-    margin-bottom: 25px;
-    font-size: 1em;
-    border: 0;
-    border-bottom: 0.5px solid #B5B5B5;
-    width: 45%;
-    outline: none;
-         & :placeholder{
-                font-family: Work Sans;
-                font-style: normal;
-                font-weight: normal;
-                font-size: 14px;
-                line-height: 20px;
-                letter-spacing: 0.25px;
-      }
-  }*/
 </style>

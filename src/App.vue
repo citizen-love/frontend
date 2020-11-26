@@ -9,87 +9,114 @@
       ogLocale="TODO"
       url="TODO"
     />
-    <Header v-if="mobile" />
-    <OverlayText v-if="!mobile" />
-    <v-content class="desktop--app-wrapper">
-      <v-container>
+    <v-app-bar
+      app
+      color="primary">
+      <router-link :to="{name: 'Home'}">
+        <img class="logo" src="./assets/logo.svg" alt="Citizen Love Logo">
+      </router-link>
+      <v-spacer/>
+      <v-btn
+        dark
+        text
+        class="d-none d-sm-inline-flex"
+        :to="{ name: 'SelectLanguage'}">
+        <v-icon>mdi-earth</v-icon>
+        {{ languages.find( l => l.locale === $i18n.locale).name }}
+      </v-btn>
+      <v-btn
+        v-if="false && 'this button is hidden until profile functionality is here'"
+        dark
+        text>
+        <v-icon>mdi-account-circle-outline</v-icon>
+        Log in
+      </v-btn>
+      <v-btn
+        depressed
+        color="white"
+        :to="{name: 'RegisterForHelp'}"
+      >{{ $t('index.startHelping') }}
+      </v-btn>
+
+    </v-app-bar>
+    <!--<OverlayText v-if="!mobile" />-->
+    <v-content>
+      <v-container class="content">
         <router-view></router-view>
+        <Footer/>
       </v-container>
-      <Footer v-if="!mobile" />
     </v-content>
   </v-app>
 </template>
 
 <script>
-import Header from "./components/header/header";
-import Footer from "./components/footer/footer";
-import OverlayText from "./components/header/overlay";
-import firebase from 'firebase';
-/**
- * @description Root layout of the application
- * On start screen header is displayed with logo and possibility to change language of the app
- *
- * */
-export default {
-  name: "App",
-  components: { Header, Footer, OverlayText },
-  watch: {
-        $route: {
-            immediate: true,
-            handler(to) {
-              let title = to.meta.title || 'index.page_title'
-              document.title = 'CitizenLove - ' + this.$i18n.t(title)
-              // this.$analytics.logEvent("page_view", {name: document.title, lang: this.$i18n.locale} )
-              firebase.analytics().logEvent("page_view", {name: document.title, lang: this.$i18n.locale} )
-            }
-        }
-  },
-  data: () => ({
-    drawer: false,
-    mobile: window.innerWidth <= 650
-  }),
-  methods: {
-    changeLocale(locale) {
-      this.$i18n.locale = locale;
+  import Footer from "./components/footer/footer";
+  import {LANGUAGES} from "./assets/data/languages";
+
+  /**
+   * @description Root layout of the application
+   * On start screen header is displayed with logo and possibility to change language of the app
+   *
+   * */
+  export default {
+    name: "App",
+    components: {Footer},
+    data: () => ({
+      drawer: false,
+      mobile: window.innerWidth <= 650,
+      languages: LANGUAGES,
+    }),
+    computed: {
+      isDevelopmentEnvironment() {
+        return process.env.NODE_ENV === 'development';
+      }
+    },
+    methods: {
+      changeLocale(locale) {
+        this.$i18n.locale = locale;
+      }
+    },
+    created() {
+      addEventListener("resize", () => {
+        this.mobile = innerWidth <= 650;
+      });
     }
-  },
-  created() {
-    addEventListener("resize", () => {
-      this.mobile = innerWidth <= 650;
-    });
-  }
-};
+  };
 </script>
 
 <style lang="scss">
-@import "./styles/globals";
+  @import "./styles/globals";
 
-@media only screen and (min-width: 650px) {
-  html {
-    background: url("./assets/background-hd-min.jpg") no-repeat center
-      center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  .logo {
+    vertical-align: middle;
   }
-  #app {
-    background: 0!important;
+
+  @media only screen and (min-width: 650px) {
+    html {
+      //background: url("./assets/background-hd-min.jpg") no-repeat center
+      // center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+    #app {
+      background: 0 !important;
+    }
+    #app > .v-application--wrap {
+      height: 100%;
+    }
+    .content {
+      max-width: 1200px;
+
+    }
+
+
+
+    .dev-notice {
+      text-align: center;
+      background: rgba(255, 255, 0, 0.5);
+      color: white;
+    }
   }
-  #app > .v-application--wrap {
-    height: 100%;
-  }
-  .desktop--app-wrapper {
-    position: absolute;
-    top: 10%;
-    right: 10%;
-    left: 15%;
-    width: 70%;
-    background-color: #fafafa;
-    box-shadow: 0 1px 3px #c0c0c0;
-    //min-height: 90vh;
-    border-radius: 5px;
-    padding-top: 25px !important;
-  }
-}
 </style>

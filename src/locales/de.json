@@ -1,9 +1,110 @@
 {
-    "message": "hallo i18n!",
-    "index": {
-        "main_headline": "Hilfe leicht gemacht"
+    "general": {
+        "language": "Sprache",
+        "chooseLanguage": "Wähle eine Sprache:",
+        "step_x_out_of_y": "Schritt {current} von {max}"
     },
-    "select_language": {
-        "title": "Wähle deine Sprache"
+    "index": {
+        "mainTitle": "Finde Menschen die während der COVID-19 Pandemie deine Unterstützung benötigen.",
+        "mainDescription": "CitizenLove ist ein gemeinnütziges Projekt, welches Hilfesuchende mit Helfenden verbindet. Es wurde in der Schweiz initiiert aber soll auf der ganzen Welt genutzt werden.",
+        "buttonNotifyMe": "Ich möchte helfen!",
+        "helpCardButton": "Jetzt helfen",
+        "buttonNeedHelp": "Ich brauche Hilfe!",
+        "contactUs": "Über CitizenLove",
+        "privacyPolicy": "Datenschutz",
+        "peopleAroundYou": "Menschen in deiner Nähe benötigen Hilfe",
+        "imprint": "Impressum",
+        "contribute": "Mithelfen",
+        "startHelping": "Helfer werden"
+    },
+    "categories": {
+        "groceries": "Einkaufen",
+        "washing": "Waschen",
+        "babysitting": "Babysitten",
+        "transport": "Taxidienst",
+        "childcare": "Kinderbetreuung",
+        "loneliness": "Einsamkeit",
+        "pets": "Haustiere",
+        "other": "Anderes"
+    },
+    "receiveHelp": {
+        "navigationTitle": "UNDEFINED",
+        "mainTitle": "Wo benötigst du Hilfe?",
+        "mainDescription": "Dein Standort wird nicht publiziert. Wir benutzen diesen nur um Menschen in deiner Nähe zu benachrichtigen, dass jemand Hilfe benötigt.",
+        "locationPlaceholder": "z.B. Bundesplatz 3, 3005 Bern",
+        "categoryTitle": "Wobei brauchst du Unterstützung?",
+        "categoryDescription": "Wähle mindestens eines",
+        "otherCategoryPlaceholder": "Wobei brauchst du Hilfe?",
+        "nextButton": "Weiter"
+    },
+    "receiveHelp2": {
+        "mainTitle": "Erzähl uns etwas mehr...",
+        "formDescTitle": "In einem Satz: Was benötigst du?",
+        "formDescDescription": "Fasse dich kurz aber sei spezifisch.",
+        "formDescPlaceholder": "z.B. Kinderbetreuung für 5 Stunden am Montag 23.03.",
+        "formDescError": "Dies ist ein Pflichtfeld.",
+        "formDetailsTitle": "Details",
+        "formDetailsDescription": "Bitte gib alle Details zu deiner Anfrage (ausser Standort und Kontaktangaben) an so dass Helfer wissen ob sie dich unterstützen können. (z.B. was, wann, wie lange, benötigte Hilfsmittel etc.)",
+        "formDetailsPlaceholder": "z.B. Ich arbeite als Krankenschwester im Spital und habe eine Zusatzschicht am Montag 23.03.2020. Meine drei Mädchen im Alter von 7, 10 und 12 benötigen jemanden der sich für 5 Stunden, von 13:00 bis 18:00 Uhr, um sie kümmert. Ich kann sie überall innerhalb 30 Minuten vom Spital vorbeibringen und wieder abholen. Ich kann Sie leider nicht finanziell entschädigen aber wäre Ihnen wahnsinnig dankbar.",
+        "formDetailsError": "Dies ist ein Pflichtfeld.",
+        "formEmailTitle": "Deine Emailadresse",
+        "formEmailDescription": "Wir senden Hilfeangebote an diese Emailadresse.\nDeine Emailadresse wird niemals mit jemandem geteilt.",
+        "formEmailPlaceholder": "z.B. du@gmail.com",
+        "formEmailError": "Bitte gib deine Emailadresse an.",
+        "formEmailWrong": "Bitte gib eine korrekte Emailadresse an.",
+        "categoryTitle": "UNDEFINED",
+        "categoryDescription": "UNDEFINED",
+        "createButton": "Hilfeanfrage publizieren"
+    },
+    "receiveHelpConfirm": {
+        "mainTitle": "Deine Hilfeanfrage wurde publiziert.",
+        "mainDescription": "Hilfeangebote werden dir per Email geschickt.",
+        "mainExplanation": "Wir haben eine Kopie deiner Anfrage an {email} geschickt. Diese ermöglicht dir die Anfrage zu editieren, zu löschen oder als erledigt zu markieren.",
+        "backToButton": "Zurück zur Startseite"
+    },
+    "register": {
+        "mainTitle": "Werde zum Helfenden!",
+        "mainDescription": "Melde dich als Helfer/in in deinem Gebiet an und hilf Leuten in deiner Nähe. Wir werden dich benachrichtigen, sobald jemand deine Unterstützung braucht.",
+        "locationTitle": "Wo können wir dich unterstützen?",
+        "locationDescription": "Wir verwenden diese Adresse als Referenzpunkt. Sie ist nicht öffentlich einsehbar.",
+        "locationPlaceholder": "UDNEFINED",
+        "radiusTitle": "Wie weit entfernt möchtest du helfen?",
+        "radiusDescription": "Sag uns, innerhalb welcher Entfernung zu deiner Adresse du über neue Hilfsanfragen benachrichtigt werden möchtest.",
+        "emailTitle": "Deine E-Mail-Adresse",
+        "emailDescription": "Wir werden nur Unterstützungsanfragen an diese Adresse senden.",
+        "emailPlaceholder": "e.g. du@gmail.com",
+        "phoneTitle": "Deine Telefonnummer (optional)",
+        "phoneDescription": "Zu einem späteren Zeitpunkt möchten wir dich über Unterstützungsanfragen per SMS benachrichten. Wenn du möchtest, kannst du uns deine Telefonnummer bereits angeben.",
+        "phonePlaceholder": "z.B. +41 73 ....",
+        "registerButton": "Registrieren",
+        "notifySMSCheckboxLabel": "Per SMS über neue Unterstützungsanfragen informiert werden",
+        "phoneError": "Bitte gib deine Telefonnummer mit dem Ländercode an (+41 79 .....)"
+    },
+    "registerHelpConfirm": {
+        "mainTitle": "High five!",
+        "mainDescription": "Du bist grossartig! Wir werden dich benachrichtigen, sobald jemand in deiner Nähe hilfe braucht.",
+        "mainExplanation": "Du bekommst eine Bestätigung per Mail an {email}.",
+        "backToButton": "Zurück zur Startseite"
+    },
+    "offerHelp": {
+        "phoneTitle": "Deine Telefonnummer (optional)",
+        "phonePlaceholder": "z.B. +41 73 ....",
+        "messageTitle": "Wie kannst du helfen?",
+        "messagePlaceholder": "Erzähle, wie du helfen kannst",
+        "messageError": "Sag uns, wie du helfen kannst.",
+        "emailTitle": "Deine E-Mail-Adresse",
+        "emailPlaceholder": "z.B. du@gmail.com",
+        "emailError": "Bitte gib eine gültige E-Mail-Adresse an",
+        "sendButton": "Hilfe anbieten",
+        "helpConfirmation": "Grossartig! Deine Nachricht ist auf dem Weg.",
+        "pageNotFound": "Für diese ID gibt es keine Anfrage, sorry!",
+        "pageErrorHappened": "Da ist etwas schiefgegangen",
+        "offerTitle": "Kannst du helfen?",
+        "offerDescription": "Gib unten deine Details in und wir werden die Person bitten, dich zu kontaktieren."
+    },
+    "editHelp": {
+        "buttonCompleted": "Mir wurde geholfen",
+        "buttonCancelled": "Löschen",
+        "notFound": "Für diese ID gibt es keine Anfrage."
     }
 }

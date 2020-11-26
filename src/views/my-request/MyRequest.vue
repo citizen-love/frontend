@@ -77,7 +77,7 @@
     </div>
 
     <div v-if="hasError" class="detailedview--center">
-      <p>{{ $t("offerHelp.error_happened_notfound") }}</p>
+      <p>{{ $t("editHelp.notFound") }}</p>
     </div>
 
     <div v-if="!loading && !hasError" class="detailedview--root">
@@ -99,12 +99,12 @@
           v-on:click="changeRequestStatus('completed')"
           color="primary"
           outlined
-        >{{ $t("myrequest.myrequests_fulfilled") }}</v-btn>
+        >{{ $t("editHelp.buttonCompleted") }}</v-btn>
         <v-btn
           v-on:click="changeRequestStatus('cancelled')"
           color="secondary"
           outlined
-        >{{ $t("myrequest.myrequests_cancelled") }}</v-btn>
+        >{{ $t("editHelp.buttonCancelled") }}</v-btn>
       </div>
     </div>
   </div>

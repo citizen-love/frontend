@@ -1,13 +1,5 @@
 <template>
     <div class="header--copy-row">
-      <div class="header--text-box">
-      <h1>{{ $t("index.main_headline") }}</h1>
-      <p>{{ $t("index.teaser") }}</p>
-      </div>
-      <div class="header--button-box">
-      <v-btn @click.native="logEvent('New need')" color="primary" x-large :to="{name: 'ReceiveHelp'}">{{ $t("index.need_help") }}</v-btn>
-      <v-btn @click.native="logEvent('New helper')" color="primary" x-large outlined :to="{name: 'RegisterForHelp'}">{{ $t("index.offer_help") }}</v-btn>
-      </div>
     </div>
 </template>
 

@@ -3,7 +3,7 @@
     id="map"
     append-icon="mdi-map-marker"
     class="autocomplete-input"
-    :placeholder="$t('request_help_process.step1.location_placeholder')"
+    :placeholder="$t('receiveHelp.locationPlaceholder')"
     v-on:placechanged="getAddressData"
     :value="defaultValue"
   />

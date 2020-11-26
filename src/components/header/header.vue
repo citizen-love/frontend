@@ -5,23 +5,18 @@
       <v-tooltip left>
         <template v-slot:activator="{ on }">
           <div>
-            <router-link
-              :to="{ name: 'SelectLanguage'}"
-              v-on="on">
-              {{ languages.find( l => l.locale === $i18n.locale).name }}
-            </router-link>
           </div>
         </template>
-        <span>{{ $t("select_language.title") }}</span>
+        <span>{{ $t("general.language") }}</span>
       </v-tooltip>
     </div>
     <div class="header--copy-row">
-      <h1>{{ $t("index.main_headline") }}</h1>
-      <p>{{ $t("index.teaser") }}</p>
+      <h1>{{ $t("index.mainTitle") }}</h1>
+      <p>{{ $t("index.mainDescription") }}</p>
     </div>
     <div class="header--button-row">
-      <v-btn @click.native="logEvent('New need')" color="primary" block x-large :to="{name: 'ReceiveHelp'}">{{ $t("index.need_help") }}</v-btn>
-      <v-btn @click.native="logEvent('New helper')" class="helper-register" color="green" block x-large :to="{name: 'RegisterForHelp'}">{{ $t("index.offer_help") }}</v-btn>
+      <v-btn color="primary" block x-large :to="{name: 'ReceiveHelp'}">{{ $t("index.buttonNeedHelp") }}</v-btn>
+      <v-btn class="helper-register" color="green" x-large :to="{name: 'RegisterForHelp'}">{{ $t("index.buttonNotifyMe") }}</v-btn>
     </div>
   </v-container>
 </template>
@@ -57,10 +52,11 @@ export default {
 
 .helper-register{
   margin-top: 20px;
+  overflow: hidden;
+  width: 100%;
 }
 
 .header {
-  display: grid;
   padding: 30px;
   color: white;
   border-radius: 0 0 5px 5px;
@@ -75,7 +71,7 @@ export default {
     }
   }
   &--copy-row {
-    width: 70%;
+    width: 90%;
     margin-top: 38px;
     margin-bottom: 18px;
     & > h1 {
@@ -84,7 +80,7 @@ export default {
       color: #FFFFFF;
     }
     & > p {
-      font-size: 10px;
+      font-size: 16px;
       line-height: 16px;
       margin-top: 8px;
       opacity: 0.87;

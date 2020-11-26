@@ -1,36 +1,36 @@
 <template>
   <div class="has-wizard">
     <wizard-step-header current-step="2" max-steps="2" class="step-header" />
-    <h1>{{ $t("request_help_process.step2.headline")}}</h1>
+    <h1>{{ $t("receiveHelp2.mainTitle")}}</h1>
     <v-form v-model="isFormValid">
-      <h5>{{ $t("request_help_process.step2.title")}}</h5>
-      <span>{{ $t("request_help_process.step2.title_explained")}}</span>
+      <h5>{{ $t("receiveHelp2.formDescTitle")}}</h5>
+      <span>{{ $t("receiveHelp2.formDescDescription")}}</span>
       <v-text-field
         class="text-input"
         required
         v-model="formData.title"
         :rules="titleRules"
-        :placeholder="$t('request_help_process.step2.title_placeholder')"
+        :placeholder="$t('receiveHelp2.formDescPlaceholder')"
       />
-      <h5>{{ $t("request_help_process.step2.desc") }}</h5>
-      <span>{{ $t("request_help_process.step2.desc_explained") }}</span>
+      <h5>{{ $t("receiveHelp2.formDetailsTitle") }}</h5>
+      <span>{{ $t("receiveHelp2.formDetailsDescription") }}</span>
       <v-textarea
         class="text-area"
         v-model="formData.description"
-        :placeholder="$t('request_help_process.step2.desc_placeholder')"
+        :placeholder="$t('receiveHelp2.formDetailsPlaceholder')"
         counter="500"
         :rules="descRules"
         required
       />
 
-      <h5>{{ $t("request_help_process.step2.email") }}</h5>
-      <span>{{ $t("request_help_process.step2.email_explained") }}</span>
+      <h5>{{ $t("receiveHelp2.formEmailTitle") }}</h5>
+      <span>{{ $t("receiveHelp2.formEmailDescription") }}</span>
       <v-text-field
         class="text-input"
         required
         v-model="formData.email"
         :rules="emailRules"
-        :placeholder="$t('request_help_process.step2.email_placeholder')"
+        :placeholder="$t('receiveHelp2.formEmailPlaceholder')"
       />
     </v-form>
     <wizard-next-button
@@ -38,7 +38,7 @@
       @click.native="next"
       :loading="isBusy"
       :disabled="!isFormValid"
-    >{{ $t("request_help_process.step2.next")}}</wizard-next-button>
+    >{{ $t("receiveHelp2.createButton")}}</wizard-next-button>
   </div>
 </template>
 
@@ -64,16 +64,16 @@ export default {
         email: state.email
       },
       emailRules: [
-        v => !!v || this.$t("request_help_process.step2.email_error_missing"),
+        v => !!v || this.$t("receiveHelp2.formEmailError"),
         v =>
           /[^@\s]+@[^@\s]+\.[^@\s]/.test(v) ||
-          this.$t("request_help_process.step2.email_error_wrong")
+          this.$t("receiveHelp2.formEmailWrong")
       ],
       descRules: [
-        v => !!v || this.$t("request_help_process.step2.desc_error_missing")
+        v => !!v || this.$t("receiveHelp2.formDescError")
       ],
       titleRules: [
-        v => !!v || this.$t("request_help_process.step2.title_error_missing")
+        v => !!v || this.$t("receiveHelp2.formDescError")
       ]
     };
   },
@@ -135,7 +135,7 @@ export default {
   margin-top: 24px;
 }
 .text-area {
-  width: 60%;
+  width: 100%;
   & :placeholder {
     font-family: Work Sans;
     font-style: normal;
@@ -146,7 +146,7 @@ export default {
   }
 }
 .text-input {
-  width: 60%;
+  width: 100%;
   & :placeholder {
     font-family: Work Sans;
     font-style: normal;
@@ -169,11 +169,11 @@ export default {
   }
   & > span {
     display: block;
-    width: 60%;
+    width: 100%;
     font-family: Work Sans;
     font-style: normal;
     font-weight: normal;
-    font-size: 10px;
+    font-size: 13px;
     line-height: 12px;
   }
 }

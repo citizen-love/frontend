@@ -1,9 +1,107 @@
 {
     "message": "bonjour i18n !",
     "index": {
-        "main_headline": "Aider en toute simplicité"
+        "main_headline": "Aider en toute simplicité",
+        "mainTitle": "Trouver des personnes qui ont besoin d’aide pendant la pandémie de COVID-19.",
+        "mainDescription": "CitizenLove est un projet à but non lucratif visant à nous aider à mieux nous organiser en ces temps extraordinaires. Il a été lancé en Suisse mais est destiné à être utilisé dans le monde entier.",
+        "buttonNotifyMe": "Je veux aider!",
+        "helpCardButton": "Aider maintenant",
+        "buttonNeedHelp": "J’ai besoin d’aide!",
+        "contactUs": "À propos CitizenLove",
+        "privacyPolicy": "Politique de confidentialité",
+        "peopleAroundYou": "gens qui ont besoin d'aide près de chez vous",
+        "imprint": "Imprint"
     },
     "select_language": {
         "title": "Choisissez votre langue"
+    },
+    "general": {
+        "language": "Langue",
+        "step_x_out_of_y": "Etape {current} de {max}",
+        "chooseLanguage": "Choisir la langue:"
+    },
+    "categories": {
+        "groceries": "Courses alimentaires",
+        "washing": "Blanchisserie",
+        "babysitting": "Baby-sitting",
+        "transport": "Transport",
+        "childcare": "Garde d’enfants",
+        "loneliness": "Isolement",
+        "pets": "Animaux de compagnie",
+        "other": "Autre"
+    },
+    "receiveHelp": {
+        "mainTitle": "Où avez-vous besoin d’aide?",
+        "mainDescription": "Votre position restera confidentielle. Nous en avons seulement besoin pour que nous puissions vous localiser afin de trouver des personnes dans votre région pouvant vous aider.",
+        "locationPlaceholder": "Par exemple: Rue du Venice, Lausanne",
+        "categoryTitle": "Comment pouvons-nous vous aider ?",
+        "categoryDescription": "Sélectionnez au moins un",
+        "otherCategoryPlaceholder": "Comment pouvons-nous vous aider ?",
+        "nextButton": "Suivant"
+    },
+    "receiveHelp2": {
+        "mainTitle": "Dites-nous en un peu plus...",
+        "formDescTitle": "En une phrase, de quoi avez-vous besoin ?",
+        "formDescDescription": "Soyez concis mais précis.",
+        "formDescPlaceholder": "par exemple : S’occuper de mes enfants pendant 5 heures le lundi 29/03",
+        "formDescError": "Ce champ est obligatoire.",
+        "formDetailsTitle": "Informations sur votre demande",
+        "formDetailsDescription": "Veuillez noter toutes les informations (par exemple : quoi, quand, durée, outils nécessaires, etc.) sur votre demande, à l'exception de l'emplacement et des coordonnées.",
+        "formDetailsPlaceholder": "Par exemple. Je travaille à l'hôpital en tant qu'infirmière et je travaille exceptionnellement le lundi 23/03/20. Mes trois filles de 7, 10 et 12 ans sont assez indépendantes mais ont besoin de quelqu'un pour s'occuper d'elles pendant 5 heures de 13h à 18h. Je peux les amener n'importe où dans un rayon de 30 minutes de l'hôpital et je peux aussi les récupérer. Je ne peux pas vous payer mais je vous en serais éternellement reconnaissante.",
+        "formDetailsError": "Dites-nous de quoi vous avez besoin.",
+        "formEmailTitle": "Votre adresse email",
+        "formEmailDescription": "Nous enverrons les coordonnées des personnes qui vous proposent de l'aide à cette adresse e-mail. \nVotre adresse e-mail restera confidentielle.",
+        "formEmailPlaceholder": "tu@domain.com",
+        "formEmailError": "Veuillez fournir une adresse e-mail.",
+        "formEmailWrong": "Merci de fournir une adresse email valide.",
+        "createButton": "Publier une demande d’aide"
+    },
+    "receiveHelpConfirm": {
+        "mainTitle": "Votre demande d’aide est maintenant publique.",
+        "mainDescription": "Toutes les offres d'aide vous seront envoyées par e-mail.",
+        "mainExplanation": "Nous avons envoyé une copie de votre demande, avec la possibilité de la modifier, de la supprimer ou de la noter comme terminée, à {email}.",
+        "backToButton": "Retour à la page d'accueil"
+    },
+    "register": {
+        "mainTitle": "Rejoignez la communauté !",
+        "mainDescription": "Inscrivez-vous comme aide dans votre quartier et aidez les personnes proches de vous. Nous vous informerons dès que quelqu'un se trouvant dans votre rayon aura besoin d'assistance.",
+        "locationTitle": "Où pouvez-vous aider ?",
+        "locationDescription": "Nous utiliserons cet emplacement comme point de référence. Cette information restera confidentielle.",
+        "radiusTitle": "Jusqu'où voulez-vous aller ?",
+        "radiusDescription": "Dites-nous dans quel rayon autour de votre emplacement vous souhaitez être averti.",
+        "emailTitle": "Votre adresse email",
+        "emailDescription": "Nous enverrons les demandes d'aide des personnes dans le besoin à cette adresse. Vous ne recevrez rien d'autre.",
+        "emailPlaceholder": "par exemple : tu@domain.com",
+        "phoneTitle": "Votre numéro de téléphone (facultative)",
+        "phoneDescription": "À un stade ultérieur, nous aimerions envoyer des demandes d'aide sur vos numéros de téléphone afin que nous puissions aider plus rapidement. Si vous le souhaitez, vous pouvez déjà nous le communiquer.",
+        "phonePlaceholder": "Par exemple, +41 73…",
+        "registerButton": "S’inscrire"
+    },
+    "registerHelpConfirm": {
+        "mainTitle": "High five !",
+        "mainDescription": "Vous êtes incroyable ! Nous vous avertirons dès que des personnes de votre région auront besoin d'aide.",
+        "mainExplanation": "Vous recevrez une confirmation à {email} avec une confirmation de votre demande.",
+        "backToButton": "Retour à la page d'accueil"
+    },
+    "offerHelp": {
+        "offerTitle": "Pouvez-vous aider ?",
+        "offerDescription": "Veuillez entrer vos coordonnées ci-dessous et nous demanderons à cette personne de vous contacter.",
+        "phoneTitle": "Votre numéro de téléphone (facultative)",
+        "phonePlaceholder": "Par exemple, +41 73…",
+        "messageTitle": "Comment pouvez-vous aider ?",
+        "messagePlaceholder": "Décrivez comment vous pouvez aider",
+        "messageError": "Merci de préciser comment vous pouvez aider.",
+        "emailTitle": "Votre adresse email",
+        "emailPlaceholder": "tu@domain.com",
+        "emailError": "Veuillez entrer votre adresse email",
+        "sendButton": "Proposer de l’aide",
+        "helpConfirmation": "Génial ! Votre message est en route.",
+        "pageNotFound": "Il n'y a pas de demande pour cet identifiant, désolé !",
+        "pageErrorHappened": "Une erreur inattendue s'est produite"
+    },
+    "editHelp": {
+        "buttonCompleted": "J'ai été aidé",
+        "buttonCancelled": "Supprimer ma demande",
+        "notFound": "Il n'y a pas de demande pour cet identifiant."
     }
 }
